@@ -48,11 +48,11 @@ Plans:
   1. Left sidebar displays with icon-based menu items matching the current Anvara layout (Marketplace, Campaigns, etc.)
   2. Footer displays "Prototype by Max Beato" on every page
   3. `next.config.ts` has `images.remotePatterns` configured so no image hostname errors occur on Vercel
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves (sequential — header/footer depends on sidebar shell)
 
 Plans:
-- [ ] 02-01: Root layout (`app/layout.tsx`), left sidebar nav with icon menu, top header bar
-- [ ] 02-02: Footer component with attribution, `next.config.ts` image hostname config
+- [ ] 02-01-PLAN.md — Install deps, ThemeProvider, sidebar nav, mode toggle, (app) route group, brand colors
+- [ ] 02-02-PLAN.md — Header bar (breadcrumb, search, avatar, notifications), footer attribution, image hostname config
 
 ### Phase 3: Property Detail
 **Goal**: An advertiser can navigate to a property detail page and see all the information needed to make a sponsorship decision — hero, tier pricing, audience demographics, activation formats, and a working offer sidebar
