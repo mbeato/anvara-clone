@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 4 — Browse/Filter (in progress)
+**Current focus:** Phase 4 COMPLETE — Phase 5 (Offer Flow / Messaging) is next
 
 ## Current Position
 
-Phase: 4 of 7 (Browse and Discovery) — In progress
-Plan: 3 of 5 in phase — COMPLETE
-Status: In progress — 04-01, 04-02, 04-03 complete; ready for 04-04 (BrowseClient wiring)
-Last activity: 2026-02-21 — Completed 04-03-PLAN.md (Filter Bar and Empty State)
+Phase: 4 of 7 (Browse and Discovery) — COMPLETE
+Plan: 4 of 4 in phase — COMPLETE
+Status: Phase 4 fully complete — all 7 ROADMAP.md success criteria satisfied
+Last activity: 2026-02-21 — Completed 04-04-PLAN.md (Recommendations Strip and BrowseClient Integration)
 
-Progress: [████████████░] 43% (12/28 plans)
+Progress: [█████████████░] 46% (13/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: ~2.9 minutes
-- Total execution time: ~0.57 hours
+- Total plans completed: 13
+- Average duration: ~2.8 minutes
+- Total execution time: ~0.61 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████████░] 43% (12/28 plans)
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 | Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
-| Phase 4 (Browse/Discovery) | 3/5 in progress | 5 min | 1.7 min |
+| Phase 4 (Browse/Discovery) | 4/4 COMPLETE | 9 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-03 (2.6 min), 04-01 (2 min), 04-02 (2 min), 04-03 (1 min)
-- Trend: Fast — consistently ~2 min/plan
+- Last 5 plans: 04-01 (2 min), 04-02 (2 min), 04-03 (1 min), 04-04 (4 min)
+- Trend: Fast — consistently ~2-4 min/plan
 
 *Updated after each plan completion*
 
@@ -93,6 +93,9 @@ Recent decisions affecting current work:
 - [04-03]: onValueCommit not onValueChange on Slider — prevents URL spam on every drag pixel
 - [04-03]: maxPrice chip/param suppressed at 150k ceiling — omit no-op filter display and URL entry
 - [04-03]: Event type dropdown shares category URL param with CategoryTabRow — stays in sync automatically
+- [04-04]: scrollbar-hide added to globals.css (not Tailwind plugin) — Tailwind v4 lacks native scrollbar utility; globals.css is the correct extension point
+- [04-04]: Recommendations computed in BrowseClient via useMemo — allProperties already fetched server-side, no extra DB call needed
+- [04-04]: allProperties fetched once in page.tsx — reused for display (no-filter) and passed to BrowseClient for recommendations
 
 ### Pending Todos
 
@@ -100,10 +103,10 @@ None.
 
 ### Blockers/Concerns
 
-None. Ready for 04-04 (BrowseClient wiring: connect FilterBar, ActiveFilterChips, EmptyState to URL state).
+None. Phase 4 is complete. Phase 5 (Offer Flow / Messaging) ready to begin.
 
 ## Session Continuity
 
-Last session: 2026-02-21 10:25 UTC
-Stopped at: Completed 04-03-PLAN.md — Filter Bar and Empty State
+Last session: 2026-02-21 10:33 UTC
+Stopped at: Completed 04-04-PLAN.md — Recommendations Strip and BrowseClient Integration (Phase 4 COMPLETE)
 Resume file: None
