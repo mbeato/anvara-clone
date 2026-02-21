@@ -95,9 +95,63 @@
 
 ## Traceability
 
-| Requirement | Phase | Plan | Status |
-|-------------|-------|------|--------|
-| (filled by roadmapper) | | | |
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| DATA-01 | Phase 1 — Foundation | Pending |
+| DATA-02 | Phase 1 — Foundation | Pending |
+| DATA-03 | Phase 1 — Foundation | Pending |
+| DATA-04 | Phase 1 — Foundation | Pending |
+| UX-05 | Phase 1 — Foundation | Pending |
+| UX-07 | Phase 1 — Foundation | Pending |
+| BROWSE-02 | Phase 2 — Layout Shell | Pending |
+| UX-04 | Phase 2 — Layout Shell | Pending |
+| DETAIL-01 | Phase 3 — Property Detail | Pending |
+| DETAIL-02 | Phase 3 — Property Detail | Pending |
+| DETAIL-03 | Phase 3 — Property Detail | Pending |
+| DETAIL-04 | Phase 3 — Property Detail | Pending |
+| DETAIL-05 | Phase 3 — Property Detail | Pending |
+| DETAIL-06 | Phase 3 — Property Detail | Pending |
+| DETAIL-07 | Phase 3 — Property Detail | Pending |
+| DETAIL-08 | Phase 3 — Property Detail | Pending |
+| DETAIL-09 | Phase 3 — Property Detail | Pending |
+| DETAIL-10 | Phase 3 — Property Detail | Pending |
+| DETAIL-11 | Phase 3 — Property Detail | Pending |
+| DETAIL-12 | Phase 3 — Property Detail | Pending |
+| BROWSE-01 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-03 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-04 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-05 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-06 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-07 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-08 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-09 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-10 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-11 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-12 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-13 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-14 | Phase 4 — Browse and Discovery | Pending |
+| UX-02 | Phase 4 — Browse and Discovery | Pending |
+| UX-03 | Phase 4 — Browse and Discovery | Pending |
+| MSG-01 | Phase 5 — Messaging | Pending |
+| MSG-02 | Phase 5 — Messaging | Pending |
+| MSG-03 | Phase 5 — Messaging | Pending |
+| MSG-04 | Phase 5 — Messaging | Pending |
+| MSG-05 | Phase 5 — Messaging | Pending |
+| MSG-06 | Phase 5 — Messaging | Pending |
+| MSG-07 | Phase 5 — Messaging | Pending |
+| MSG-08 | Phase 5 — Messaging | Pending |
+| LAND-01 | Phase 6 — Landing Page | Pending |
+| LAND-02 | Phase 6 — Landing Page | Pending |
+| LAND-03 | Phase 6 — Landing Page | Pending |
+| LAND-04 | Phase 6 — Landing Page | Pending |
+| LAND-05 | Phase 6 — Landing Page | Pending |
+| UX-01 | Phase 7 — Polish and Deploy | Pending |
+| UX-06 | Phase 7 — Polish and Deploy | Pending |
+| DEPLOY-01 | Phase 7 — Polish and Deploy | Pending |
+| DEPLOY-02 | Phase 7 — Polish and Deploy | Pending |
+| DEPLOY-03 | Phase 7 — Polish and Deploy | Pending |
+| DEPLOY-04 | Phase 7 — Polish and Deploy | Pending |
+| DEPLOY-05 | Phase 7 — Polish and Deploy | Pending |
 
 ---
-*Last updated: 2026-02-21 after requirements definition (updated from screenshots)*
+*Last updated: 2026-02-21 after roadmap creation — traceability complete (55/55 requirements mapped)*
