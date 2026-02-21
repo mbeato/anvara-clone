@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Layout Shell** - Root layout, navigation sidebar, footer, fonts, and metadata in place — every page renders in real context
 - [x] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
 - [x] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
-- [ ] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
+- [x] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
 - [ ] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
@@ -103,9 +103,9 @@ Plans:
 **Plans**: 3 plans in 3 waves (sequential — each plan builds on the previous)
 
 Plans:
-- [ ] 05-01-PLAN.md — Install AI SDK, sendMessage action, messaging page route, two-panel layout shell, thread list with thumbnails/snippets
-- [ ] 05-02-PLAN.md — Conversation view with chat bubbles, message sending with useOptimistic, AI response via o3-mini API route, typing indicator
-- [ ] 05-03-PLAN.md — Inline "Make an Offer" form (amount, tier, note), offer card rendering, createOfferInThread action, AI offer acknowledgment
+- [x] 05-01-PLAN.md — Install AI SDK, sendMessage action, messaging page route, two-panel layout shell, thread list with thumbnails/snippets
+- [x] 05-02-PLAN.md — Conversation view with chat bubbles, message sending with useOptimistic, AI response via o3-mini API route, typing indicator
+- [x] 05-03-PLAN.md — Inline "Make an Offer" form (amount, tier, note), offer card rendering, createOfferInThread action, AI offer acknowledgment
 
 ### Phase 6: Landing Page
 **Goal**: The landing page faithfully reproduces Anvara's current site content and messaging, giving founders a recognizable starting point that demonstrates UX polish on a page they know
@@ -150,6 +150,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
 | 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
-| 5. Messaging | 0/3 | Planned | - |
+| 5. Messaging | 3/3 | Complete | 2026-02-21 |
 | 6. Landing Page | 0/2 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |

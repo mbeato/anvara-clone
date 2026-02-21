@@ -40,14 +40,14 @@
 - [ ] **DETAIL-12**: Documents section with downloadable attachments (mock PDFs)
 
 ### Messaging (Advertiser Perspective)
-- [ ] **MSG-01**: Messaging inbox displays list of conversation threads with properties
-- [ ] **MSG-02**: User can view a conversation thread with message history
-- [ ] **MSG-03**: User can send a new message in a thread (as the advertiser)
-- [ ] **MSG-04**: AI-simulated responses appear from the property side via o3-mini
-- [ ] **MSG-05**: AI responses are labeled as "AI-simulated" in the UI
-- [ ] **MSG-06**: Pre-seeded conversation threads exist on first load (not empty inbox)
-- [ ] **MSG-07**: "Make an Offer" action in thread opens a simple form (amount, terms, send)
-- [ ] **MSG-08**: Offer appears as a structured message in the thread after submission
+- [x] **MSG-01**: Messaging inbox displays list of conversation threads with properties
+- [x] **MSG-02**: User can view a conversation thread with message history
+- [x] **MSG-03**: User can send a new message in a thread (as the advertiser)
+- [x] **MSG-04**: AI-simulated responses appear from the property side via o3-mini
+- [x] **MSG-05**: AI responses are labeled as "AI-simulated" in the UI
+- [x] **MSG-06**: Pre-seeded conversation threads exist on first load (not empty inbox)
+- [x] **MSG-07**: "Make an Offer" action in thread opens a simple form (amount, terms, send)
+- [x] **MSG-08**: Offer appears as a structured message in the thread after submission
 
 ### Data Layer
 - [x] **DATA-01**: Prisma schema defines Property, Message, Thread, and Offer models
@@ -132,14 +132,14 @@
 | BROWSE-14 | Phase 4 — Browse and Discovery | Complete |
 | UX-02 | Phase 4 — Browse and Discovery | Complete |
 | UX-03 | Phase 4 — Browse and Discovery | Complete |
-| MSG-01 | Phase 5 — Messaging | Pending |
-| MSG-02 | Phase 5 — Messaging | Pending |
-| MSG-03 | Phase 5 — Messaging | Pending |
-| MSG-04 | Phase 5 — Messaging | Pending |
-| MSG-05 | Phase 5 — Messaging | Pending |
-| MSG-06 | Phase 5 — Messaging | Pending |
-| MSG-07 | Phase 5 — Messaging | Pending |
-| MSG-08 | Phase 5 — Messaging | Pending |
+| MSG-01 | Phase 5 — Messaging | Complete |
+| MSG-02 | Phase 5 — Messaging | Complete |
+| MSG-03 | Phase 5 — Messaging | Complete |
+| MSG-04 | Phase 5 — Messaging | Complete |
+| MSG-05 | Phase 5 — Messaging | Complete |
+| MSG-06 | Phase 5 — Messaging | Complete |
+| MSG-07 | Phase 5 — Messaging | Complete |
+| MSG-08 | Phase 5 — Messaging | Complete |
 | LAND-01 | Phase 6 — Landing Page | Pending |
 | LAND-02 | Phase 6 — Landing Page | Pending |
 | LAND-03 | Phase 6 — Landing Page | Pending |
