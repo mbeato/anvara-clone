@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Property {
+  id                 String    @id @default(cuid())
+  slug               String    @unique
+  name               String
+  tagline            String
+  category           String
+  subcategory        String?
+  location           String
+  region             String
+  imageUrl           String
+  description        String
+  audienceTotalReach  Int
+  audienceAgeRange   String
+  audienceGender     String
+  audienceIncome     String
+  priceFrom          Int
+  availability       String
+  featured           Boolean   @default(false)
+  tags               String[]
+  createdAt          DateTime  @default(now())
+  packages           Package[]
+  threads            Thread[]
+}
+
+model Package {
+  id          String   @id @default(cuid())
+  name        String
+  priceUsd    Int
+  inclusions  String[]
+  maxSponsors Int
+  property    Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId  String
+}
+
+model Thread {
+  id         String    @id @default(cuid())
+  subject    String
+  createdAt  DateTime  @default(now())
+  property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String
+  messages   Message[]
+  offers     Offer[]
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  content   String
+  sender    String
+  isAI      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  thread    Thread   @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  threadId  String
+}
+
+model Offer {
+  id        String   @id @default(cuid())
+  amount    Int
+  terms     String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  thread    Thread   @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  threadId  String
+}
