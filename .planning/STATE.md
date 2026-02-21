@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 4 COMPLETE — Phase 5 (Offer Flow / Messaging) is next
+**Current focus:** Phase 5 (Messaging) — plan 1/N complete
 
 ## Current Position
 
-Phase: 4 of 7 (Browse and Discovery) — COMPLETE
-Plan: 4 of 4 in phase — COMPLETE
-Status: Phase 4 fully complete — all 7 ROADMAP.md success criteria satisfied
-Last activity: 2026-02-21 — Completed 04-04-PLAN.md (Recommendations Strip and BrowseClient Integration)
+Phase: 5 of 7 (Messaging) — In progress
+Plan: 1 of ? in phase — COMPLETE
+Status: 05-01 complete — messaging inbox foundation established
+Last activity: 2026-02-21 — Completed 05-01-PLAN.md (Messaging Inbox Foundation)
 
-Progress: [█████████████░] 46% (13/28 plans)
+Progress: [██████████████░] 50% (14/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
-- Average duration: ~2.8 minutes
-- Total execution time: ~0.61 hours
+- Total plans completed: 14
+- Average duration: ~2.7 minutes
+- Total execution time: ~0.63 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [█████████████░] 46% (13/28 plans)
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 | Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
 | Phase 4 (Browse/Discovery) | 4/4 COMPLETE | 9 min | 2.3 min |
+| Phase 5 (Messaging) | 1/? in progress | 2 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (2 min), 04-02 (2 min), 04-03 (1 min), 04-04 (4 min)
+- Last 5 plans: 04-02 (2 min), 04-03 (1 min), 04-04 (4 min), 05-01 (2 min)
 - Trend: Fast — consistently ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -96,6 +97,10 @@ Recent decisions affecting current work:
 - [04-04]: scrollbar-hide added to globals.css (not Tailwind plugin) — Tailwind v4 lacks native scrollbar utility; globals.css is the correct extension point
 - [04-04]: Recommendations computed in BrowseClient via useMemo — allProperties already fetched server-side, no extra DB call needed
 - [04-04]: allProperties fetched once in page.tsx — reused for display (no-filter) and passed to BrowseClient for recommendations
+- [05-01]: -m-4 escape pattern for full-height messaging panel — app layout's p-4 cancelled with -m-4; h-[calc(100vh-3.5rem)] fills after h-14 header
+- [05-01]: property: { include: { packages: true } } in getThreads/getThread — packages needed for AI prompts (05-02) and offer form tier selection (05-03)
+- [05-01]: Demo unread state (first 2 threads) — real per-message read receipts deferred; bold + dot indicator on first 2 as demo
+- [05-01]: Awaited return type pattern — type Thread = Awaited<ReturnType<typeof getThreads>>[number] extracts Prisma type from server function
 
 ### Pending Todos
 
@@ -103,10 +108,10 @@ None.
 
 ### Blockers/Concerns
 
-None. Phase 4 is complete. Phase 5 (Offer Flow / Messaging) ready to begin.
+None. 05-01 complete. 05-02 (ConversationView + AI responses) is next.
 
 ## Session Continuity
 
-Last session: 2026-02-21 10:33 UTC
-Stopped at: Completed 04-04-PLAN.md — Recommendations Strip and BrowseClient Integration (Phase 4 COMPLETE)
+Last session: 2026-02-21 18:30 UTC
+Stopped at: Completed 05-01-PLAN.md — Messaging Inbox Foundation (Phase 5 in progress)
 Resume file: None
