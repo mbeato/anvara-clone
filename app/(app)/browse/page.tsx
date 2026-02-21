@@ -28,18 +28,20 @@ export default async function BrowsePage({
     maxPrice !== undefined
   );
 
-  let properties = hasFilters
+  // Fetch full list once — reuse for display when no filters, pass to BrowseClient for recommendations
+  const allProperties = await getAllProperties();
+
+  const properties = hasFilters
     ? await filterProperties({ category, region, minPrice, maxPrice })
-    : await getAllProperties();
+    : allProperties;
 
   // BROWSE-14: cap at 8 when filtering by category tab
-  if (category) {
-    properties = properties.slice(0, 8);
-  }
+  const displayProperties = category ? properties.slice(0, 8) : properties;
 
   return (
     <BrowseClient
-      properties={properties}
+      properties={displayProperties}
+      allProperties={allProperties}
       currentFilters={{ category, region, minPrice, maxPrice }}
       hasFilters={hasFilters}
     />
