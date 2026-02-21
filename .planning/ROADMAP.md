@@ -37,8 +37,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md — Scaffold Next.js with TypeScript, Tailwind v4, ShadCN, Picsum image config
 - [x] 01-02-PLAN.md — Prisma schema (Property, Package, Thread, Message, Offer) + Neon Postgres + Client singleton
-- [ ] 01-03-PLAN.md — Seed script with 10-14 properties, packages, threads, messages, and offers
-- [ ] 01-04-PLAN.md — Query helpers (getProperty, getAllProperties, getThreads, filterProperties) + metadata + favicon + Inter font
+- [x] 01-03-PLAN.md — Seed script with 10-14 properties, packages, threads, messages, and offers
+- [x] 01-04-PLAN.md — Query helpers (getProperty, getAllProperties, getThreads, filterProperties) + metadata + favicon + Inter font
 
 ### Phase 2: Layout Shell
 **Goal**: Every page renders inside a shared layout that matches Anvara's visual identity — left sidebar navigation, consistent header, and footer attribution
@@ -147,7 +147,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/4 | In progress | - |
+| 1. Foundation | 4/4 | Complete | 2026-02-21 |
 | 2. Layout Shell | 0/2 | Not started | - |
 | 3. Property Detail | 0/3 | Not started | - |
 | 4. Browse and Discovery | 0/5 | Not started | - |
