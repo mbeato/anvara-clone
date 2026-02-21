@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 5 COMPLETE — Phase 6 (Landing Page) is next
+**Current focus:** Phase 6 (Landing Page) — In progress
 
 ## Current Position
 
-Phase: 5 of 7 (Messaging) — COMPLETE
-Plan: 3 of 3 in phase — COMPLETE
-Status: 05-03 complete — inline offer flow, OfferCard, AI acknowledgment of offers
-Last activity: 2026-02-21 — Completed 05-03-PLAN.md (Inline Offer Flow)
+Phase: 6 of 7 (Landing Page) — In progress
+Plan: 1 of 5 in phase — COMPLETE
+Status: 06-01 complete — motion installed, landing route, SectionReveal, LandingPropertyCard, marquee CSS
+Last activity: 2026-02-21 — Completed 06-01-PLAN.md (Landing Page Foundation)
 
-Progress: [████████████████░] 57% (16/28 plans)
+Progress: [█████████████████░] 61% (17/28 plans)
 
 ## Performance Metrics
 
@@ -34,8 +34,8 @@ Progress: [████████████████░] 57% (16/28 plans
 | Phase 5 (Messaging) | 3/3 COMPLETE | 7 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-04 (4 min), 05-01 (2 min), 05-02 (2 min), 05-03 (3 min)
-- Trend: Fast — consistently ~2-4 min/plan
+- Last 5 plans: 05-01 (2 min), 05-02 (2 min), 05-03 (3 min), 06-01 (1 min)
+- Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
 
@@ -109,6 +109,10 @@ Recent decisions affecting current work:
 - [05-03]: Offer card matching by timestamp proximity — findMatchingOffer within 5s of message createdAt; avoids FK on Message model or passing offerId through content
 - [05-03]: Local offer state tracked separately from messages — setOffers appends immediately for correct status badge without server revalidation round-trip
 - [05-03]: isSubmittingOffer disables message input — prevents concurrent sends during offer submission flow
+- [06-01]: Delete app/(app)/page.tsx to remove route conflict — landing page must render outside (app) shell
+- [06-01]: viewport.once=true on SectionReveal — animate on first entry only for premium non-distracting feel
+- [06-01]: marquee translateX(0) to translateX(-50%) — requires duplicated content for seamless loop
+- [06-01]: 40s marquee duration — smooth non-rushed feel for 12 property cards
 
 ### Pending Todos
 
@@ -116,10 +120,10 @@ None.
 
 ### Blockers/Concerns
 
-None. Phase 5 is complete. Phase 6 (Landing Page) ready to begin.
+None. Phase 6 plan 01 complete. Plan 02 (Hero Section) ready to begin.
 
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Phase 5 COMPLETE — verified and approved
+Stopped at: Completed 06-01-PLAN.md (Landing Page Foundation)
 Resume file: None
