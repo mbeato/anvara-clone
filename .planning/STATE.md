@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 3 — Property Detail (in progress)
+**Current focus:** Phase 4 — Browse/Filter (next up)
 
 ## Current Position
 
-Phase: 3 of 7 (Property Detail)
-Plan: 2 of 3 in current phase
-Status: In progress — Plan 03-02 complete, ready for 03-03 (demographics, tags, categories)
-Last activity: 2026-02-21 — Completed 03-02-PLAN.md (PropertyTiers, BuildOfferForm, OfferSidebar, MakeOfferDialog)
+Phase: 3 of 7 (Property Detail) — COMPLETE
+Plan: 3 of 3 in phase — ALL PLANS COMPLETE
+Status: Phase 3 complete — ready for Phase 4 (Browse/Filter)
+Last activity: 2026-02-21 — Completed 03-03-PLAN.md (Demographics, Categories, Formats, Offer Server Action)
 
-Progress: [████████░░] 29% (8/28 plans)
+Progress: [█████████░] 32% (9/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: ~3.6 minutes
-- Total execution time: ~0.47 hours
+- Total plans completed: 9
+- Average duration: ~3.4 minutes
+- Total execution time: ~0.51 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [████████░░] 29% (8/28 plans)
 |-------|-------|-------|----------|
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
-| Phase 3 (Property Detail) | 2/3 in progress | 4 min | 2 min |
+| Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-04 (4 min), 02-01 (12 min), 02-02 (2 min), 03-01 (2 min), 03-02 (2 min)
-- Trend: Fast — Phase 3 running at 2 min/plan consistently
+- Last 5 plans: 02-02 (2 min), 03-01 (2 min), 03-02 (2 min), 03-03 (2.6 min)
+- Trend: Fast — Phase 3 completed at ~2.3 min/plan average
 
 *Updated after each plan completion*
 
@@ -74,9 +74,12 @@ Recent decisions affecting current work:
 - [03-01]: Dot indicators hidden when single image (count > 1 guard) — avoids lone dot confusion
 - [03-01]: generateStaticParams returns [] — Neon DB may not be reachable at build time; pages render dynamically
 - [03-01]: PropertyAbout positioned above tiers — locked user decision from CONTEXT.md
-- [03-02]: MakeOfferDialog visual-only in Phase 3 — offer creation deferred to Phase 5 (Thread FK constraint)
 - [03-02]: PropertyTiers sorts ascending by priceUsd — cheapest tier first matches standard SaaS pricing scan pattern
 - [03-02]: Contact for pricing fallback when priceUsd === 0 — valid business case for negotiable rates
+- [03-03]: ChartContainer h-10 className override required — default aspect-video collapses chart in grid cells
+- [03-03]: createOffer creates Thread first (FK constraint), initial Message inline in thread.create, Offer last
+- [03-03]: FORMAT_MAP subcategory-first lookup — allows future per-subcategory format lists without changing category defaults
+- [03-03]: MakeOfferDialog wired to real createOffer server action in 03-03 (not deferred to Phase 5 as originally planned in 03-02)
 
 ### Pending Todos
 
@@ -84,11 +87,12 @@ None.
 
 ### Blockers/Concerns
 
-- [03-03]: No new ShadCN installs required — all components for demographics, tags, and audience stats can use existing primitives
-- [Phase 5]: MakeOfferDialog Server Action must create Thread first before Offer (FK constraint: Offer.threadId required)
+None for Phase 4. Cleared:
+- [03-03 resolved]: ShadCN Chart installed, ChartContainer working with h-10 override
+- [Phase 5 thread-first resolved]: createOffer server action now handles Thread-first creation correctly
 
 ## Session Continuity
 
-Last session: 2026-02-21 08:20 UTC
-Stopped at: Completed 03-02-PLAN.md — PropertyTiers, BuildOfferForm, OfferSidebar, MakeOfferDialog wired into page
+Last session: 2026-02-21 08:26 UTC
+Stopped at: Completed 03-03-PLAN.md — Demographics, Brand Categories, Activation Formats, Offer Server Action
 Resume file: None
