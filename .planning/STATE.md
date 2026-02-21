@@ -10,27 +10,27 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 1 of 7 (Foundation)
-Plan: 2 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-02-21 — Completed 01-02-PLAN.md (Prisma schema + Neon Postgres + Client singleton)
+Last activity: 2026-02-21 — Completed 01-03-PLAN.md (Database seed with 12 properties and realistic marketplace data)
 
-Progress: [██░░░░░░░░] 7% (2/28 plans)
+Progress: [███░░░░░░░] 11% (3/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Average duration: 4 minutes
-- Total execution time: ~0.13 hours
+- Total execution time: ~0.2 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| Phase 1 (Foundation) | 2/4 | 8 min | 4 min |
+| Phase 1 (Foundation) | 3/4 | 12 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (3 min), 01-02 (5 min)
+- Last 5 plans: 01-01 (3 min), 01-02 (5 min), 01-03 (4 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -52,6 +52,9 @@ Recent decisions affecting current work:
 - [01-02]: DIRECT_URL for prisma.config.ts (push/migrations), DATABASE_URL (pooled) for lib/prisma.ts runtime
 - [01-02]: PrismaNeon adapter required — standard PrismaClient alone incompatible with Neon serverless HTTP driver
 - [01-02]: prisma/generated gitignored — generated artifacts not committed; prisma generate runs on install
+- [01-03]: DIRECT_URL in seed script (not DATABASE_URL) — seed runs as CLI operation, needs direct non-pooled connection
+- [01-03]: isAI: true on all property-side seed messages — matches production intent where AI responds on behalf of properties
+- [01-03]: 12 properties seeded (not minimum 10) — covers all 5 categories with adequate depth for demo
 
 ### Pending Todos
 
@@ -65,6 +68,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-21 05:58 UTC
-Stopped at: Completed 01-02-PLAN.md — Prisma schema, Neon setup, and Client singleton done
+Last session: 2026-02-21 06:05 UTC
+Stopped at: Completed 01-03-PLAN.md — Database seed with 12 properties, 31 packages, 5 threads, 14 messages, 2 offers
 Resume file: None
