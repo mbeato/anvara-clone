@@ -1,5 +1,6 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
 import prisma from "@/lib/prisma"
 
 /**
@@ -38,6 +39,48 @@ export async function createOffer(
     return { success: true, offerId: offer.id }
   } catch (err) {
     console.error("[createOffer] Failed to create offer:", err)
+    return { success: false, error: "Failed to create offer" }
+  }
+}
+
+/**
+ * Creates a Message and an Offer within an existing Thread.
+ * Used when the advertiser submits a structured offer inside a conversation.
+ */
+export async function createOfferInThread(
+  threadId: string,
+  amount: number,
+  packageName: string,
+  optionalNote?: string
+): Promise<{ success: true; offerId: string; messageId: string } | { success: false; error: string }> {
+  try {
+    const content = `[OFFER] $${amount.toLocaleString()} — ${packageName}${
+      optionalNote ? `. Note: ${optionalNote}` : ""
+    }`
+
+    const message = await prisma.message.create({
+      data: {
+        threadId,
+        sender: "advertiser",
+        isAI: false,
+        content,
+      },
+    })
+
+    const offer = await prisma.offer.create({
+      data: {
+        threadId,
+        amount,
+        terms: `${packageName}${optionalNote ? " — " + optionalNote : ""}`,
+        status: "pending",
+      },
+    })
+
+    revalidatePath("/messages")
+
+    return { success: true, offerId: offer.id, messageId: message.id }
+  } catch (err) {
+    console.error("[createOfferInThread] Failed to create offer in thread:", err)
     return { success: false, error: "Failed to create offer" }
   }
 }
