@@ -26,17 +26,17 @@
 - [ ] **BROWSE-14**: Up to 8 properties displayed per category tab
 
 ### Property Detail
-- [ ] **DETAIL-01**: Property detail page displays hero image, title, subtitle, event type tag, date, and tier count
+- [x] **DETAIL-01**: Property detail page displays hero image, title, subtitle, event type tag, date, and tier count
 - [ ] **DETAIL-02**: Document/media carousel on right side (case studies, photos) with "View all photos"
-- [ ] **DETAIL-03**: Tiered pricing section with tab-style tier selector (e.g., Official $75K, Gold $40K, Silver $95K, Bronze)
-- [ ] **DETAIL-04**: Each tier displays detailed bullet list of what's included
-- [ ] **DETAIL-05**: Right sidebar with "Make an Offer" button, "Schedule Call" button, and minimum spend display
-- [ ] **DETAIL-06**: "Build your own offer" section with custom proposal input
-- [ ] **DETAIL-07**: Trust badges: "Verified Seller" and "Money Secured"
-- [ ] **DETAIL-08**: "About this listing" section with long-form description
-- [ ] **DETAIL-09**: Audience demographics section (gender split, age range, HHI, lifestyle categories)
-- [ ] **DETAIL-10**: "Ideal Brand Categories" section listing best-fit brand types
-- [ ] **DETAIL-11**: "Activation Formats" section (premium footprints, demos, talent integrations, etc.)
+- [x] **DETAIL-03**: Tiered pricing section with tab-style tier selector (e.g., Official $75K, Gold $40K, Silver $95K, Bronze)
+- [x] **DETAIL-04**: Each tier displays detailed bullet list of what's included
+- [x] **DETAIL-05**: Right sidebar with "Make an Offer" button, "Schedule Call" button, and minimum spend display
+- [x] **DETAIL-06**: "Build your own offer" section with custom proposal input
+- [x] **DETAIL-07**: Trust badges: "Verified Seller" and "Money Secured"
+- [x] **DETAIL-08**: "About this listing" section with long-form description
+- [x] **DETAIL-09**: Audience demographics section (gender split, age range, HHI, lifestyle categories)
+- [x] **DETAIL-10**: "Ideal Brand Categories" section listing best-fit brand types
+- [x] **DETAIL-11**: "Activation Formats" section (premium footprints, demos, talent integrations, etc.)
 - [ ] **DETAIL-12**: Documents section with downloadable attachments (mock PDFs)
 
 ### Messaging (Advertiser Perspective)
@@ -105,17 +105,17 @@
 | UX-07 | Phase 1 — Foundation | Complete |
 | BROWSE-02 | Phase 2 — Layout Shell | Complete |
 | UX-04 | Phase 2 — Layout Shell | Complete |
-| DETAIL-01 | Phase 3 — Property Detail | Pending |
+| DETAIL-01 | Phase 3 — Property Detail | Complete |
 | DETAIL-02 | Phase 3 — Property Detail | Pending |
-| DETAIL-03 | Phase 3 — Property Detail | Pending |
-| DETAIL-04 | Phase 3 — Property Detail | Pending |
-| DETAIL-05 | Phase 3 — Property Detail | Pending |
-| DETAIL-06 | Phase 3 — Property Detail | Pending |
-| DETAIL-07 | Phase 3 — Property Detail | Pending |
-| DETAIL-08 | Phase 3 — Property Detail | Pending |
-| DETAIL-09 | Phase 3 — Property Detail | Pending |
-| DETAIL-10 | Phase 3 — Property Detail | Pending |
-| DETAIL-11 | Phase 3 — Property Detail | Pending |
+| DETAIL-03 | Phase 3 — Property Detail | Complete |
+| DETAIL-04 | Phase 3 — Property Detail | Complete |
+| DETAIL-05 | Phase 3 — Property Detail | Complete |
+| DETAIL-06 | Phase 3 — Property Detail | Complete |
+| DETAIL-07 | Phase 3 — Property Detail | Complete |
+| DETAIL-08 | Phase 3 — Property Detail | Complete |
+| DETAIL-09 | Phase 3 — Property Detail | Complete |
+| DETAIL-10 | Phase 3 — Property Detail | Complete |
+| DETAIL-11 | Phase 3 — Property Detail | Complete |
 | DETAIL-12 | Phase 3 — Property Detail | Pending |
 | BROWSE-01 | Phase 4 — Browse and Discovery | Pending |
 | BROWSE-03 | Phase 4 — Browse and Discovery | Pending |

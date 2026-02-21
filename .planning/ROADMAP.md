@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js project scaffolded, Prisma schema defined, seed data created, data query helpers ready
 - [x] **Phase 2: Layout Shell** - Root layout, navigation sidebar, footer, fonts, and metadata in place — every page renders in real context
-- [ ] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
+- [x] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
 - [ ] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
 - [ ] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
 - [ ] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
@@ -67,9 +67,9 @@ Plans:
 **Plans**: 3 plans in 3 waves (sequential — each plan builds on the previous)
 
 Plans:
-- [ ] 03-01-PLAN.md — Page route (Next.js 16 async params), hero image carousel, property metadata, About this Listing with truncation
-- [ ] 03-02-PLAN.md — Tier pricing (vertical click-to-expand), offer sidebar (sticky CTAs, trust badges), Make an Offer modal dialog, Build your own offer form
-- [ ] 03-03-PLAN.md — Audience demographics (gender chart, age range, HHI indicator), brand categories chips, activation formats chips, offer creation server action
+- [x] 03-01-PLAN.md — Page route (Next.js 16 async params), hero image carousel, property metadata, About this Listing with truncation
+- [x] 03-02-PLAN.md — Tier pricing (vertical click-to-expand), offer sidebar (sticky CTAs, trust badges), Make an Offer modal dialog, Build your own offer form
+- [x] 03-03-PLAN.md — Audience demographics (gender chart, age range, HHI indicator), brand categories chips, activation formats chips, offer creation server action
 
 ### Phase 4: Browse and Discovery
 **Goal**: An advertiser can browse all sponsorship properties, filter by category, region, and price, see skeleton loading states, and spot personalized recommendations — this is the core discovery experience
@@ -149,7 +149,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-02-21 |
 | 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
-| 3. Property Detail | 0/3 | Planned | - |
+| 3. Property Detail | 3/3 | Complete | 2026-02-21 |
 | 4. Browse and Discovery | 0/5 | Not started | - |
 | 5. Messaging | 0/3 | Not started | - |
 | 6. Landing Page | 0/2 | Not started | - |
