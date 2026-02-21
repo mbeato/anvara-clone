@@ -64,12 +64,12 @@ Plans:
   3. Right sidebar displays "Make an Offer" button, "Schedule Call" button, and minimum spend — all visible without scrolling on desktop
   4. "Build your own offer" section renders with a custom proposal input below the tier selector
   5. Audience demographics section displays gender split, age range, HHI, and lifestyle categories from seed data
-**Plans**: TBD
+**Plans**: 3 plans in 3 waves (sequential — each plan builds on the previous)
 
 Plans:
-- [ ] 03-01: Property detail page route (`app/properties/[id]/page.tsx`) with `generateStaticParams`, hero section, document carousel
-- [ ] 03-02: Tiered pricing section with tab selector, tier bullet lists, trust badges, "Build your own offer" input
-- [ ] 03-03: Right sidebar with "Make an Offer" CTA, "Schedule Call" button, minimum spend; audience demographics, ideal brand categories, activation formats, documents section
+- [ ] 03-01-PLAN.md — Page route (Next.js 16 async params), hero image carousel, property metadata, About this Listing with truncation
+- [ ] 03-02-PLAN.md — Tier pricing (vertical click-to-expand), offer sidebar (sticky CTAs, trust badges), Make an Offer modal dialog, Build your own offer form
+- [ ] 03-03-PLAN.md — Audience demographics (gender chart, age range, HHI indicator), brand categories chips, activation formats chips, offer creation server action
 
 ### Phase 4: Browse and Discovery
 **Goal**: An advertiser can browse all sponsorship properties, filter by category, region, and price, see skeleton loading states, and spot personalized recommendations — this is the core discovery experience
@@ -149,7 +149,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-02-21 |
 | 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
-| 3. Property Detail | 0/3 | Not started | - |
+| 3. Property Detail | 0/3 | Planned | - |
 | 4. Browse and Discovery | 0/5 | Not started | - |
 | 5. Messaging | 0/3 | Not started | - |
 | 6. Landing Page | 0/2 | Not started | - |
