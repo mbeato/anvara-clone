@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 4 — Browse/Filter (next up)
+**Current focus:** Phase 4 — Browse/Filter (in progress)
 
 ## Current Position
 
-Phase: 3 of 7 (Property Detail) — COMPLETE
-Plan: 3 of 3 in phase — ALL PLANS COMPLETE
-Status: Phase 3 complete — ready for Phase 4 (Browse/Filter)
-Last activity: 2026-02-21 — Completed 03-03-PLAN.md (Demographics, Categories, Formats, Offer Server Action)
+Phase: 4 of 7 (Browse and Discovery) — In progress
+Plan: 1 of 5 in phase — COMPLETE
+Status: In progress — 04-01 complete, ready for 04-02 (Featured Carousel)
+Last activity: 2026-02-21 — Completed 04-01-PLAN.md (Browse Page Foundation)
 
-Progress: [█████████░] 32% (9/28 plans)
+Progress: [██████████░] 36% (10/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: ~3.4 minutes
-- Total execution time: ~0.51 hours
+- Total plans completed: 10
+- Average duration: ~3.2 minutes
+- Total execution time: ~0.53 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [█████████░] 32% (9/28 plans)
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 | Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
+| Phase 4 (Browse/Discovery) | 1/5 in progress | 2 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (2 min), 03-01 (2 min), 03-02 (2 min), 03-03 (2.6 min)
-- Trend: Fast — Phase 3 completed at ~2.3 min/plan average
+- Last 5 plans: 03-01 (2 min), 03-02 (2 min), 03-03 (2.6 min), 04-01 (2 min)
+- Trend: Fast — consistently ~2 min/plan
 
 *Updated after each plan completion*
 
@@ -80,6 +81,10 @@ Recent decisions affecting current work:
 - [03-03]: createOffer creates Thread first (FK constraint), initial Message inline in thread.create, Offer last
 - [03-03]: FORMAT_MAP subcategory-first lookup — allows future per-subcategory format lists without changing category defaults
 - [03-03]: MakeOfferDialog wired to real createOffer server action in 03-03 (not deferred to Phase 5 as originally planned in 03-02)
+- [04-01]: embla-carousel-autoplay@8 (not @9) — v9 removed stopOnMouseEnter/stopOnInteraction needed by 04-02
+- [04-01]: PropertyCard uses object-cover — Phase 4 context allows cropping for grid uniformity (differs from Phase 3 object-contain)
+- [04-01]: Intl.NumberFormat singleton outside component — avoids recreating formatter on every render
+- [04-01]: data-has-filters attribute on browse grid div — consumed by recommendations strip in 04-04
 
 ### Pending Todos
 
@@ -87,12 +92,10 @@ None.
 
 ### Blockers/Concerns
 
-None for Phase 4. Cleared:
-- [03-03 resolved]: ShadCN Chart installed, ChartContainer working with h-10 override
-- [Phase 5 thread-first resolved]: createOffer server action now handles Thread-first creation correctly
+None. Ready for 04-02 (Featured Carousel with embla-carousel-autoplay@8).
 
 ## Session Continuity
 
-Last session: 2026-02-21 08:26 UTC
-Stopped at: Completed 03-03-PLAN.md — Demographics, Brand Categories, Activation Formats, Offer Server Action
+Last session: 2026-02-21 10:19 UTC
+Stopped at: Completed 04-01-PLAN.md — Browse Page Foundation (route, PropertyCard, loading skeleton, deps)
 Resume file: None
