@@ -6,6 +6,9 @@ import { PropertyAbout } from "@/components/property-detail/property-about"
 import { PropertyTiers } from "@/components/property-detail/property-tiers"
 import { BuildOfferForm } from "@/components/property-detail/build-offer-form"
 import { OfferSidebar } from "@/components/property-detail/offer-sidebar"
+import { PropertyDemographics } from "@/components/property-detail/property-demographics"
+import { PropertyCategories } from "@/components/property-detail/property-categories"
+import { PropertyFormats } from "@/components/property-detail/property-formats"
 
 export default async function PropertyDetailPage({
   params,
@@ -26,12 +29,37 @@ export default async function PropertyDetailPage({
         <div className="col-span-3">
           <PropertyHero images={[property.imageUrl]} />
           <div className="mt-6 space-y-8">
+            {/* 1. Property metadata */}
             <PropertyMeta property={property} />
+
+            {/* 2. About this Listing */}
             <PropertyAbout description={property.description} />
+
+            {/* 3. Tiers section */}
             <PropertyTiers packages={property.packages} />
+
+            {/* 4. Build your own offer */}
             <div id="build-offer">
               <BuildOfferForm />
             </div>
+
+            {/* 5. Audience demographics */}
+            <PropertyDemographics
+              audienceGender={property.audienceGender}
+              audienceAgeRange={property.audienceAgeRange}
+              audienceIncome={property.audienceIncome}
+              audienceTotalReach={property.audienceTotalReach}
+              tags={property.tags}
+            />
+
+            {/* 6. Ideal Brand Categories */}
+            <PropertyCategories tags={property.tags} />
+
+            {/* 7. Activation Formats */}
+            <PropertyFormats
+              category={property.category}
+              subcategory={property.subcategory}
+            />
           </div>
         </div>
 

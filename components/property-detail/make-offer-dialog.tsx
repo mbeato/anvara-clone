@@ -10,28 +10,55 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { createOffer } from "@/app/actions/offer"
 
 interface MakeOfferDialogProps {
   propertyId: string
   propertyName: string
 }
 
-export function MakeOfferDialog({ propertyId: _propertyId, propertyName }: MakeOfferDialogProps) {
+export function MakeOfferDialog({ propertyId, propertyName }: MakeOfferDialogProps) {
   const [open, setOpen] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // Phase 3: visual-only — actual Server Action wired in Phase 5
-    setSubmitted(true)
-    setTimeout(() => {
-      setOpen(false)
-      setSubmitted(false)
-    }, 1500)
+    setError(null)
+    setSubmitting(true)
+
+    const formData = new FormData(e.currentTarget)
+    const amount = parseInt(formData.get("amount") as string, 10)
+    const terms = (formData.get("terms") as string) || ""
+
+    const result = await createOffer(propertyId, amount, terms)
+
+    setSubmitting(false)
+
+    if (result.success) {
+      setSubmitted(true)
+      setTimeout(() => {
+        setOpen(false)
+        setSubmitted(false)
+      }, 1500)
+    } else {
+      setError(result.error)
+    }
+  }
+
+  function handleOpenChange(next: boolean) {
+    if (!submitting) {
+      setOpen(next)
+      if (!next) {
+        setSubmitted(false)
+        setError(null)
+      }
+    }
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
           Make an Offer
@@ -67,6 +94,7 @@ export function MakeOfferDialog({ propertyId: _propertyId, propertyName }: MakeO
                 placeholder="Offer amount (USD)"
                 min={1}
                 required
+                disabled={submitting}
               />
             </div>
 
@@ -82,12 +110,17 @@ export function MakeOfferDialog({ propertyId: _propertyId, propertyName }: MakeO
                 name="terms"
                 placeholder="Terms, conditions, or notes..."
                 rows={4}
-                className="min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] resize-none"
+                disabled={submitting}
+                className="min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] resize-none disabled:opacity-60 disabled:cursor-not-allowed"
               />
             </div>
 
-            <Button type="submit" className="w-full">
-              Submit Offer
+            {error && (
+              <p className="text-sm text-destructive">{error}</p>
+            )}
+
+            <Button type="submit" className="w-full" disabled={submitting}>
+              {submitting ? "Submitting..." : "Submit Offer"}
             </Button>
           </form>
         )}
