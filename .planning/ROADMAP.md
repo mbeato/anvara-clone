@@ -83,14 +83,13 @@ Plans:
   5. Skeleton loading cards appear for 200–400ms on initial page load before real cards render
   6. "Recommended for you" strip is always visible on the browse page with mock-personalized property cards
   7. Empty state (icon + message + reset link) appears when filters produce zero results
-**Plans**: TBD
+**Plans**: 4 plans in 3 waves (wave 1 foundation, wave 2 parallel component creation, wave 3 integration)
 
 Plans:
-- [ ] 04-01: Browse page route, `BrowseClient` Client Component with filter `useState`, category tab bar with icons
-- [ ] 04-02: Auto-scrolling category carousel with image cards
-- [ ] 04-03: `PropertyCard` component with image, name, category, price range display, audience fit badge
-- [ ] 04-04: `FilterPanel` (region dropdown, price range slider), active filter chips, empty state, skeleton loading grid
-- [ ] 04-05: "Recommended for you" strip with hardcoded featured items and personalization label
+- [ ] 04-01-PLAN.md — Install deps (embla-carousel-autoplay, ShadCN slider/select), browse page route with searchParams, PropertyCard, PropertyCardSkeleton, loading.tsx
+- [ ] 04-02-PLAN.md — Category carousel with Embla autoplay, category tab row, BrowseClient shell with URL filter state
+- [ ] 04-03-PLAN.md — FilterBar (region dropdown, price slider, event type), active filter chips, empty state
+- [ ] 04-04-PLAN.md — Recommendations strip, final BrowseClient integration (wire filter bar, chips, empty state, skeleton delay)
 
 ### Phase 5: Messaging
 **Goal**: An advertiser can open their inbox, read pre-seeded conversations with properties, send messages that receive AI-simulated responses, and submit a structured "Make an Offer" form
@@ -150,7 +149,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 1. Foundation | 4/4 | Complete | 2026-02-21 |
 | 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
-| 4. Browse and Discovery | 0/5 | Not started | - |
+| 4. Browse and Discovery | 0/4 | Not started | - |
 | 5. Messaging | 0/3 | Not started | - |
 | 6. Landing Page | 0/2 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
