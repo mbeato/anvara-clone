@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 interface OfferCardProps {
@@ -14,19 +13,19 @@ const STATUS_CONFIG: Record<
   { borderClass: string; badgeVariant: "outline" | "default" | "destructive"; label: string; badgeClass: string }
 > = {
   pending: {
-    borderClass: "border-l-yellow-500",
+    borderClass: "border-yellow-500/40",
     badgeVariant: "outline",
     label: "Pending",
     badgeClass: "border-yellow-500 text-yellow-700 dark:text-yellow-400",
   },
   accepted: {
-    borderClass: "border-l-green-500",
+    borderClass: "border-green-500/40",
     badgeVariant: "default",
     label: "Accepted",
     badgeClass: "bg-green-600 text-white border-green-600",
   },
   declined: {
-    borderClass: "border-l-red-500",
+    borderClass: "border-red-500/40",
     badgeVariant: "destructive",
     label: "Declined",
     badgeClass: "",
@@ -42,43 +41,33 @@ export function OfferCard({ amount, tierName, status, note, createdAt }: OfferCa
   })
 
   return (
-    <Card className={`w-full border-l-4 ${config.borderClass}`}>
-      <CardContent className="p-4">
-        {/* Header row */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+    <div className="flex justify-end">
+      <div className={`max-w-[70%] rounded-2xl rounded-br-sm border ${config.borderClass} bg-blue-600 px-4 py-3 text-white`}>
+        {/* Header */}
+        <div className="flex items-center justify-between gap-3 mb-1.5">
+          <span className="text-[10px] font-medium uppercase tracking-wide text-blue-200">
             Offer Submitted
           </span>
           <Badge
             variant={config.badgeVariant}
-            className={config.badgeClass}
+            className={`text-[10px] px-1.5 py-0 h-4 ${config.badgeClass}`}
           >
             {config.label}
           </Badge>
         </div>
 
-        {/* Amount */}
-        <p className="text-2xl font-bold text-foreground">
-          ${amount.toLocaleString()}
-        </p>
-
-        {/* Tier */}
-        <p className="text-sm text-muted-foreground mt-1">
-          Tier: {tierName}
-        </p>
+        {/* Amount + tier */}
+        <p className="text-lg font-bold">${amount.toLocaleString()}</p>
+        <p className="text-xs text-blue-100 mt-0.5">{tierName}</p>
 
         {/* Optional note */}
         {note && (
-          <p className="text-sm text-muted-foreground italic mt-1">
-            {note}
-          </p>
+          <p className="text-xs text-blue-100 italic mt-1">&ldquo;{note}&rdquo;</p>
         )}
 
         {/* Timestamp */}
-        <div className="flex justify-end mt-3">
-          <span className="text-[10px] text-muted-foreground">{timeString}</span>
-        </div>
-      </CardContent>
-    </Card>
+        <span className="text-[10px] text-blue-200 block text-right mt-1.5">{timeString}</span>
+      </div>
+    </div>
   )
 }

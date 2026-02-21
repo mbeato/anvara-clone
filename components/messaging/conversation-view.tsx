@@ -1,6 +1,6 @@
 "use client"
 
-import { useOptimistic, useRef, useEffect, useState, useTransition } from "react"
+import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
 import { Send, X, Info, RefreshCw, DollarSign } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
@@ -54,32 +54,18 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
   const [error, setError] = useState<string | null>(null)
   const [showBanner, setShowBanner] = useState(true)
   const [inputValue, setInputValue] = useState("")
-  const [isPending, startTransition] = useTransition()
   const [showOfferForm, setShowOfferForm] = useState(false)
   const [isSubmittingOffer, setIsSubmittingOffer] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
-
-  const [optimisticMessages, addOptimisticMessage] = useOptimistic(
-    messages,
-    (current: Message[], newMsg: Message) => [...current, newMsg]
-  )
 
   // Scroll to bottom whenever messages change
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
-  }, [optimisticMessages, isTyping])
+  }, [messages, isTyping, showOfferForm])
 
-  // Reset state when thread changes
-  useEffect(() => {
-    setMessages(thread.messages)
-    setOffers(thread.offers)
-    setIsTyping(false)
-    setError(null)
-    setInputValue("")
-    setShowOfferForm(false)
-  }, [thread.id, thread.messages, thread.offers])
+  // No useEffect resync needed — key={thread.id} on parent remounts this component on thread switch
 
   async function handleSend(content: string) {
     if (!content.trim() || isTyping) return
@@ -96,17 +82,23 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
     setInputValue("")
     setError(null)
 
-    startTransition(() => {
-      addOptimisticMessage(tempMsg)
-    })
+    // Add message to state immediately (stays permanently)
+    setMessages((prev) => [...prev, tempMsg])
 
-    // Save advertiser message
+    // Save advertiser message to DB
     const result = await sendMessage(thread.id, content.trim())
 
     if (!result.success) {
+      // Remove temp message on failure
+      setMessages((prev) => prev.filter((m) => m.id !== tempMsg.id))
       setError("Failed to send message. Try again.")
       return
     }
+
+    // Replace temp ID with real DB ID
+    setMessages((prev) =>
+      prev.map((m) => (m.id === tempMsg.id ? { ...m, id: result.messageId } : m))
+    )
 
     setIsTyping(true)
 
@@ -122,38 +114,12 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
 
       if (response.ok && data.message) {
         const aiMsg: Message = data.message
-        setMessages((prev) => {
-          // Replace any temp messages with actual and add AI response
-          const withoutTemp = prev.filter((m) => !m.id.startsWith("temp-"))
-          const advertiserMsg: Message = {
-            ...tempMsg,
-            id: result.messageId,
-          }
-          const updated = [...withoutTemp, advertiserMsg, aiMsg]
-          onThreadUpdate?.(thread.id, aiMsg)
-          return updated
-        })
+        setMessages((prev) => [...prev, aiMsg])
+        onThreadUpdate?.(thread.id, aiMsg)
       } else {
-        // Add advertiser message but show error for AI response
-        setMessages((prev) => {
-          const withoutTemp = prev.filter((m) => !m.id.startsWith("temp-"))
-          const advertiserMsg: Message = {
-            ...tempMsg,
-            id: result.messageId,
-          }
-          return [...withoutTemp, advertiserMsg]
-        })
         setError("Couldn't generate response. Try again.")
       }
     } catch {
-      setMessages((prev) => {
-        const withoutTemp = prev.filter((m) => !m.id.startsWith("temp-"))
-        const advertiserMsg: Message = {
-          ...tempMsg,
-          id: result.messageId,
-        }
-        return [...withoutTemp, advertiserMsg]
-      })
       setError("Couldn't generate response. Try again.")
     } finally {
       setIsTyping(false)
@@ -273,16 +239,7 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
               {thread.property.category}
             </Badge>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowOfferForm(true)}
-            disabled={isTyping || isSubmittingOffer || showOfferForm}
-            className="shrink-0 gap-1.5"
-          >
-            <DollarSign className="h-3.5 w-3.5" />
-            Make an Offer
-          </Button>
+{/* Offer button moved to input area */}
         </div>
         <p className="text-xs text-muted-foreground mt-0.5">{thread.subject}</p>
       </div>
@@ -310,12 +267,12 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
         ref={scrollRef}
         className="flex-1 overflow-y-auto p-4 space-y-3"
       >
-        {optimisticMessages.length === 0 ? (
+        {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
             <p className="text-sm text-muted-foreground">No messages yet. Start the conversation!</p>
           </div>
         ) : (
-          optimisticMessages.map((msg) => {
+          messages.map((msg) => {
             if (isOfferMessage(msg.content)) {
               const { amount, tier, note } = parseOfferContent(msg.content)
               const matchingOffer = findMatchingOffer(msg, offers)
@@ -333,6 +290,20 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
             }
             return <MessageBubble key={msg.id} message={msg} />
           })
+        )}
+
+        {/* Inline offer form — appears as a bubble in the chat */}
+        {showOfferForm && (
+          <div className="flex justify-end">
+            <div className="max-w-[70%]">
+              <InlineOfferForm
+                packages={thread.property.packages}
+                onSubmit={handleOfferSubmit}
+                onCancel={() => setShowOfferForm(false)}
+                isSubmitting={isSubmittingOffer}
+              />
+            </div>
+          </div>
         )}
 
         {/* Typing indicator */}
@@ -358,20 +329,8 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
         </div>
       )}
 
-      {/* Bottom area — offer form + input */}
+      {/* Input area */}
       <div className="border-t shrink-0">
-        {/* Inline offer form */}
-        {showOfferForm && (
-          <div className="p-4 border-b">
-            <InlineOfferForm
-              packages={thread.property.packages}
-              onSubmit={handleOfferSubmit}
-              onCancel={() => setShowOfferForm(false)}
-              isSubmitting={isSubmittingOffer}
-            />
-          </div>
-        )}
-
         {/* Message input */}
         <div className="p-4">
           <div className="flex items-center gap-2">
@@ -380,17 +339,29 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Type a message..."
-              disabled={isTyping || isPending || isSubmittingOffer}
+              disabled={isTyping || isSubmittingOffer}
               className="flex-1"
             />
             <Button
               type="button"
               size="icon"
               onClick={() => handleSend(inputValue)}
-              disabled={!inputValue.trim() || isTyping || isPending || isSubmittingOffer}
+              disabled={!inputValue.trim() || isTyping || isSubmittingOffer}
               aria-label="Send message"
             >
               <Send className="h-4 w-4" />
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="default"
+              onClick={() => setShowOfferForm((v) => !v)}
+              disabled={isTyping || isSubmittingOffer}
+              aria-label="Make an offer"
+              className={`shrink-0 gap-1.5 ${showOfferForm ? "text-primary border-primary" : ""}`}
+            >
+              <DollarSign className="h-3.5 w-3.5" />
+              Send Offer
             </Button>
           </div>
         </div>

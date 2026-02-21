@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Loader2 } from "lucide-react"
+import { Loader2, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -34,123 +34,94 @@ export function InlineOfferForm({
   const [amount, setAmount] = useState("")
   const [selectedPackage, setSelectedPackage] = useState("")
   const [note, setNote] = useState("")
-  const [errors, setErrors] = useState<{ amount?: string; package?: string }>({})
-
-  function validate() {
-    const newErrors: { amount?: string; package?: string } = {}
-    const parsedAmount = parseFloat(amount)
-
-    if (!amount || isNaN(parsedAmount) || parsedAmount <= 0) {
-      newErrors.amount = "Enter a valid amount greater than 0"
-    }
-
-    if (!selectedPackage) {
-      newErrors.package = "Select a tier"
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!validate()) return
-
-    const parsedAmount = Math.round(parseFloat(amount))
-    onSubmit(parsedAmount, selectedPackage, note.trim())
+    const parsedAmount = parseFloat(amount)
+    if (!parsedAmount || parsedAmount <= 0 || !selectedPackage) return
+    onSubmit(Math.round(parsedAmount), selectedPackage, note.trim())
   }
 
+  const isValid = parseFloat(amount) > 0 && selectedPackage
+
   return (
-    <div className="rounded-lg border bg-muted/30 p-4 transition-all">
-      <p className="text-sm font-medium mb-3">Submit an Offer</p>
-      <form onSubmit={handleSubmit} className="space-y-3">
-        {/* Dollar amount */}
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground shrink-0">$</span>
-            <Input
-              type="number"
-              min={1}
-              step={1}
-              value={amount}
-              onChange={(e) => {
-                setAmount(e.target.value)
-                if (errors.amount) setErrors((prev) => ({ ...prev, amount: undefined }))
-              }}
-              placeholder="Enter amount"
-              className="flex-1"
-              disabled={isSubmitting}
-              required
-            />
-          </div>
-          {errors.amount && (
-            <p className="text-xs text-red-500 mt-1">{errors.amount}</p>
-          )}
-        </div>
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-2xl rounded-br-sm bg-blue-600 text-white p-3 space-y-2"
+    >
+      <p className="text-xs font-medium text-blue-100">Make an Offer</p>
 
-        {/* Tier selection */}
-        <div>
-          <Select
-            value={selectedPackage}
-            onValueChange={(val) => {
-              setSelectedPackage(val)
-              if (errors.package) setErrors((prev) => ({ ...prev, package: undefined }))
-            }}
-            disabled={isSubmitting}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select a tier..." />
-            </SelectTrigger>
-            <SelectContent>
-              {packages.map((pkg) => (
-                <SelectItem key={pkg.id} value={pkg.name}>
-                  {pkg.name}
-                  {pkg.priceUsd > 0 && (
-                    <span className="ml-1 text-muted-foreground">
-                      — ${pkg.priceUsd.toLocaleString()}
-                    </span>
-                  )}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          {errors.package && (
-            <p className="text-xs text-red-500 mt-1">{errors.package}</p>
-          )}
-        </div>
-
-        {/* Optional note */}
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-medium shrink-0">$</span>
         <Input
-          type="text"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          placeholder="Add a note (optional)"
+          type="number"
+          min={1}
+          step={1}
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Amount"
+          className="flex-1 h-8 text-sm bg-blue-700/50 border-blue-500/30 text-white placeholder:text-blue-300 focus-visible:ring-blue-400"
           disabled={isSubmitting}
+          required
         />
+      </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2 pt-1">
-          <Button type="submit" size="sm" disabled={isSubmitting}>
-            {isSubmitting ? (
-              <>
-                <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" />
-                Sending...
-              </>
-            ) : (
-              "Send Offer"
-            )}
-          </Button>
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={onCancel}
-            disabled={isSubmitting}
-          >
-            Cancel
-          </Button>
-        </div>
-      </form>
-    </div>
+      <Select
+        value={selectedPackage}
+        onValueChange={setSelectedPackage}
+        disabled={isSubmitting}
+      >
+        <SelectTrigger className="h-8 text-sm bg-blue-700/50 border-blue-500/30 text-white">
+          <SelectValue placeholder="Select tier..." />
+        </SelectTrigger>
+        <SelectContent>
+          {packages.map((pkg) => (
+            <SelectItem key={pkg.id} value={pkg.name}>
+              {pkg.name}
+              {pkg.priceUsd > 0 && (
+                <span className="ml-1 text-muted-foreground">
+                  — ${pkg.priceUsd.toLocaleString()}
+                </span>
+              )}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+
+      <Input
+        type="text"
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        placeholder="Add a note (optional)"
+        className="h-8 text-sm bg-blue-700/50 border-blue-500/30 text-white placeholder:text-blue-300 focus-visible:ring-blue-400"
+        disabled={isSubmitting}
+      />
+
+      <div className="flex items-center gap-2 justify-end">
+        <button
+          type="button"
+          onClick={onCancel}
+          disabled={isSubmitting}
+          className="text-xs text-blue-200 hover:text-white"
+        >
+          Cancel
+        </button>
+        <Button
+          type="submit"
+          size="sm"
+          disabled={isSubmitting || !isValid}
+          className="h-7 text-xs bg-white text-blue-600 hover:bg-blue-50"
+        >
+          {isSubmitting ? (
+            <Loader2 className="h-3 w-3 animate-spin" />
+          ) : (
+            <>
+              <Send className="h-3 w-3 mr-1" />
+              Send Offer
+            </>
+          )}
+        </Button>
+      </div>
+    </form>
   )
 }
