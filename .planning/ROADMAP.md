@@ -32,13 +32,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. `getProperty(id)`, `getAllProperties()`, and `getThreads()` return typed data in a test route or console log
   4. Browser tab shows "Anvara | Sponsorship Marketplace" title with Anvara favicon (not Next.js default)
   5. Fonts load via `next/font` — no flash of unstyled text on page load
-**Plans**: TBD
+**Plans**: 4 plans in 4 waves (sequential — each plan depends on the previous)
 
 Plans:
-- [ ] 01-01: Next.js project init with TypeScript, Tailwind v4, ShadCN — all components installed in one command
-- [ ] 01-02: Prisma schema (Property, Message, Thread, Offer models) + Vercel Postgres connection
-- [ ] 01-03: Seed script with realistic sponsorship properties and pre-seeded conversation threads
-- [ ] 01-04: TypeScript data helpers (`getProperty`, `getAllProperties`, `getThreads`, `filterProperties`) + metadata + favicon
+- [ ] 01-01-PLAN.md — Scaffold Next.js with TypeScript, Tailwind v4, ShadCN, Picsum image config
+- [ ] 01-02-PLAN.md — Prisma schema (Property, Package, Thread, Message, Offer) + Neon Postgres + Client singleton
+- [ ] 01-03-PLAN.md — Seed script with 10-14 properties, packages, threads, messages, and offers
+- [ ] 01-04-PLAN.md — Query helpers (getProperty, getAllProperties, getThreads, filterProperties) + metadata + favicon + Inter font
 
 ### Phase 2: Layout Shell
 **Goal**: Every page renders inside a shared layout that matches Anvara's visual identity — left sidebar navigation, consistent header, and footer attribution
