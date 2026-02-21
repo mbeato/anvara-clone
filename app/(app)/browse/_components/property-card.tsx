@@ -57,6 +57,7 @@ export function PropertyCard({ property }: { property: Property }) {
         {/* Content area */}
         <div className="p-3 space-y-1">
           <p className="font-semibold text-sm line-clamp-1">{property.name}</p>
+          <span className="text-xs text-muted-foreground capitalize">{property.category}</span>
           <p className="text-xs text-muted-foreground line-clamp-2">
             {property.tagline}
           </p>
