@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 6 of 7 (Landing Page) — In progress
-Plan: 3 of 5 in phase — COMPLETE
-Status: 06-03 complete — AZExecution, PerformanceReporting, AnvaraIntelligence built
-Last activity: 2026-02-21 — Completed 06-03-PLAN.md (Value Proposition Sections)
+Plan: 4 of 5 in phase — COMPLETE
+Status: 06-04 complete — ForBrandsRightsholders, Testimonial, FaqSection, FinalCTA, LandingFooter built
+Last activity: 2026-02-21 — Completed 06-04-PLAN.md (Bottom Sections)
 
-Progress: [███████████████████░] 68% (19/28 plans)
+Progress: [████████████████████░] 71% (20/28 plans)
 
 ## Performance Metrics
 
@@ -34,7 +34,7 @@ Progress: [███████████████████░] 68% (19
 | Phase 5 (Messaging) | 3/3 COMPLETE | 7 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-03 (3 min), 06-01 (1 min), 06-02 (2 min), 06-03 (2 min)
+- Last 5 plans: 06-01 (1 min), 06-02 (2 min), 06-03 (2 min), 06-04 (2 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -121,6 +121,10 @@ Recent decisions affecting current work:
 - [06-03]: Fixed SVG viewBox (400x320) over percentage coords — bezier paths predictable at fixed coordinate space
 - [06-03]: Inner SectionReveal delay=0.15 on AI flow diagram — stagger text→diagram for premium feel
 - [06-03]: Fixed 320px container height for MetricsVisualization — deterministic badge absolute positioning
+- [06-04]: Logo grids as styled text labels — avoids SVG sourcing complexity while matching grayscale grid visual
+- [06-04]: Newsletter input as readOnly — visual-only without disabled attribute graying out the input
+- [06-04]: Footer watermark uses clamp(80px, 18vw, 200px) — responsive font size matching Landing11.png screenshot
+- [06-04]: No SectionReveal on LandingFooter — footer always visible by time user scrolls to bottom
 
 ### Pending Todos
 
@@ -128,10 +132,10 @@ None.
 
 ### Blockers/Concerns
 
-None. Phase 6 plan 03 complete. Plan 04 (For Brands / For Rightsholders + Testimonial + FAQ) ready to begin.
+None. Phase 6 plan 04 complete. Plan 05 (Page Assembly) ready to begin — all 12 section components now exist.
 
 ## Session Continuity
 
-Last session: 2026-02-21T21:11:56Z
-Stopped at: Completed 06-03-PLAN.md (Value Proposition Sections)
+Last session: 2026-02-21T21:13:35Z
+Stopped at: Completed 06-04-PLAN.md (Bottom Sections)
 Resume file: None
