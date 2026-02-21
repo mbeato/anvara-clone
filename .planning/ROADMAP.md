@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Next.js project scaffolded, Prisma schema defined, seed data created, data query helpers ready
 - [x] **Phase 2: Layout Shell** - Root layout, navigation sidebar, footer, fonts, and metadata in place — every page renders in real context
 - [x] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
-- [ ] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
+- [x] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
 - [ ] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
 - [ ] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
@@ -86,10 +86,10 @@ Plans:
 **Plans**: 4 plans in 3 waves (wave 1 foundation, wave 2 parallel component creation, wave 3 integration)
 
 Plans:
-- [ ] 04-01-PLAN.md — Install deps (embla-carousel-autoplay, ShadCN slider/select), browse page route with searchParams, PropertyCard, PropertyCardSkeleton, loading.tsx
-- [ ] 04-02-PLAN.md — Category carousel with Embla autoplay, category tab row, BrowseClient shell with URL filter state
-- [ ] 04-03-PLAN.md — FilterBar (region dropdown, price slider, event type), active filter chips, empty state
-- [ ] 04-04-PLAN.md — Recommendations strip, final BrowseClient integration (wire filter bar, chips, empty state, skeleton delay)
+- [x] 04-01-PLAN.md — Install deps (embla-carousel-autoplay, ShadCN slider/select), browse page route with searchParams, PropertyCard, PropertyCardSkeleton, loading.tsx
+- [x] 04-02-PLAN.md — Category carousel with Embla autoplay, category tab row, BrowseClient shell with URL filter state
+- [x] 04-03-PLAN.md — FilterBar (region dropdown, price slider, event type), active filter chips, empty state
+- [x] 04-04-PLAN.md — Recommendations strip, final BrowseClient integration (wire filter bar, chips, empty state, skeleton delay)
 
 ### Phase 5: Messaging
 **Goal**: An advertiser can open their inbox, read pre-seeded conversations with properties, send messages that receive AI-simulated responses, and submit a structured "Make an Offer" form
@@ -149,7 +149,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 1. Foundation | 4/4 | Complete | 2026-02-21 |
 | 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
-| 4. Browse and Discovery | 0/4 | Not started | - |
+| 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
 | 5. Messaging | 0/3 | Not started | - |
 | 6. Landing Page | 0/2 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |

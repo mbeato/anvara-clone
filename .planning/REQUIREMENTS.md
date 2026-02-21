@@ -10,20 +10,20 @@
 - [ ] **LAND-05**: Landing page is faithful to current Anvara site content/messaging
 
 ### Browse / Discovery
-- [ ] **BROWSE-01**: User can view sponsorship properties as a card grid with image, name, category, price range, start date
+- [x] **BROWSE-01**: User can view sponsorship properties as a card grid with image, name, category, price range, start date
 - [x] **BROWSE-02**: Left sidebar navigation with icon-based menu items (matching their current layout)
-- [ ] **BROWSE-03**: Auto-scrolling category carousel at top with image cards (Jazz Festivals, Food Festivals, Action Sports, etc.)
-- [ ] **BROWSE-04**: Category tab bar with icons (All, Music, Art, Sports, Food, Wellness, Fun, Charity, Culture, Business, Fashion, Tech, Outdoor, Film, Networking)
-- [ ] **BROWSE-05**: User can filter properties by category via tab selection
-- [ ] **BROWSE-06**: User can filter properties by region/location
-- [ ] **BROWSE-07**: User can filter properties by price range
-- [ ] **BROWSE-08**: Active filters display as removable chips above results
-- [ ] **BROWSE-09**: Skeleton loading states appear during simulated data fetch (setTimeout)
-- [ ] **BROWSE-10**: "Recommended for you" section is always visible on browse page with mock personalization
-- [ ] **BROWSE-11**: Audience fit badge appears on property cards ("Great Match" / percentage)
-- [ ] **BROWSE-12**: Empty state displays when filters return zero results
-- [ ] **BROWSE-13**: Properties with no set price show price range or "Request Quote" instead of $0
-- [ ] **BROWSE-14**: Up to 8 properties displayed per category tab
+- [x] **BROWSE-03**: Auto-scrolling category carousel at top with image cards (Jazz Festivals, Food Festivals, Action Sports, etc.)
+- [x] **BROWSE-04**: Category tab bar with icons (All, Music, Art, Sports, Food, Wellness, Fun, Charity, Culture, Business, Fashion, Tech, Outdoor, Film, Networking)
+- [x] **BROWSE-05**: User can filter properties by category via tab selection
+- [x] **BROWSE-06**: User can filter properties by region/location
+- [x] **BROWSE-07**: User can filter properties by price range
+- [x] **BROWSE-08**: Active filters display as removable chips above results
+- [x] **BROWSE-09**: Skeleton loading states appear during simulated data fetch (setTimeout)
+- [x] **BROWSE-10**: "Recommended for you" section is always visible on browse page with mock personalization
+- [x] **BROWSE-11**: Audience fit badge appears on property cards ("Great Match" / percentage)
+- [x] **BROWSE-12**: Empty state displays when filters return zero results
+- [x] **BROWSE-13**: Properties with no set price show price range or "Request Quote" instead of $0
+- [x] **BROWSE-14**: Up to 8 properties displayed per category tab
 
 ### Property Detail
 - [x] **DETAIL-01**: Property detail page displays hero image, title, subtitle, event type tag, date, and tier count
@@ -57,8 +57,8 @@
 
 ### UX Polish
 - [ ] **UX-01**: All pages are mobile-responsive (works on phone/tablet)
-- [ ] **UX-02**: Proper loading states on all data-heavy sections
-- [ ] **UX-03**: Proper error states with user-friendly messages
+- [x] **UX-02**: Proper loading states on all data-heavy sections
+- [x] **UX-03**: Proper error states with user-friendly messages
 - [x] **UX-04**: Footer displays "Prototype by Max Beato" on all pages
 - [x] **UX-05**: Custom page title and Anvara-style favicon (not default Next.js)
 - [ ] **UX-06**: No console errors visible in DevTools
@@ -117,21 +117,21 @@
 | DETAIL-10 | Phase 3 — Property Detail | Complete |
 | DETAIL-11 | Phase 3 — Property Detail | Complete |
 | DETAIL-12 | Phase 3 — Property Detail | Pending |
-| BROWSE-01 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-03 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-04 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-05 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-06 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-07 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-08 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-09 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-10 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-11 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-12 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-13 | Phase 4 — Browse and Discovery | Pending |
-| BROWSE-14 | Phase 4 — Browse and Discovery | Pending |
-| UX-02 | Phase 4 — Browse and Discovery | Pending |
-| UX-03 | Phase 4 — Browse and Discovery | Pending |
+| BROWSE-01 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-03 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-04 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-05 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-06 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-07 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-08 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-09 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-10 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-11 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-12 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-13 | Phase 4 — Browse and Discovery | Complete |
+| BROWSE-14 | Phase 4 — Browse and Discovery | Complete |
+| UX-02 | Phase 4 — Browse and Discovery | Complete |
+| UX-03 | Phase 4 — Browse and Discovery | Complete |
 | MSG-01 | Phase 5 — Messaging | Pending |
 | MSG-02 | Phase 5 — Messaging | Pending |
 | MSG-03 | Phase 5 — Messaging | Pending |
