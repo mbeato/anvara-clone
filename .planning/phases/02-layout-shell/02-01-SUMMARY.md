@@ -1,0 +1,144 @@
+---
+phase: 02-layout-shell
+plan: 01
+subsystem: ui
+tags: [next-themes, shadcn, sidebar, tailwind, dark-mode, layout, brand-colors]
+
+# Dependency graph
+requires:
+  - phase: 01-foundation
+    provides: Next.js 16 scaffold, Tailwind v4, ShadCN setup, Prisma data layer, Inter font, globals.css with CSS variables
+provides:
+  - Collapsed icon sidebar with Marketplace, Campaigns, Messages, Settings nav items
+  - next-themes ThemeProvider with class-based dark mode, defaulting to light
+  - Hydration-safe ModeToggle component with SSR placeholder
+  - (app) route group with SidebarProvider + SidebarInset shell layout
+  - Anvara brand blue color --primary oklch(0.45 0.27 264) applied to ShadCN defaults
+  - SidebarRail for click-to-expand collapsed sidebar
+  - AppSidebar with active state detection via usePathname
+affects:
+  - 02-02 (browse page renders inside this shell)
+  - All subsequent phase pages (inherit sidebar + theme system)
+  - 03-property-detail, 04-messaging, 05-campaigns (all use AppLayout)
+
+# Tech tracking
+tech-stack:
+  added: [next-themes@0.4.6, shadcn/sidebar, shadcn/breadcrumb, shadcn/avatar, shadcn/dropdown-menu, shadcn/collapsible]
+  patterns:
+    - "(app) route group separates shell layout from root layout"
+    - "ThemeProvider at root level, SidebarProvider at app shell level"
+    - "collapsible=icon sidebar collapsed by default via defaultOpen=false"
+    - "usePathname for active nav detection in client sidebar"
+    - "SSR hydration-safe toggle: mounted state guard prevents mismatch"
+
+key-files:
+  created:
+    - components/theme-provider.tsx
+    - components/mode-toggle.tsx
+    - components/app-sidebar.tsx
+    - app/(app)/layout.tsx
+    - app/(app)/page.tsx
+    - components/ui/sidebar.tsx
+    - components/ui/button.tsx
+    - components/ui/breadcrumb.tsx
+    - components/ui/avatar.tsx
+    - components/ui/dropdown-menu.tsx
+    - components/ui/collapsible.tsx
+    - components/ui/sheet.tsx
+    - components/ui/tooltip.tsx
+    - components/ui/skeleton.tsx
+    - components/ui/separator.tsx
+    - hooks/use-mobile.ts
+  modified:
+    - app/layout.tsx
+    - app/globals.css
+    - package.json
+
+key-decisions:
+  - "next-themes attribute=class matches @custom-variant dark (&:is(.dark *)) in globals.css — must stay in sync"
+  - "suppressHydrationWarning on <html> required by next-themes for class injection"
+  - "SidebarProvider defaultOpen=false gives icon-only collapsed default"
+  - "Anvara brand blue oklch(0.45 0.27 264) — hue 264 is indigo/blue, chroma 0.27 is vivid"
+  - "Dark sidebar background oklch(0.16 0.005 264) — near-black with slight blue tint matches brand"
+  - "Active state via data-[active=true]:before: pseudo-element — vertical accent bar left edge"
+
+patterns-established:
+  - "Route groups: (app) for sidebar shell, root layout stays clean"
+  - "Client components: sidebar and toggle are 'use client', layout files are server components"
+  - "ShadCN install via npx shadcn@latest add <component> --yes"
+
+# Metrics
+duration: 12min
+completed: 2026-02-21
+---
+
+# Phase 2 Plan 01: Layout Shell Summary
+
+**Collapsed icon sidebar with next-themes dark mode, Anvara brand blue, and (app) route group shell using ShadCN sidebar primitive**
+
+## Performance
+
+- **Duration:** 12 min
+- **Started:** 2026-02-21T07:04:37Z
+- **Completed:** 2026-02-21T07:16:00Z
+- **Tasks:** 2
+- **Files modified:** 19
+
+## Accomplishments
+- ShadCN sidebar installed with all companion components (breadcrumb, avatar, dropdown-menu, collapsible, sheet, tooltip, skeleton)
+- App shell layout with collapsed icon sidebar, Anvara logo hexagon mark, and 4 nav items
+- next-themes ThemeProvider wired at root layout with class-based dark mode, defaulting to light, no hydration flash
+- Anvara brand blue applied to --primary in both light and dark modes, dark sidebar with blue tint
+
+## Task Commits
+
+Each task was committed atomically:
+
+1. **Task 1: Install dependencies and ShadCN components** - `c8a2920` (chore)
+2. **Task 2: Create ThemeProvider, sidebar, mode toggle, route group layout, brand colors** - `09b7ba7` (feat)
+
+**Plan metadata:** (docs commit follows)
+
+## Files Created/Modified
+- `components/theme-provider.tsx` - Client wrapper for next-themes ThemeProvider
+- `components/mode-toggle.tsx` - Hydration-safe dark/light toggle with SSR placeholder div
+- `components/app-sidebar.tsx` - AppSidebar with collapsible=icon, 4 nav items, active state, Anvara logo
+- `app/layout.tsx` - Root layout with ThemeProvider (attribute=class, defaultTheme=light, suppressHydrationWarning)
+- `app/(app)/layout.tsx` - App shell with SidebarProvider (defaultOpen=false) + SidebarInset
+- `app/(app)/page.tsx` - Home page moved from app/page.tsx into (app) route group
+- `app/globals.css` - --primary oklch(0.45 0.27 264) light, oklch(0.55 0.25 264) dark; sidebar dark oklch(0.16 0.005 264)
+- `components/ui/sidebar.tsx` - ShadCN sidebar primitive (generated)
+- `hooks/use-mobile.ts` - Mobile detection hook (generated by ShadCN sidebar)
+- 10 additional ShadCN component files (button, breadcrumb, avatar, dropdown-menu, collapsible, sheet, tooltip, skeleton, separator, input)
+
+## Decisions Made
+- `attribute="class"` on ThemeProvider must match `@custom-variant dark (&:is(.dark *))` in globals.css — class toggling on `<html>`
+- `suppressHydrationWarning` on `<html>` element is required by next-themes (next-themes injects class before React hydrates)
+- `defaultOpen={false}` on SidebarProvider gives icon-collapsed initial state
+- Anvara brand hue 264 (indigo-blue), chroma 0.27 light / 0.25 dark for brand identity
+- Active sidebar item uses CSS `before:` pseudo-element for vertical accent bar — avoids extra DOM elements
+- Old `app/page.tsx` deleted; new `app/(app)/page.tsx` is the home route via (app) route group
+
+## Deviations from Plan
+
+None - plan executed exactly as written.
+
+## Issues Encountered
+- Stale `.next/types/validator.ts` referenced deleted `app/page.js` after moving page to route group — cleared `.next/` cache, TypeScript passed cleanly.
+- Existing `next dev` process holding port lock caused lock conflict — killed existing process before verification run.
+
+## User Setup Required
+
+None - no external service configuration required.
+
+## Next Phase Readiness
+- Layout shell complete. Plan 02-02 (browse page) renders inside this shell.
+- All subsequent pages in the (app) route group automatically inherit sidebar + theme.
+- ModeToggle component available for placement in header in 02-02.
+- No blockers for Plan 02-02.
+
+## Self-Check: PASSED
+
+---
+*Phase: 02-layout-shell*
+*Completed: 2026-02-21*
