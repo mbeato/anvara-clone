@@ -9,7 +9,16 @@ interface MessageBubbleProps {
   isOffer?: boolean
 }
 
+export function isOfferMessage(content: string): boolean {
+  return content.startsWith("[OFFER]")
+}
+
 export function MessageBubble({ message, isOffer = false }: MessageBubbleProps) {
+  // Offer messages are rendered as OfferCard by the parent — skip bubble rendering
+  if (isOfferMessage(message.content)) {
+    return null
+  }
+
   const isAdvertiser = message.sender === "advertiser"
 
   const timeString = new Date(message.createdAt).toLocaleTimeString("en-US", {
