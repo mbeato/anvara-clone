@@ -34,7 +34,7 @@ export async function getThreads() {
     include: {
       messages: { orderBy: { createdAt: "asc" } },
       offers: { orderBy: { createdAt: "desc" } },
-      property: true,
+      property: { include: { packages: true } },
     },
     orderBy: { createdAt: "desc" },
   });
@@ -46,7 +46,7 @@ export async function getThread(id: string) {
     include: {
       messages: { orderBy: { createdAt: "asc" } },
       offers: { orderBy: { createdAt: "desc" } },
-      property: true,
+      property: { include: { packages: true } },
     },
   });
 }
