@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 6 of 7 (Landing Page) — In progress
-Plan: 1 of 5 in phase — COMPLETE
-Status: 06-01 complete — motion installed, landing route, SectionReveal, LandingPropertyCard, marquee CSS
-Last activity: 2026-02-21 — Completed 06-01-PLAN.md (Landing Page Foundation)
+Plan: 2 of 5 in phase — COMPLETE
+Status: 06-02 complete — HeroSection, BrandLogosBar, WhatIsAnvara, AccessMarket built
+Last activity: 2026-02-21 — Completed 06-02-PLAN.md (Hero + Top Sections)
 
-Progress: [█████████████████░] 61% (17/28 plans)
+Progress: [██████████████████░] 64% (18/28 plans)
 
 ## Performance Metrics
 
@@ -34,7 +34,7 @@ Progress: [█████████████████░] 61% (17/28 pl
 | Phase 5 (Messaging) | 3/3 COMPLETE | 7 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (2 min), 05-02 (2 min), 05-03 (3 min), 06-01 (1 min)
+- Last 5 plans: 05-02 (2 min), 05-03 (3 min), 06-01 (1 min), 06-02 (2 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -113,6 +113,11 @@ Recent decisions affecting current work:
 - [06-01]: viewport.once=true on SectionReveal — animate on first entry only for premium non-distracting feel
 - [06-01]: marquee translateX(0) to translateX(-50%) — requires duplicated content for seamless loop
 - [06-01]: 40s marquee duration — smooth non-rushed feel for 12 property cards
+- [06-02]: Video with gradient fallback — hero always looks polished without /public/videos/hero.mp4
+- [06-02]: BrandLogosBar as Server Component — static logo display needs no client boundary
+- [06-02]: Rotating text opacity transition — fade without layout shift, same line word swap
+- [06-02]: CSS perspective for 3D tokens — no animation library dependency needed
+- [06-02]: VIEW_COUNTS array for demo badges — replicates screenshot's view count metric badges
 
 ### Pending Todos
 
@@ -120,10 +125,10 @@ None.
 
 ### Blockers/Concerns
 
-None. Phase 6 plan 01 complete. Plan 02 (Hero Section) ready to begin.
+None. Phase 6 plan 02 complete. Plan 03 (A-Z Execution section) ready to begin.
 
 ## Session Continuity
 
-Last session: 2026-02-21
-Stopped at: Completed 06-01-PLAN.md (Landing Page Foundation)
+Last session: 2026-02-21T21:11:03Z
+Stopped at: Completed 06-02-PLAN.md (Hero + Top Sections)
 Resume file: None
