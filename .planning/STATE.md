@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 2 — Layout Shell COMPLETE
+**Current focus:** Phase 3 — Property Detail (in progress)
 
 ## Current Position
 
-Phase: 2 of 7 (Layout Shell)
-Plan: 2 of 2 in current phase
-Status: Phase 2 COMPLETE — ready for Phase 3 (Browse Page)
-Last activity: 2026-02-21 — Completed 02-02-PLAN.md (HeaderBar, SiteFooter, shell layout, image hostnames)
+Phase: 3 of 7 (Property Detail)
+Plan: 1 of 3 in current phase
+Status: In progress — Plan 03-01 complete, ready for 03-02 (OfferSidebar)
+Last activity: 2026-02-21 — Completed 03-01-PLAN.md (property detail route, carousel, meta, about)
 
-Progress: [██████░░░░] 21% (6/28 plans)
+Progress: [███████░░░] 25% (7/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: ~5 minutes
-- Total execution time: ~0.37 hours
+- Total plans completed: 7
+- Average duration: ~4 minutes
+- Total execution time: ~0.40 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [██████░░░░] 21% (6/28 plans)
 |-------|-------|-------|----------|
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
+| Phase 3 (Property Detail) | 1/3 in progress | 2 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (5 min), 01-03 (4 min), 01-04 (4 min), 02-01 (12 min), 02-02 (2 min)
-- Trend: Fast — 02-02 very quick as all ShadCN components already installed
+- Last 5 plans: 01-03 (4 min), 01-04 (4 min), 02-01 (12 min), 02-02 (2 min), 03-01 (2 min)
+- Trend: Fast — 03-01 quick as ShadCN carousel/badge install was smooth
 
 *Updated after each plan completion*
 
@@ -69,6 +70,10 @@ Recent decisions affecting current work:
 - [02-02]: Search bar is visual-only for Phase 2 — functional search deferred to later phase
 - [02-02]: Footer inside SidebarInset so it scrolls with content (not stuck below sidebar)
 - [02-02]: Three anvara.com remotePatterns added: images.anvara.com, www.anvara.com, anvara.com
+- [03-01]: object-contain (not object-cover) on carousel images — no cropping per user constraint
+- [03-01]: Dot indicators hidden when single image (count > 1 guard) — avoids lone dot confusion
+- [03-01]: generateStaticParams returns [] — Neon DB may not be reachable at build time; pages render dynamically
+- [03-01]: PropertyAbout positioned above tiers — locked user decision from CONTEXT.md
 
 ### Pending Todos
 
@@ -76,10 +81,11 @@ None.
 
 ### Blockers/Concerns
 
-- [Phase 3]: Next.js 15+ dynamic route `params` is a Promise — must `await params` before accessing `id`; add `generateStaticParams`
+- [03-02]: OfferSidebar needs ShadCN Dialog for Make an Offer modal — run `npx shadcn add dialog` before building
+- [03-02]: Offer creation Server Action must create Thread first (FK constraint: Offer.threadId required)
 
 ## Session Continuity
 
-Last session: 2026-02-21 07:14 UTC
-Stopped at: Completed 02-02-PLAN.md — HeaderBar, SiteFooter, integrated shell layout, image hostnames for Anvara.
+Last session: 2026-02-21 08:14 UTC
+Stopped at: Completed 03-01-PLAN.md — property detail route, PropertyHero carousel, PropertyMeta, PropertyAbout
 Resume file: None
