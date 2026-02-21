@@ -50,19 +50,19 @@
 - [ ] **MSG-08**: Offer appears as a structured message in the thread after submission
 
 ### Data Layer
-- [ ] **DATA-01**: Prisma schema defines Property, Message, Thread, and Offer models
-- [ ] **DATA-02**: Seed script populates database with realistic sponsorship property data
-- [ ] **DATA-03**: Seed script populates pre-seeded conversation threads
-- [ ] **DATA-04**: Vercel Postgres configured for deployment
+- [x] **DATA-01**: Prisma schema defines Property, Message, Thread, and Offer models
+- [x] **DATA-02**: Seed script populates database with realistic sponsorship property data
+- [x] **DATA-03**: Seed script populates pre-seeded conversation threads
+- [x] **DATA-04**: Vercel Postgres configured for deployment
 
 ### UX Polish
 - [ ] **UX-01**: All pages are mobile-responsive (works on phone/tablet)
 - [ ] **UX-02**: Proper loading states on all data-heavy sections
 - [ ] **UX-03**: Proper error states with user-friendly messages
 - [ ] **UX-04**: Footer displays "Prototype by Max Beato" on all pages
-- [ ] **UX-05**: Custom page title and Anvara-style favicon (not default Next.js)
+- [x] **UX-05**: Custom page title and Anvara-style favicon (not default Next.js)
 - [ ] **UX-06**: No console errors visible in DevTools
-- [ ] **UX-07**: Font loading handled via next/font (no FOUT)
+- [x] **UX-07**: Font loading handled via next/font (no FOUT)
 
 ### Deployment
 - [ ] **DEPLOY-01**: App deploys to Vercel on unlisted URL
@@ -97,12 +97,12 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 — Foundation | Pending |
-| DATA-02 | Phase 1 — Foundation | Pending |
-| DATA-03 | Phase 1 — Foundation | Pending |
-| DATA-04 | Phase 1 — Foundation | Pending |
-| UX-05 | Phase 1 — Foundation | Pending |
-| UX-07 | Phase 1 — Foundation | Pending |
+| DATA-01 | Phase 1 — Foundation | Complete |
+| DATA-02 | Phase 1 — Foundation | Complete |
+| DATA-03 | Phase 1 — Foundation | Complete |
+| DATA-04 | Phase 1 — Foundation | Complete |
+| UX-05 | Phase 1 — Foundation | Complete |
+| UX-07 | Phase 1 — Foundation | Complete |
 | BROWSE-02 | Phase 2 — Layout Shell | Pending |
 | UX-04 | Phase 2 — Layout Shell | Pending |
 | DETAIL-01 | Phase 3 — Property Detail | Pending |

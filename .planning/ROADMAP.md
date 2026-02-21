@@ -12,7 +12,7 @@ Build a polished Anvara sponsorship marketplace prototype from data layer throug
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Next.js project scaffolded, Prisma schema defined, seed data created, data query helpers ready
+- [x] **Phase 1: Foundation** - Next.js project scaffolded, Prisma schema defined, seed data created, data query helpers ready
 - [ ] **Phase 2: Layout Shell** - Root layout, navigation sidebar, footer, fonts, and metadata in place — every page renders in real context
 - [ ] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
 - [ ] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
