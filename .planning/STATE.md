@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 3 of 7 (Property Detail)
-Plan: 1 of 3 in current phase
-Status: In progress — Plan 03-01 complete, ready for 03-02 (OfferSidebar)
-Last activity: 2026-02-21 — Completed 03-01-PLAN.md (property detail route, carousel, meta, about)
+Plan: 2 of 3 in current phase
+Status: In progress — Plan 03-02 complete, ready for 03-03 (demographics, tags, categories)
+Last activity: 2026-02-21 — Completed 03-02-PLAN.md (PropertyTiers, BuildOfferForm, OfferSidebar, MakeOfferDialog)
 
-Progress: [███████░░░] 25% (7/28 plans)
+Progress: [████████░░] 29% (8/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: ~4 minutes
-- Total execution time: ~0.40 hours
+- Total plans completed: 8
+- Average duration: ~3.6 minutes
+- Total execution time: ~0.47 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [███████░░░] 25% (7/28 plans)
 |-------|-------|-------|----------|
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
-| Phase 3 (Property Detail) | 1/3 in progress | 2 min | 2 min |
+| Phase 3 (Property Detail) | 2/3 in progress | 4 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (4 min), 01-04 (4 min), 02-01 (12 min), 02-02 (2 min), 03-01 (2 min)
-- Trend: Fast — 03-01 quick as ShadCN carousel/badge install was smooth
+- Last 5 plans: 01-04 (4 min), 02-01 (12 min), 02-02 (2 min), 03-01 (2 min), 03-02 (2 min)
+- Trend: Fast — Phase 3 running at 2 min/plan consistently
 
 *Updated after each plan completion*
 
@@ -74,6 +74,9 @@ Recent decisions affecting current work:
 - [03-01]: Dot indicators hidden when single image (count > 1 guard) — avoids lone dot confusion
 - [03-01]: generateStaticParams returns [] — Neon DB may not be reachable at build time; pages render dynamically
 - [03-01]: PropertyAbout positioned above tiers — locked user decision from CONTEXT.md
+- [03-02]: MakeOfferDialog visual-only in Phase 3 — offer creation deferred to Phase 5 (Thread FK constraint)
+- [03-02]: PropertyTiers sorts ascending by priceUsd — cheapest tier first matches standard SaaS pricing scan pattern
+- [03-02]: Contact for pricing fallback when priceUsd === 0 — valid business case for negotiable rates
 
 ### Pending Todos
 
@@ -81,11 +84,11 @@ None.
 
 ### Blockers/Concerns
 
-- [03-02]: OfferSidebar needs ShadCN Dialog for Make an Offer modal — run `npx shadcn add dialog` before building
-- [03-02]: Offer creation Server Action must create Thread first (FK constraint: Offer.threadId required)
+- [03-03]: No new ShadCN installs required — all components for demographics, tags, and audience stats can use existing primitives
+- [Phase 5]: MakeOfferDialog Server Action must create Thread first before Offer (FK constraint: Offer.threadId required)
 
 ## Session Continuity
 
-Last session: 2026-02-21 08:14 UTC
-Stopped at: Completed 03-01-PLAN.md — property detail route, PropertyHero carousel, PropertyMeta, PropertyAbout
+Last session: 2026-02-21 08:20 UTC
+Stopped at: Completed 03-02-PLAN.md — PropertyTiers, BuildOfferForm, OfferSidebar, MakeOfferDialog wired into page
 Resume file: None
