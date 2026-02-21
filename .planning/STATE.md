@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 2 — Layout Shell
+**Current focus:** Phase 2 — Layout Shell COMPLETE
 
 ## Current Position
 
 Phase: 2 of 7 (Layout Shell)
-Plan: 1 of 2 in current phase
-Status: In progress — 02-01 complete, 02-02 remaining
-Last activity: 2026-02-21 — Completed 02-01-PLAN.md (Layout shell, sidebar, theme, brand colors)
+Plan: 2 of 2 in current phase
+Status: Phase 2 COMPLETE — ready for Phase 3 (Browse Page)
+Last activity: 2026-02-21 — Completed 02-02-PLAN.md (HeaderBar, SiteFooter, shell layout, image hostnames)
 
-Progress: [█████░░░░░] 18% (5/28 plans)
+Progress: [██████░░░░] 21% (6/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: ~5 minutes
-- Total execution time: ~0.35 hours
+- Total execution time: ~0.37 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
-| Phase 2 (Layout Shell) | 1/2 | 12 min | 12 min |
+| Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (3 min), 01-02 (5 min), 01-03 (4 min), 01-04 (4 min), 02-01 (12 min)
-- Trend: Stable (02-01 longer due to ShadCN installs)
+- Last 5 plans: 01-02 (5 min), 01-03 (4 min), 01-04 (4 min), 02-01 (12 min), 02-02 (2 min)
+- Trend: Fast — 02-02 very quick as all ShadCN components already installed
 
 *Updated after each plan completion*
 
@@ -65,6 +65,10 @@ Recent decisions affecting current work:
 - [02-01]: Anvara brand blue --primary oklch(0.45 0.27 264) light / oklch(0.55 0.25 264) dark — hue 264 indigo-blue
 - [02-01]: (app) route group separates shell layout from root — all app pages inherit sidebar + theme automatically
 - [02-01]: Active sidebar state via data-[active=true]:before: pseudo-element — vertical accent bar left edge
+- [02-02]: Breadcrumb reads usePathname() client-side, maps segments to human labels via SEGMENT_LABELS lookup
+- [02-02]: Search bar is visual-only for Phase 2 — functional search deferred to later phase
+- [02-02]: Footer inside SidebarInset so it scrolls with content (not stuck below sidebar)
+- [02-02]: Three anvara.com remotePatterns added: images.anvara.com, www.anvara.com, anvara.com
 
 ### Pending Todos
 
@@ -76,6 +80,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-21 07:16 UTC
-Stopped at: Completed 02-01-PLAN.md — Layout shell with sidebar, next-themes dark mode, Anvara brand blue, (app) route group.
+Last session: 2026-02-21 07:14 UTC
+Stopped at: Completed 02-02-PLAN.md — HeaderBar, SiteFooter, integrated shell layout, image hostnames for Anvara.
 Resume file: None
