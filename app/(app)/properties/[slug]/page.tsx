@@ -3,6 +3,9 @@ import { getPropertyBySlug } from "@/lib/data"
 import { PropertyHero } from "@/components/property-detail/property-hero"
 import { PropertyMeta } from "@/components/property-detail/property-meta"
 import { PropertyAbout } from "@/components/property-detail/property-about"
+import { PropertyTiers } from "@/components/property-detail/property-tiers"
+import { BuildOfferForm } from "@/components/property-detail/build-offer-form"
+import { OfferSidebar } from "@/components/property-detail/offer-sidebar"
 
 export default async function PropertyDetailPage({
   params,
@@ -19,19 +22,27 @@ export default async function PropertyDetailPage({
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
       <div className="grid grid-cols-5 gap-8 items-start">
+        {/* Left column — 60% */}
         <div className="col-span-3">
           <PropertyHero images={[property.imageUrl]} />
           <div className="mt-6 space-y-8">
             <PropertyMeta property={property} />
             <PropertyAbout description={property.description} />
-            {/* Tiers, demographics, categories, formats — added in Plans 03-02 and 03-03 */}
+            <PropertyTiers packages={property.packages} />
+            <div id="build-offer">
+              <BuildOfferForm />
+            </div>
           </div>
         </div>
+
+        {/* Right column — 40%, sticky */}
         <div className="col-span-2 sticky top-20">
-          {/* OfferSidebar — added in Plan 03-02 */}
-          <div className="rounded-lg border p-6 text-sm text-muted-foreground">
-            Offer sidebar placeholder
-          </div>
+          <OfferSidebar
+            propertyId={property.id}
+            propertyName={property.name}
+            priceFrom={property.priceFrom}
+            packageCount={property.packages.length}
+          />
         </div>
       </div>
     </div>
