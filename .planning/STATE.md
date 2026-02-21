@@ -5,22 +5,22 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 5 (Messaging) — plan 1/N complete
+**Current focus:** Phase 5 (Messaging) — plan 2/3 complete
 
 ## Current Position
 
 Phase: 5 of 7 (Messaging) — In progress
-Plan: 1 of ? in phase — COMPLETE
-Status: 05-01 complete — messaging inbox foundation established
-Last activity: 2026-02-21 — Completed 05-01-PLAN.md (Messaging Inbox Foundation)
+Plan: 2 of 3 in phase — COMPLETE
+Status: 05-02 complete — conversation view, AI responses, chat bubbles, typing indicator
+Last activity: 2026-02-21 — Completed 05-02-PLAN.md (Conversation View and AI Responses)
 
-Progress: [██████████████░] 50% (14/28 plans)
+Progress: [███████████████░] 54% (15/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: ~2.7 minutes
+- Total plans completed: 15
+- Average duration: ~2.5 minutes
 - Total execution time: ~0.63 hours
 
 **By Phase:**
@@ -31,10 +31,10 @@ Progress: [██████████████░] 50% (14/28 plans)
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 | Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
 | Phase 4 (Browse/Discovery) | 4/4 COMPLETE | 9 min | 2.3 min |
-| Phase 5 (Messaging) | 1/? in progress | 2 min | 2 min |
+| Phase 5 (Messaging) | 2/3 in progress | 4 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-02 (2 min), 04-03 (1 min), 04-04 (4 min), 05-01 (2 min)
+- Last 5 plans: 04-03 (1 min), 04-04 (4 min), 05-01 (2 min), 05-02 (2 min)
 - Trend: Fast — consistently ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -101,6 +101,10 @@ Recent decisions affecting current work:
 - [05-01]: property: { include: { packages: true } } in getThreads/getThread — packages needed for AI prompts (05-02) and offer form tier selection (05-03)
 - [05-01]: Demo unread state (first 2 threads) — real per-message read receipts deferred; bold + dot indicator on first 2 as demo
 - [05-01]: Awaited return type pattern — type Thread = Awaited<ReturnType<typeof getThreads>>[number] extracts Prisma type from server function
+- [05-02]: key prop on ConversationView — key={activeThread.id} resets all state (messages, typing, error, banner) when switching threads
+- [05-02]: Local state update on AI response — setMessages replaces temp-prefixed optimistic messages, appends AI reply; onThreadUpdate propagates to thread list
+- [05-02]: Retry button for AI failures — calls /api/chat again with same threadId; error handling path is fully functional without OPENAI_API_KEY
+- [05-02]: OPENAI_API_KEY not in .env.local — AI responses return 500; inline error + retry handles this gracefully; key must be added for live AI responses
 
 ### Pending Todos
 
@@ -108,10 +112,10 @@ None.
 
 ### Blockers/Concerns
 
-None. 05-01 complete. 05-02 (ConversationView + AI responses) is next.
+OPENAI_API_KEY must be added to .env.local before 05-03 verification can test live AI responses. The error handling path works, but actual AI responses require the key.
 
 ## Session Continuity
 
-Last session: 2026-02-21 18:30 UTC
-Stopped at: Completed 05-01-PLAN.md — Messaging Inbox Foundation (Phase 5 in progress)
+Last session: 2026-02-21 18:36 UTC
+Stopped at: Completed 05-02-PLAN.md — Conversation View and AI Responses (Phase 5, plan 2/3)
 Resume file: None
