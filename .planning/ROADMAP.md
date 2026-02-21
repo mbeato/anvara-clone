@@ -116,11 +116,14 @@ Plans:
   2. "How it works" section explains the marketplace flow in the same three-step structure as the current Anvara site
   3. Featured properties section shows real seeded property cards (reusing `PropertyCard`) that link to detail pages
   4. Social proof section is present with brand logos, stats, or testimonials faithful to Anvara's current messaging
-**Plans**: TBD
+**Plans**: 5 plans in 3 waves (wave 1 foundation, wave 2 parallel sections, wave 3 assembly + verification)
 
 Plans:
-- [ ] 06-01: Landing page route (`app/page.tsx`), hero section, "How it works" section
-- [ ] 06-02: Featured properties section (reuses `PropertyCard`), social proof section with brand logos/stats
+- [ ] 06-01-PLAN.md — Foundation: routing, deps (motion, accordion), SectionReveal, LandingPropertyCard, marquee CSS
+- [ ] 06-02-PLAN.md — Hero (video bg, headline, CTA, snap carousel), Brand Logos, What is Anvara (rotating text), Access Market
+- [ ] 06-03-PLAN.md — A-Z Execution (Before/After mockup), Performance Reporting (metrics viz), Anvara Intelligence (AI flow)
+- [ ] 06-04-PLAN.md — For Brands/Rightsholders (logo grids), Testimonial (GoPuff quote), FAQ (accordion), Final CTA (marquee), Footer
+- [ ] 06-05-PLAN.md — Page assembly (wire all 12 sections into page.tsx) + human verification
 
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
@@ -151,5 +154,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
 | 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
 | 5. Messaging | 3/3 | Complete | 2026-02-21 |
-| 6. Landing Page | 0/2 | Not started | - |
+| 6. Landing Page | 0/5 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
