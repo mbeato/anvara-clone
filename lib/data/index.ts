@@ -72,3 +72,12 @@ export async function filterProperties(filters: {
     orderBy: { createdAt: "desc" },
   });
 }
+
+export async function getDistinctRegions(): Promise<string[]> {
+  const results = await prisma.property.findMany({
+    select: { region: true },
+    distinct: ["region"],
+    orderBy: { region: "asc" },
+  });
+  return results.map((r) => r.region);
+}
