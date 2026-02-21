@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 5 (Messaging) — plan 2/3 complete
+**Current focus:** Phase 5 (Messaging) — COMPLETE
 
 ## Current Position
 
-Phase: 5 of 7 (Messaging) — In progress
-Plan: 2 of 3 in phase — COMPLETE
-Status: 05-02 complete — conversation view, AI responses, chat bubbles, typing indicator
-Last activity: 2026-02-21 — Completed 05-02-PLAN.md (Conversation View and AI Responses)
+Phase: 5 of 7 (Messaging) — COMPLETE
+Plan: 3 of 3 in phase — COMPLETE
+Status: 05-03 complete — inline offer flow, OfferCard, AI acknowledgment of offers
+Last activity: 2026-02-21 — Completed 05-03-PLAN.md (Inline Offer Flow)
 
-Progress: [███████████████░] 54% (15/28 plans)
+Progress: [████████████████░] 57% (16/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: ~2.5 minutes
-- Total execution time: ~0.63 hours
+- Total execution time: ~0.67 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [███████████████░] 54% (15/28 plans)
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 | Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
 | Phase 4 (Browse/Discovery) | 4/4 COMPLETE | 9 min | 2.3 min |
-| Phase 5 (Messaging) | 2/3 in progress | 4 min | 2 min |
+| Phase 5 (Messaging) | 3/3 COMPLETE | 7 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-03 (1 min), 04-04 (4 min), 05-01 (2 min), 05-02 (2 min)
+- Last 5 plans: 04-04 (4 min), 05-01 (2 min), 05-02 (2 min), 05-03 (3 min)
 - Trend: Fast — consistently ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -105,6 +105,10 @@ Recent decisions affecting current work:
 - [05-02]: Local state update on AI response — setMessages replaces temp-prefixed optimistic messages, appends AI reply; onThreadUpdate propagates to thread list
 - [05-02]: Retry button for AI failures — calls /api/chat again with same threadId; error handling path is fully functional without OPENAI_API_KEY
 - [05-02]: OPENAI_API_KEY not in .env.local — AI responses return 500; inline error + retry handles this gracefully; key must be added for live AI responses
+- [05-03]: isOfferMessage helper exported from MessageBubble — clean detection of [OFFER]-prefixed content; MessageBubble returns null so parent renders OfferCard
+- [05-03]: Offer card matching by timestamp proximity — findMatchingOffer within 5s of message createdAt; avoids FK on Message model or passing offerId through content
+- [05-03]: Local offer state tracked separately from messages — setOffers appends immediately for correct status badge without server revalidation round-trip
+- [05-03]: isSubmittingOffer disables message input — prevents concurrent sends during offer submission flow
 
 ### Pending Todos
 
@@ -112,10 +116,10 @@ None.
 
 ### Blockers/Concerns
 
-OPENAI_API_KEY must be added to .env.local before 05-03 verification can test live AI responses. The error handling path works, but actual AI responses require the key.
+OPENAI_API_KEY must be added to .env.local for live AI responses. The error handling path works correctly without it.
 
 ## Session Continuity
 
-Last session: 2026-02-21 18:36 UTC
-Stopped at: Completed 05-02-PLAN.md — Conversation View and AI Responses (Phase 5, plan 2/3)
+Last session: 2026-02-21 18:43 UTC
+Stopped at: Completed 05-03-PLAN.md — Inline Offer Flow (Phase 5, plan 3/3 — Phase COMPLETE)
 Resume file: None
