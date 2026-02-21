@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 4 of 7 (Browse and Discovery) — In progress
-Plan: 2 of 5 in phase — COMPLETE
-Status: In progress — 04-02 complete, ready for 04-03 (FilterBar)
-Last activity: 2026-02-21 — Completed 04-02-PLAN.md (Category Carousel and Tab Row)
+Plan: 3 of 5 in phase — COMPLETE
+Status: In progress — 04-01, 04-02, 04-03 complete; ready for 04-04 (BrowseClient wiring)
+Last activity: 2026-02-21 — Completed 04-03-PLAN.md (Filter Bar and Empty State)
 
-Progress: [███████████░] 39% (11/28 plans)
+Progress: [████████████░] 43% (12/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: ~3.0 minutes
-- Total execution time: ~0.55 hours
+- Total plans completed: 12
+- Average duration: ~2.9 minutes
+- Total execution time: ~0.57 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [███████████░] 39% (11/28 plans)
 | Phase 1 (Foundation) | 4/4 COMPLETE | 16 min | 4 min |
 | Phase 2 (Layout Shell) | 2/2 COMPLETE | 14 min | 7 min |
 | Phase 3 (Property Detail) | 3/3 COMPLETE | 7 min | 2.3 min |
-| Phase 4 (Browse/Discovery) | 2/5 in progress | 4 min | 2 min |
+| Phase 4 (Browse/Discovery) | 3/5 in progress | 5 min | 1.7 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (2 min), 03-03 (2.6 min), 04-01 (2 min), 04-02 (2 min)
+- Last 5 plans: 03-03 (2.6 min), 04-01 (2 min), 04-02 (2 min), 04-03 (1 min)
 - Trend: Fast — consistently ~2 min/plan
 
 *Updated after each plan completion*
@@ -89,6 +89,10 @@ Recent decisions affecting current work:
 - [04-02]: button element for carousel cards (not div) — semantic HTML for clickable interactive elements
 - [04-02]: TAB_CATEGORIES capped at 5 seeded categories — avoids empty grid results from unsupported slugs
 - [04-02]: BrowseClient pattern: Server Component fetches, Client Component owns layout + URL filter state
+- [04-03]: Sentinel 'all' for Radix Select items — empty string disallowed as item value; map to undefined in handler
+- [04-03]: onValueCommit not onValueChange on Slider — prevents URL spam on every drag pixel
+- [04-03]: maxPrice chip/param suppressed at 150k ceiling — omit no-op filter display and URL entry
+- [04-03]: Event type dropdown shares category URL param with CategoryTabRow — stays in sync automatically
 
 ### Pending Todos
 
@@ -96,11 +100,10 @@ None.
 
 ### Blockers/Concerns
 
-None. Ready for 04-03 (FilterBar: price range slider, region select, sort order).
-BrowseClient has placeholder comment at correct insertion point for FilterBar.
+None. Ready for 04-04 (BrowseClient wiring: connect FilterBar, ActiveFilterChips, EmptyState to URL state).
 
 ## Session Continuity
 
 Last session: 2026-02-21 10:25 UTC
-Stopped at: Completed 04-02-PLAN.md — Category Carousel and Tab Row
+Stopped at: Completed 04-03-PLAN.md — Filter Bar and Empty State
 Resume file: None
