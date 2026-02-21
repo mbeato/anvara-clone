@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 1 of 7 (Foundation)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-02-21 — Completed 01-01-PLAN.md (Next.js scaffold + ShadCN init)
+Last activity: 2026-02-21 — Completed 01-02-PLAN.md (Prisma schema + Neon Postgres + Client singleton)
 
-Progress: [█░░░░░░░░░] 4% (1/28 plans)
+Progress: [██░░░░░░░░] 7% (2/28 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 3 minutes
-- Total execution time: ~0.05 hours
+- Total plans completed: 2
+- Average duration: 4 minutes
+- Total execution time: ~0.13 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| Phase 1 (Foundation) | 1/4 | 3 min | 3 min |
+| Phase 1 (Foundation) | 2/4 | 8 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (3 min)
-- Trend: —
+- Last 5 plans: 01-01 (3 min), 01-02 (5 min)
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -48,6 +48,10 @@ Recent decisions affecting current work:
 - [Init]: Creative liberties on browse/detail — the value-add pages where UX improvements shine
 - [01-01]: Scaffold to /tmp then rsync — create-next-app refuses directories with existing files
 - [01-01]: ShadCN new-york style, neutral color — appropriate neutral base for B2B sponsorship marketplace
+- [01-02]: Prisma v7 config-file pattern — datasource has no url field; URL lives in prisma.config.ts
+- [01-02]: DIRECT_URL for prisma.config.ts (push/migrations), DATABASE_URL (pooled) for lib/prisma.ts runtime
+- [01-02]: PrismaNeon adapter required — standard PrismaClient alone incompatible with Neon serverless HTTP driver
+- [01-02]: prisma/generated gitignored — generated artifacts not committed; prisma generate runs on install
 
 ### Pending Todos
 
@@ -55,12 +59,12 @@ None.
 
 ### Blockers/Concerns
 
-- [Phase 1]: Reconcile Property type definition between STACK.md and ARCHITECTURE.md — use STACK.md `SponsorshipProperty` as base, add `availability: string`
+- [Phase 1]: **RESOLVED** — Reconcile Property type definition: schema.prisma is now canonical source (includes `availability: String` field)
 - [Phase 1]: **RESOLVED** — Pick one image host (Picsum recommended) before writing seed data — added to `next.config.ts` `remotePatterns` in 01-01
 - [Phase 3]: Next.js 15+ dynamic route `params` is a Promise — must `await params` before accessing `id`; add `generateStaticParams`
 
 ## Session Continuity
 
-Last session: 2026-02-21 05:42 UTC
-Stopped at: Completed 01-01-PLAN.md — scaffold and ShadCN init done
+Last session: 2026-02-21 05:58 UTC
+Stopped at: Completed 01-02-PLAN.md — Prisma schema, Neon setup, and Client singleton done
 Resume file: None
