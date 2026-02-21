@@ -13,7 +13,7 @@ Build a polished Anvara sponsorship marketplace prototype from data layer throug
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js project scaffolded, Prisma schema defined, seed data created, data query helpers ready
-- [ ] **Phase 2: Layout Shell** - Root layout, navigation sidebar, footer, fonts, and metadata in place — every page renders in real context
+- [x] **Phase 2: Layout Shell** - Root layout, navigation sidebar, footer, fonts, and metadata in place — every page renders in real context
 - [ ] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
 - [ ] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
 - [ ] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
@@ -51,8 +51,8 @@ Plans:
 **Plans**: 2 plans in 2 waves (sequential — header/footer depends on sidebar shell)
 
 Plans:
-- [ ] 02-01-PLAN.md — Install deps, ThemeProvider, sidebar nav, mode toggle, (app) route group, brand colors
-- [ ] 02-02-PLAN.md — Header bar (breadcrumb, search, avatar, notifications), footer attribution, image hostname config
+- [x] 02-01-PLAN.md — Install deps, ThemeProvider, sidebar nav, mode toggle, (app) route group, brand colors
+- [x] 02-02-PLAN.md — Header bar (breadcrumb, search, avatar, notifications), footer attribution, image hostname config
 
 ### Phase 3: Property Detail
 **Goal**: An advertiser can navigate to a property detail page and see all the information needed to make a sponsorship decision — hero, tier pricing, audience demographics, activation formats, and a working offer sidebar
@@ -148,7 +148,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-02-21 |
-| 2. Layout Shell | 0/2 | Not started | - |
+| 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
 | 3. Property Detail | 0/3 | Not started | - |
 | 4. Browse and Discovery | 0/5 | Not started | - |
 | 5. Messaging | 0/3 | Not started | - |

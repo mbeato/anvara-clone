@@ -11,7 +11,7 @@
 
 ### Browse / Discovery
 - [ ] **BROWSE-01**: User can view sponsorship properties as a card grid with image, name, category, price range, start date
-- [ ] **BROWSE-02**: Left sidebar navigation with icon-based menu items (matching their current layout)
+- [x] **BROWSE-02**: Left sidebar navigation with icon-based menu items (matching their current layout)
 - [ ] **BROWSE-03**: Auto-scrolling category carousel at top with image cards (Jazz Festivals, Food Festivals, Action Sports, etc.)
 - [ ] **BROWSE-04**: Category tab bar with icons (All, Music, Art, Sports, Food, Wellness, Fun, Charity, Culture, Business, Fashion, Tech, Outdoor, Film, Networking)
 - [ ] **BROWSE-05**: User can filter properties by category via tab selection
@@ -59,7 +59,7 @@
 - [ ] **UX-01**: All pages are mobile-responsive (works on phone/tablet)
 - [ ] **UX-02**: Proper loading states on all data-heavy sections
 - [ ] **UX-03**: Proper error states with user-friendly messages
-- [ ] **UX-04**: Footer displays "Prototype by Max Beato" on all pages
+- [x] **UX-04**: Footer displays "Prototype by Max Beato" on all pages
 - [x] **UX-05**: Custom page title and Anvara-style favicon (not default Next.js)
 - [ ] **UX-06**: No console errors visible in DevTools
 - [x] **UX-07**: Font loading handled via next/font (no FOUT)
@@ -103,8 +103,8 @@
 | DATA-04 | Phase 1 — Foundation | Complete |
 | UX-05 | Phase 1 — Foundation | Complete |
 | UX-07 | Phase 1 — Foundation | Complete |
-| BROWSE-02 | Phase 2 — Layout Shell | Pending |
-| UX-04 | Phase 2 — Layout Shell | Pending |
+| BROWSE-02 | Phase 2 — Layout Shell | Complete |
+| UX-04 | Phase 2 — Layout Shell | Complete |
 | DETAIL-01 | Phase 3 — Property Detail | Pending |
 | DETAIL-02 | Phase 3 — Property Detail | Pending |
 | DETAIL-03 | Phase 3 — Property Detail | Pending |
