@@ -100,12 +100,12 @@ Plans:
   2. Clicking a thread opens the conversation history with messages from both the advertiser and property side
   3. Advertiser can type and send a new message; a reply from the property (labeled "AI-simulated") appears within a few seconds
   4. "Make an Offer" button in a thread opens a form with amount and terms fields; submitting renders the offer as a structured message in the thread
-**Plans**: TBD
+**Plans**: 3 plans in 3 waves (sequential — each plan builds on the previous)
 
 Plans:
-- [ ] 05-01: Messaging route (`app/messages/page.tsx`), inbox list of threads from database
-- [ ] 05-02: Thread detail view with message history, send message form, AI response via o3-mini API route
-- [ ] 05-03: "Make an Offer" modal form (amount, terms), offer submission stores to DB and renders as structured message
+- [ ] 05-01-PLAN.md — Install AI SDK, sendMessage action, messaging page route, two-panel layout shell, thread list with thumbnails/snippets
+- [ ] 05-02-PLAN.md — Conversation view with chat bubbles, message sending with useOptimistic, AI response via o3-mini API route, typing indicator
+- [ ] 05-03-PLAN.md — Inline "Make an Offer" form (amount, tier, note), offer card rendering, createOfferInThread action, AI offer acknowledgment
 
 ### Phase 6: Landing Page
 **Goal**: The landing page faithfully reproduces Anvara's current site content and messaging, giving founders a recognizable starting point that demonstrates UX polish on a page they know
@@ -150,6 +150,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 2. Layout Shell | 2/2 | Complete | 2026-02-21 |
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
 | 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
-| 5. Messaging | 0/3 | Not started | - |
+| 5. Messaging | 0/3 | Planned | - |
 | 6. Landing Page | 0/2 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
