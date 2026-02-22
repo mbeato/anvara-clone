@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import type { getAllProperties } from "@/lib/data";
 import { CategoryCarousel } from "./category-carousel";
 import { CategoryTabRow } from "./category-tab-row";
 import { PropertyCard } from "./property-card";
-import { PropertyCardSkeleton } from "./property-card-skeleton";
 import { FilterBar } from "./filter-bar";
 import { ActiveFilterChips } from "./active-filter-chips";
 import { EmptyState } from "./empty-state";
@@ -38,13 +37,6 @@ export function BrowseClient({
 }: BrowseClientProps) {
   const router = useRouter();
   const pathname = usePathname();
-
-  // BROWSE-09: 200-400ms skeleton loading delay
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 300);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Mock-personalized recommendations: featured properties first, fill to 6
   const recommendedProperties = useMemo(() => {
@@ -88,9 +80,14 @@ export function BrowseClient({
 
   const removeFilter = useCallback(
     (key: string) => {
-      updateFilter(key, undefined);
+      const params = new URLSearchParams();
+      if (key !== "category" && currentFilters.category) params.set("category", currentFilters.category);
+      if (key !== "region" && currentFilters.region) params.set("region", currentFilters.region);
+      if (key !== "minPrice" && currentFilters.minPrice !== undefined) params.set("minPrice", String(currentFilters.minPrice));
+      if (key !== "maxPrice" && currentFilters.maxPrice !== undefined) params.set("maxPrice", String(currentFilters.maxPrice));
+      const qs = params.toString();
+      router.replace(pathname + (qs ? "?" + qs : ""), { scroll: false });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentFilters, pathname, router]
   );
 
@@ -134,14 +131,8 @@ export function BrowseClient({
         {properties.length === 1 ? "property" : "properties"}
       </p>
 
-      {/* Property grid with skeleton loading */}
-      {isLoading ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <PropertyCardSkeleton key={i} />
-          ))}
-        </div>
-      ) : properties.length === 0 ? (
+      {/* Property grid */}
+      {properties.length === 0 ? (
         <EmptyState onClearFilters={clearFilters} />
       ) : (
         <div
