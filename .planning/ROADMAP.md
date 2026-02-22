@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
 - [x] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
 - [x] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
-- [ ] **Phase 6.1: Advertiser Analytics Dashboard** (INSERTED) - Dummy analytics dashboard with trend graphs, bar charts, and KPI cards showing data an advertiser would expect to see
+- [x] **Phase 6.1: Advertiser Analytics Dashboard** (INSERTED) - Dummy analytics dashboard with trend graphs, bar charts, and KPI cards showing data an advertiser would expect to see
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -160,8 +160,8 @@ Plans:
 **Plans**: 2 plans in 2 waves (sequential — Plan 02 depends on Plan 01's data layer)
 
 Plans:
-- [ ] 06.1-01-PLAN.md — Analytics data helper, KPI card component, loading skeleton, sidebar icon update
-- [ ] 06.1-02-PLAN.md — Impressions area chart, category bar chart, recent activity table, page assembly
+- [x] 06.1-01-PLAN.md — Analytics data helper, KPI card component, loading skeleton, sidebar icon update
+- [x] 06.1-02-PLAN.md — Impressions area chart, category bar chart, recent activity table, page assembly
 
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
@@ -194,5 +194,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 6.1 → 7
 | 5. Messaging | 3/3 | Complete | 2026-02-21 |
 | 5.1 Enforce Coding Standards | 2/2 | Complete | 2026-02-22 |
 | 6. Landing Page | 5/5 | Complete | 2026-02-22 |
-| 6.1 Advertiser Analytics Dashboard | 0/? | Not started | - |
+| 6.1 Advertiser Analytics Dashboard | 2/2 | Complete | 2026-02-22 |
 | 7. Polish and Deploy | 0/3 | Not started | - |
