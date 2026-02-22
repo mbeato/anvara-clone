@@ -34,6 +34,9 @@ export default async function LandingPage() {
       {/* Section 1: Hero — Video bg, headline, CTA, snap carousel */}
       <HeroSection properties={properties} />
 
+      {/* Section 2: Brand logos bar */}
+      <BrandLogosBar />
+
       {/* Section 3: What is Anvara — rotating text, 3D tokens */}
       <WhatIsAnvara />
 
