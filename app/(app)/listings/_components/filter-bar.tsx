@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import { useState, useEffect } from "react"
 import { Slider } from "@/components/ui/slider"
 import {
   Select,
@@ -35,8 +35,17 @@ export function FilterBar({
   onFilterChange,
   onPriceChange,
 }: FilterBarProps) {
-  const sliderMin = currentFilters.minPrice ?? 0
-  const sliderMax = currentFilters.maxPrice ?? PRICE_MAX
+  const [liveRange, setLiveRange] = useState([
+    currentFilters.minPrice ?? 0,
+    currentFilters.maxPrice ?? PRICE_MAX,
+  ])
+
+  useEffect(() => {
+    setLiveRange([
+      currentFilters.minPrice ?? 0,
+      currentFilters.maxPrice ?? PRICE_MAX,
+    ])
+  }, [currentFilters.minPrice, currentFilters.maxPrice])
 
   function handlePriceCommit(values: number[]) {
     const min = values[0] > 0 ? values[0] : undefined
@@ -45,7 +54,7 @@ export function FilterBar({
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex items-center gap-3 shrink-0">
       {/* Region dropdown */}
       <Select
         value={currentFilters.region ?? "all"}
@@ -87,20 +96,24 @@ export function FilterBar({
 
       {/* Price range slider */}
       <div className="flex flex-col gap-1">
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Price</span>
-          <Slider
-            min={0}
-            max={PRICE_MAX}
-            step={5000}
-            value={[sliderMin, sliderMax]}
-            onValueCommit={handlePriceCommit}
-            className="w-52"
-          />
+        <span className="text-xs font-medium text-muted-foreground">Price</span>
+        <Slider
+          min={0}
+          max={PRICE_MAX}
+          step={5000}
+          value={liveRange}
+          onValueChange={setLiveRange}
+          onValueCommit={handlePriceCommit}
+          className="w-52"
+        />
+        <div className="flex justify-between w-52">
+          <span className="text-xs text-muted-foreground">
+            {priceFormatter.format(liveRange[0])}
+          </span>
+          <span className="text-xs text-muted-foreground">
+            {priceFormatter.format(liveRange[1])}
+          </span>
         </div>
-        <span className="text-xs text-muted-foreground">
-          {priceFormatter.format(sliderMin)} &mdash; {priceFormatter.format(sliderMax)}
-        </span>
       </div>
     </div>
   )
