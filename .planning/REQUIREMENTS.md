@@ -3,11 +3,11 @@
 ## v1 Requirements
 
 ### Landing Page
-- [ ] **LAND-01**: Landing page displays hero section with headline, value prop, and primary CTA
-- [ ] **LAND-02**: Landing page displays "How it works" section explaining marketplace flow
-- [ ] **LAND-03**: Landing page displays featured sponsorship properties linking to browse page
-- [ ] **LAND-04**: Landing page displays social proof (brand logos, stats, or testimonials)
-- [ ] **LAND-05**: Landing page is faithful to current Anvara site content/messaging
+- [x] **LAND-01**: Landing page displays hero section with headline, value prop, and primary CTA
+- [x] **LAND-02**: Landing page displays "How it works" section explaining marketplace flow (satisfied by WhatIsAnvara + A-Z Execution + Performance Reporting sections — matches actual Anvara site structure)
+- [x] **LAND-03**: Landing page displays featured sponsorship properties linking to browse page
+- [x] **LAND-04**: Landing page displays social proof (brand logos, stats, or testimonials)
+- [x] **LAND-05**: Landing page is faithful to current Anvara site content/messaging
 
 ### Browse / Discovery
 - [x] **BROWSE-01**: User can view sponsorship properties as a card grid with image, name, category, price range, start date
@@ -140,11 +140,11 @@
 | MSG-06 | Phase 5 — Messaging | Complete |
 | MSG-07 | Phase 5 — Messaging | Complete |
 | MSG-08 | Phase 5 — Messaging | Complete |
-| LAND-01 | Phase 6 — Landing Page | Pending |
-| LAND-02 | Phase 6 — Landing Page | Pending |
-| LAND-03 | Phase 6 — Landing Page | Pending |
-| LAND-04 | Phase 6 — Landing Page | Pending |
-| LAND-05 | Phase 6 — Landing Page | Pending |
+| LAND-01 | Phase 6 — Landing Page | Complete |
+| LAND-02 | Phase 6 — Landing Page | Complete |
+| LAND-03 | Phase 6 — Landing Page | Complete |
+| LAND-04 | Phase 6 — Landing Page | Complete |
+| LAND-05 | Phase 6 — Landing Page | Complete |
 | UX-01 | Phase 7 — Polish and Deploy | Pending |
 | UX-06 | Phase 7 — Polish and Deploy | Pending |
 | DEPLOY-01 | Phase 7 — Polish and Deploy | Pending |

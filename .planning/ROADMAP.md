@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
 - [x] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
 - [x] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
-- [ ] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
+- [x] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -139,11 +139,11 @@ Plans:
 **Plans**: 5 plans in 3 waves (wave 1 foundation, wave 2 parallel sections, wave 3 assembly + verification)
 
 Plans:
-- [ ] 06-01-PLAN.md — Foundation: routing, deps (motion, accordion), SectionReveal, LandingPropertyCard, marquee CSS
-- [ ] 06-02-PLAN.md — Hero (video bg, headline, CTA, snap carousel), Brand Logos, What is Anvara (rotating text), Access Market
-- [ ] 06-03-PLAN.md — A-Z Execution (Before/After mockup), Performance Reporting (metrics viz), Anvara Intelligence (AI flow)
-- [ ] 06-04-PLAN.md — For Brands/Rightsholders (logo grids), Testimonial (GoPuff quote), FAQ (accordion), Final CTA (marquee), Footer
-- [ ] 06-05-PLAN.md — Page assembly (wire all 12 sections into page.tsx) + human verification
+- [x] 06-01-PLAN.md — Foundation: routing, deps (motion, accordion), SectionReveal, LandingPropertyCard, marquee CSS
+- [x] 06-02-PLAN.md — Hero (video bg, headline, CTA, snap carousel), Brand Logos, What is Anvara (rotating text), Access Market
+- [x] 06-03-PLAN.md — A-Z Execution (Before/After mockup), Performance Reporting (metrics viz), Anvara Intelligence (AI flow)
+- [x] 06-04-PLAN.md — For Brands/Rightsholders (logo grids), Testimonial (GoPuff quote), FAQ (accordion), Final CTA (marquee), Footer
+- [x] 06-05-PLAN.md — Page assembly (wire all 12 sections into page.tsx) + human verification
 
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
@@ -175,5 +175,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
 | 5. Messaging | 3/3 | Complete | 2026-02-21 |
 | 5.1 Enforce Coding Standards | 2/2 | Complete | 2026-02-22 |
-| 6. Landing Page | 0/5 | Not started | - |
+| 6. Landing Page | 5/5 | Complete | 2026-02-22 |
 | 7. Polish and Deploy | 0/3 | Not started | - |
