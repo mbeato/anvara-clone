@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 
 ## Current Position
 
-Phase: 5.1 of 7 (Enforce Coding Standards) — In progress
-Plan: 1 of 2 in phase — COMPLETE
-Status: 05.1-01 complete — browse-client, az-execution, for-brands, faq-section, recommendations-strip, messages/page cleaned
-Last activity: 2026-02-22 — Completed 05.1-01-PLAN.md (Cleanup Pass 1)
+Phase: 5.1 of 7 (Enforce Coding Standards) — COMPLETE
+Plan: 2 of 2 in phase — COMPLETE
+Status: 05.1-02 complete — verbatimModuleSyntax enabled, isolatedModules removed, build clean
+Last activity: 2026-02-22 — Completed 05.1-02-PLAN.md (Enable verbatimModuleSyntax)
 
-Progress: [████████████████████░] 71% (20/28 plans)
+Progress: [█████████████████████░] 75% (21/28 plans)
 
 ## Performance Metrics
 
@@ -125,6 +125,7 @@ Recent decisions affecting current work:
 - [06-04]: Newsletter input as readOnly — visual-only without disabled attribute graying out the input
 - [06-04]: Footer watermark uses clamp(80px, 18vw, 200px) — responsive font size matching Landing11.png screenshot
 - [06-04]: No SectionReveal on LandingFooter — footer always visible by time user scrolls to bottom
+- [05.1-02]: verbatimModuleSyntax: true replaces isolatedModules: true — stronger compiler enforcement of import type, isolatedModules is implied and redundant
 
 ### Roadmap Evolution
 
@@ -140,6 +141,6 @@ None. Phase 6 plan 04 complete. Plan 05 (Page Assembly) ready to begin — all 1
 
 ## Session Continuity
 
-Last session: 2026-02-22T05:54:16Z
-Stopped at: Completed 05.1-01-PLAN.md (Cleanup Pass 1)
+Last session: 2026-02-22T05:59:13Z
+Stopped at: Completed 05.1-02-PLAN.md (Enable verbatimModuleSyntax) — Phase 5.1 complete
 Resume file: None
