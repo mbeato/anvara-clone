@@ -11,6 +11,7 @@ import { Testimonial } from "./_components/landing/testimonial";
 import { FaqSection } from "./_components/landing/faq-section";
 import { FinalCTA } from "./_components/landing/final-cta";
 import { LandingFooter } from "./_components/landing/landing-footer";
+import { LandingNavbar } from "./_components/landing/landing-navbar";
 
 export default async function LandingPage() {
   const rawProperties = await getAllProperties();
@@ -27,11 +28,11 @@ export default async function LandingPage() {
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
+      {/* Sticky navbar — adaptive dark/light */}
+      <LandingNavbar />
+
       {/* Section 1: Hero — Video bg, headline, CTA, snap carousel */}
       <HeroSection properties={properties} />
-
-      {/* Section 2: Brand logos bar */}
-      <BrandLogosBar />
 
       {/* Section 3: What is Anvara — rotating text, 3D tokens */}
       <WhatIsAnvara />

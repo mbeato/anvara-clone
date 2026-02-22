@@ -39,7 +39,7 @@ export function WhatIsAnvara() {
 
   return (
     <SectionReveal>
-      <section className="w-full py-24 px-4 bg-background">
+      <section className="w-full min-h-screen flex items-center justify-center px-4 bg-background">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-12">
           {/* Badge */}
           <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-border bg-muted text-muted-foreground text-xs font-semibold tracking-wider uppercase">
