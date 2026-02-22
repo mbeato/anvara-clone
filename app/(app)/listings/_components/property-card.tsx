@@ -30,10 +30,10 @@ export function PropertyCard({ property }: { property: Property }) {
   const startDate = property.availability.split("—")[0].trim();
 
   return (
-    <Link href={`/properties/${property.slug}`} className="group block">
+    <Link href={`/listings/${property.slug}`} className="group block">
       <div className="rounded-xl border bg-card overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
         {/* Image container */}
-        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+        <div className="relative aspect-[2/1] overflow-hidden bg-muted">
           <Image
             src={property.imageUrl}
             alt={property.name}
@@ -57,8 +57,7 @@ export function PropertyCard({ property }: { property: Property }) {
         {/* Content area */}
         <div className="p-3 space-y-1">
           <p className="font-semibold text-sm line-clamp-1">{property.name}</p>
-          <span className="text-xs text-muted-foreground capitalize">{property.category}</span>
-          <p className="text-xs text-muted-foreground line-clamp-2">
+          <p className="text-xs text-muted-foreground line-clamp-1">
             {property.tagline}
           </p>
           <div className="flex items-center justify-between pt-1">
