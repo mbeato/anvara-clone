@@ -26,7 +26,7 @@ async function main() {
       subcategory: "soccer",
       location: "Los Angeles, CA",
       region: "west",
-      imageUrl: "https://picsum.photos/seed/lafc/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&h=600&fit=crop",
       description:
         "LAFC is the fastest-growing club in Major League Soccer with one of the most passionate fanbases in North American sports. With an average attendance of 22,000+ at BMO Stadium and a global broadcast footprint, LAFC offers brands a premium platform in the largest media market in the U.S. The club's demographic skews young (18–34), multicultural, and affluent — a highly desirable cohort for consumer and lifestyle brands.",
       audienceTotalReach: 1200000,
@@ -97,7 +97,7 @@ async function main() {
       subcategory: "football",
       location: "East Rutherford, NJ",
       region: "east",
-      imageUrl: "https://picsum.photos/seed/ny-jets/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=800&h=600&fit=crop",
       description:
         "The New York Jets represent one of the most storied franchises in the NFL, playing to sold-out crowds at MetLife Stadium in the nation's #1 media market. With 80,000 fans per game and national broadcast deals on CBS and ESPN, sponsorship with the Jets delivers unmatched reach to the tri-state area and beyond. The team has seen significant investment and momentum heading into the 2026 season.",
       audienceTotalReach: 4800000,
@@ -160,7 +160,7 @@ async function main() {
       subcategory: "tennis",
       location: "Miami Gardens, FL",
       region: "south",
-      imageUrl: "https://picsum.photos/seed/miami-open/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&h=600&fit=crop",
       description:
         "The Miami Open is one of the premier ATP and WTA Masters 1000 events in the world, drawing 400,000 attendees and a global television audience of 100M+ over two weeks. Held at Hard Rock Stadium, the event brings together the best tennis players in the world and attracts an affluent international audience. The festival atmosphere and Marquee South Florida setting make it a unique platform for premium brand storytelling.",
       audienceTotalReach: 3200000,
@@ -232,7 +232,7 @@ async function main() {
       subcategory: "soccer",
       location: "Austin, TX",
       region: "south",
-      imageUrl: "https://picsum.photos/seed/austin-fc/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=800&h=600&fit=crop",
       description:
         "Austin FC is MLS's fastest-growing club in one of America's most dynamic and rapidly expanding cities. Q2 Stadium consistently sells out with 20,500 passionate supporters, and the brand draws heavily from Austin's tech-forward, entrepreneurial demographic. With strong digital engagement and a civic pride narrative, Austin FC is an ideal platform for brands seeking authentic connection with the coveted 24–38 age group.",
       audienceTotalReach: 780000,
@@ -282,7 +282,7 @@ async function main() {
       subcategory: "festival",
       location: "Indio, CA",
       region: "west",
-      imageUrl: "https://picsum.photos/seed/coachella/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop",
       description:
         "Coachella is the defining cultural moment of the year for the 18–30 demographic, drawing 125,000 attendees daily across two weekends in April. With a global social media footprint exceeding 5B annual impressions and live streams reaching 40M viewers, Coachella offers brand partners an unrivaled platform for cultural relevance and authentic youth engagement. Activation opportunities range from experiential installations to digital integrations with the festival's award-winning content team.",
       audienceTotalReach: 5000000,
@@ -345,7 +345,7 @@ async function main() {
       subcategory: "festival",
       location: "Miami, FL",
       region: "south",
-      imageUrl: "https://picsum.photos/seed/rolling-loud/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
       description:
         "Rolling Loud is the world's largest hip-hop music festival, producing events in Miami, New York, Los Angeles, and internationally. The Miami flagship event draws 200,000+ attendees over three days and commands a digital audience in the hundreds of millions through live streams and social media. With a core demographic of multicultural 18–28-year-olds with high discretionary spending, Rolling Loud is unmatched for brands targeting the hip-hop generation.",
       audienceTotalReach: 2800000,
@@ -403,7 +403,7 @@ async function main() {
       subcategory: "performing-arts",
       location: "New York, NY",
       region: "east",
-      imageUrl: "https://picsum.photos/seed/jazz-lincoln-center/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800&h=600&fit=crop",
       description:
         "Jazz at Lincoln Center is the world's leading institution dedicated to jazz music, presenting more than 100 concerts annually at Frederick P. Rose Hall and touring the globe with world-class performances. Its audience skews highly educated, culturally engaged, and affluent — with household incomes well above the national median. Sponsorship with Jazz at Lincoln Center delivers meaningful brand prestige and authentic alignment with culture, creativity, and excellence.",
       audienceTotalReach: 380000,
@@ -462,7 +462,7 @@ async function main() {
       subcategory: "art-fair",
       location: "Miami Beach, FL",
       region: "south",
-      imageUrl: "https://picsum.photos/seed/art-basel-miami/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=800&h=600&fit=crop",
       description:
         "Art Basel Miami Beach is the most prestigious art fair in the Americas, attracting 93,000 collectors, curators, artists, and tastemakers from 90+ countries over 6 days in December. The event generates $500M+ in art sales annually and commands an audience with household incomes averaging $400,000+. For luxury brands, Art Basel Miami is the single highest-density gathering of ultra-high-net-worth individuals in North America.",
       audienceTotalReach: 650000,
@@ -513,7 +513,7 @@ async function main() {
       subcategory: "film",
       location: "New York, NY",
       region: "east",
-      imageUrl: "https://picsum.photos/seed/tribeca-film-festival/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=600&fit=crop",
       description:
         "Founded in the wake of 9/11 as a catalyst to revitalize Lower Manhattan, Tribeca has grown into one of the most influential film festivals in the world. Over 10 days in June, Tribeca presents 100+ films, 50+ talks and panels, and a Tribeca X program dedicated to branded entertainment. With 150,000 annual attendees and a premium media and entertainment audience, Tribeca is where culture, technology, and storytelling converge.",
       audienceTotalReach: 420000,
@@ -564,7 +564,7 @@ async function main() {
       subcategory: "culinary",
       location: "New York, NY",
       region: "east",
-      imageUrl: "https://picsum.photos/seed/nyc-wine-food/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
       description:
         "The NYC Wine & Food Festival is a four-day culinary extravaganza featuring 80+ events, 500+ chefs and sommeliers, and 50,000 food-obsessed attendees. Proceeds benefit God's Love We Deliver and No Kid Hungry, giving sponsors a compelling purpose-driven narrative. The audience skews upscale food enthusiasts with household incomes averaging $180,000 — prime targets for premium food, beverage, hospitality, and lifestyle brands.",
       audienceTotalReach: 290000,
@@ -633,7 +633,7 @@ async function main() {
       subcategory: "culinary",
       location: "Chicago, IL",
       region: "midwest",
-      imageUrl: "https://picsum.photos/seed/taste-of-chicago/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=600&fit=crop",
       description:
         "Taste of Chicago is the world's largest food festival, drawing over 1 million visitors to Grant Park over 5 summer days. With 80+ Chicago restaurants and vendors and live entertainment on multiple stages, the event is the defining civic gathering of Chicago's summer. For consumer brands seeking mass-market reach with Midwest authenticity and a genuine sense of community and joy, Taste of Chicago delivers unrivaled scale.",
       audienceTotalReach: 1800000,
@@ -700,7 +700,7 @@ async function main() {
       subcategory: "action-sports",
       location: "Aspen, CO",
       region: "west",
-      imageUrl: "https://picsum.photos/seed/x-games/800/600",
+      imageUrl: "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&h=600&fit=crop",
       description:
         "X Games Aspen is the world's premier action sports event, held each January at Buttermilk Mountain with 100,000+ on-site attendees and a global ESPN broadcast reaching 30M+ viewers across 190 countries. Featuring skateboarding, snowboarding, skiing, and moto disciplines, X Games attracts the most authentic action sports audience on the planet — passionate, brand-loyal, and highly influential within their peer networks.",
       audienceTotalReach: 3500000,
@@ -756,6 +756,207 @@ async function main() {
               "10 VIP passes for full event",
             ],
             maxSponsors: 8,
+          },
+        ],
+      },
+    },
+  });
+
+  const burningMan = await prisma.property.create({
+    data: {
+      slug: "burning-man",
+      name: "Burning Man",
+      tagline: "Where radical self-expression meets the desert",
+      category: "lifestyle",
+      subcategory: "experiential",
+      location: "Black Rock City, NV",
+      region: "west",
+      imageUrl: "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=800&h=600&fit=crop",
+      description:
+        "Burning Man is a week-long experiment in community, art, radical self-expression, and self-reliance held annually in Nevada's Black Rock Desert. Drawing 80,000 participants who build a temporary city from scratch, the event generates massive cultural influence far beyond its physical boundaries. With 1B+ annual social media impressions and a participant base that skews toward creative professionals, tech founders, and cultural leaders, Burning Man offers brands a rare platform for authentic alignment with innovation, creativity, and counterculture credibility.",
+      audienceTotalReach: 4200000,
+      audienceAgeRange: "25–45",
+      audienceGender: "54% male, 46% female",
+      audienceIncome: "affluent",
+      priceFrom: 50000,
+      availability: "Limited — August 2026",
+      featured: false,
+      tags: [
+        "experiential",
+        "desert",
+        "art",
+        "culture",
+        "Nevada",
+        "lifestyle",
+        "innovation",
+      ],
+      packages: {
+        create: [
+          {
+            name: "Art Installation Sponsor",
+            priceUsd: 150000,
+            inclusions: [
+              "Commission and co-present a large-scale art installation on the playa",
+              "Brand integration within installation experience (subtle, community-approved)",
+              "Documentary content rights — professional film crew captures installation story",
+              "Private camp hospitality space for 30 guests",
+              "Co-branded digital content series (4 episodes, post-event release)",
+              "Inclusion in official Burning Man Journal feature",
+            ],
+            maxSponsors: 2,
+          },
+          {
+            name: "Experience Partner",
+            priceUsd: 50000,
+            inclusions: [
+              "Branded interactive experience in open playa zone",
+              "Gifting activation — branded product distribution (community-appropriate)",
+              "15 event passes for brand team",
+              "Post-event social content collaboration with Burning Man Project",
+            ],
+            maxSponsors: 5,
+          },
+        ],
+      },
+    },
+  });
+
+  const f1Miami = await prisma.property.create({
+    data: {
+      slug: "f1-miami-gp",
+      name: "Formula 1 Crypto.com Miami Grand Prix",
+      tagline: "The hottest race weekend in motorsport",
+      category: "sports",
+      subcategory: "motorsport",
+      location: "Miami Gardens, FL",
+      region: "south",
+      imageUrl: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=600&fit=crop",
+      description:
+        "The Formula 1 Miami Grand Prix transforms Hard Rock Stadium into a world-class racing circuit for one of the most glamorous weekends in global sport. With 280,000 attendees over the race weekend, a global TV audience of 100M+, and a paddock filled with celebrities, athletes, and business leaders, the Miami GP has rapidly become the most sought-after hospitality and brand activation platform in American motorsport. The event's audience skews affluent, international, and highly engaged with luxury, technology, and performance brands.",
+      audienceTotalReach: 6500000,
+      audienceAgeRange: "25–50",
+      audienceGender: "60% male, 40% female",
+      audienceIncome: "affluent",
+      priceFrom: 75000,
+      availability: "Limited Availability — May 2026",
+      featured: true,
+      tags: [
+        "F1",
+        "motorsport",
+        "Miami",
+        "luxury",
+        "sports",
+        "international",
+        "broadcast",
+      ],
+      packages: {
+        create: [
+          {
+            name: "Paddock Club Partner",
+            priceUsd: 400000,
+            inclusions: [
+              "Branded hospitality suite in Paddock Club (capacity 80)",
+              "Track-side signage visible in global broadcast (2 locations)",
+              "Driver meet-and-greet event (1 current F1 driver)",
+              "30-second ad in race weekend broadcast feed",
+              "Co-branded social media campaign across F1 Miami channels",
+              "50 Paddock Club passes for race weekend",
+            ],
+            maxSponsors: 2,
+          },
+          {
+            name: "Campus Activation Partner",
+            priceUsd: 150000,
+            inclusions: [
+              "Branded activation space in Hard Rock Beach Club zone (3,000 sq ft)",
+              "Logo on race weekend digital signage and app",
+              "Product sampling or interactive experience for attendees",
+              "20 general admission weekend passes + 10 hospitality upgrades",
+              "2 co-branded social posts from @F1MiamiGP accounts",
+            ],
+            maxSponsors: 6,
+          },
+          {
+            name: "Race Weekend Sponsor",
+            priceUsd: 75000,
+            inclusions: [
+              "Logo in official race weekend digital program",
+              "Branded content feature on F1 Miami social channels",
+              "10 general admission weekend passes",
+              "Inclusion on event website partner page",
+            ],
+            maxSponsors: 10,
+          },
+        ],
+      },
+    },
+  });
+
+  const lollapalooza = await prisma.property.create({
+    data: {
+      slug: "lollapalooza",
+      name: "Lollapalooza Chicago",
+      tagline: "Four days, 100,000 fans, the heart of Chicago",
+      category: "music",
+      subcategory: "festival",
+      location: "Chicago, IL",
+      region: "midwest",
+      imageUrl: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&h=600&fit=crop",
+      description:
+        "Lollapalooza is one of the most iconic music festivals in the world, drawing 400,000 attendees over four days to Chicago's Grant Park each August. With 170+ artists across 8 stages and a global live stream partnership, Lollapalooza commands a massive cultural footprint that spans music, fashion, and youth culture. The festival's audience is young (70% under 35), highly active on social media, and deeply engaged with brands that show up authentically in the festival experience.",
+      audienceTotalReach: 3800000,
+      audienceAgeRange: "18–34",
+      audienceGender: "51% female, 49% male",
+      audienceIncome: "mass-market",
+      priceFrom: 40000,
+      availability: "Available — August 2026",
+      featured: false,
+      tags: [
+        "music",
+        "festival",
+        "Chicago",
+        "Gen-Z",
+        "culture",
+        "outdoor",
+        "youth",
+      ],
+      packages: {
+        create: [
+          {
+            name: "Headline Sponsor",
+            priceUsd: 300000,
+            inclusions: [
+              "Stage naming rights for one of 4 main stages",
+              "On-stage branding visible in all live stream coverage",
+              "Branded lounge area near sponsored stage (4,000 sq ft)",
+              "60-second ad in live stream broadcast (all 4 days)",
+              "40 artist hospitality passes + 100 VIP passes",
+              "Co-branded social media campaign (6 posts across Lolla channels)",
+            ],
+            maxSponsors: 4,
+          },
+          {
+            name: "Experience Sponsor",
+            priceUsd: 100000,
+            inclusions: [
+              "Branded activation area in festival grounds (2,500 sq ft)",
+              "Product sampling or interactive experience for attendees",
+              "Logo on festival app, website, and digital maps",
+              "20 VIP passes for all 4 days",
+              "2 co-branded social posts from @laboralooza accounts",
+            ],
+            maxSponsors: 8,
+          },
+          {
+            name: "Festival Partner",
+            priceUsd: 40000,
+            inclusions: [
+              "Logo on festival signage and digital screens",
+              "Brand mention in daily festival newsletter (200K subscribers)",
+              "10 general admission 4-day passes",
+              "Inclusion on festival website partner page",
+            ],
+            maxSponsors: 15,
           },
         ],
       },
