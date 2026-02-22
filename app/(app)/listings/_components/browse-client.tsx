@@ -9,7 +9,8 @@ import { PropertyCard } from "./property-card";
 import { FilterBar } from "./filter-bar";
 import { ActiveFilterChips } from "./active-filter-chips";
 import { EmptyState } from "./empty-state";
-import { RecommendationsStrip } from "./recommendations-strip";
+import { RecommendationsStrip, ListingStrip } from "./recommendations-strip";
+import { Pagination } from "./pagination";
 
 type Property = Awaited<ReturnType<typeof getAllProperties>>[number];
 
@@ -25,6 +26,9 @@ interface BrowseClientProps {
   allProperties: Property[];
   currentFilters: CurrentFilters;
   hasFilters: boolean;
+  currentPage: number;
+  totalPages: number;
+  totalCount: number;
 }
 
 const PRICE_MAX = 150000;
@@ -34,21 +38,30 @@ export function BrowseClient({
   allProperties,
   currentFilters,
   hasFilters,
+  currentPage,
+  totalPages,
+  totalCount,
 }: BrowseClientProps) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Mock-personalized recommendations: featured properties first, fill to 6
+  // Newest listings: reverse order to simulate newest first, take 12
+  const newestProperties = useMemo(() => {
+    return [...allProperties].reverse().slice(0, 12);
+  }, [allProperties]);
+
+  // Mock-personalized recommendations: featured properties first, fill to 12
   const recommendedProperties = useMemo(() => {
     const featured = allProperties.filter((p) => p.featured);
     const nonFeatured = allProperties.filter((p) => !p.featured);
     return [
       ...featured,
-      ...nonFeatured.slice(0, Math.max(0, 5 - featured.length)),
-    ].slice(0, 6);
+      ...nonFeatured.slice(0, Math.max(0, 12 - featured.length)),
+    ].slice(0, 12);
   }, [allProperties]);
 
   function updateFilter(key: string, value: string | undefined) {
+    // Always reset to page 1 when filters change
     const params = new URLSearchParams();
     if (currentFilters.category) params.set("category", currentFilters.category);
     if (currentFilters.region) params.set("region", currentFilters.region);
@@ -72,6 +85,7 @@ export function BrowseClient({
       if (currentFilters.region) params.set("region", currentFilters.region);
       if (min && min > 0) params.set("minPrice", String(min));
       if (max && max < PRICE_MAX) params.set("maxPrice", String(max));
+      // Reset to page 1 on price change
       const qs = params.toString();
       router.replace(pathname + (qs ? "?" + qs : ""), { scroll: false });
     },
@@ -85,6 +99,7 @@ export function BrowseClient({
       if (key !== "region" && currentFilters.region) params.set("region", currentFilters.region);
       if (key !== "minPrice" && currentFilters.minPrice !== undefined) params.set("minPrice", String(currentFilters.minPrice));
       if (key !== "maxPrice" && currentFilters.maxPrice !== undefined) params.set("maxPrice", String(currentFilters.maxPrice));
+      // Reset to page 1 on filter removal
       const qs = params.toString();
       router.replace(pathname + (qs ? "?" + qs : ""), { scroll: false });
     },
@@ -102,18 +117,42 @@ export function BrowseClient({
         onCategoryClick={(slug) => updateFilter("category", slug)}
       />
 
-      {/* Compact text-only category tab row */}
-      <CategoryTabRow
-        activeCategory={currentFilters.category}
-        onCategoryChange={(slug) => updateFilter("category", slug)}
-      />
+      {/* Newest listings strip */}
+      {!hasFilters && currentPage === 1 && (
+        <ListingStrip
+          title="Newest Listings"
+          subtitle="Just added to the marketplace"
+          properties={newestProperties}
+        />
+      )}
 
-      {/* Filter bar: region, event type, price range */}
-      <FilterBar
-        currentFilters={currentFilters}
-        onFilterChange={updateFilter}
-        onPriceChange={handlePriceChange}
-      />
+      {/* Recommendations strip — hidden when any filters are active */}
+      {!hasFilters && currentPage === 1 && (
+        <div className="!mt-2">
+          <RecommendationsStrip properties={recommendedProperties} />
+        </div>
+      )}
+
+      {/* Category tabs + filter controls + pagination on one row */}
+      <div className="flex items-center gap-4">
+        <CategoryTabRow
+          activeCategory={currentFilters.category}
+          onCategoryChange={(slug) => updateFilter("category", slug)}
+        />
+        <FilterBar
+          currentFilters={currentFilters}
+          onFilterChange={updateFilter}
+          onPriceChange={handlePriceChange}
+        />
+        {totalPages > 1 && (
+          <div className="ml-auto">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+            />
+          </div>
+        )}
+      </div>
 
       {/* Active filter chips with individual removal */}
       <ActiveFilterChips
@@ -122,21 +161,12 @@ export function BrowseClient({
         onClearAll={clearFilters}
       />
 
-      {/* Recommendations strip — hidden when any filters are active */}
-      {!hasFilters && <RecommendationsStrip properties={recommendedProperties} />}
-
-      {/* Property count */}
-      <p className="text-sm text-muted-foreground">
-        {properties.length}{" "}
-        {properties.length === 1 ? "property" : "properties"}
-      </p>
-
       {/* Property grid */}
       {properties.length === 0 ? (
         <EmptyState onClearFilters={clearFilters} />
       ) : (
         <div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 !mt-2"
           data-has-filters={hasFilters ? "true" : "false"}
         >
           {properties.map((property) => (
@@ -144,6 +174,12 @@ export function BrowseClient({
           ))}
         </div>
       )}
+
+      {/* Listing count below grid */}
+      <p className="text-sm text-muted-foreground !mt-2 text-right">
+        {totalCount}{" "}
+        {totalCount === 1 ? "listing" : "listings"}
+      </p>
     </div>
   );
 }
