@@ -124,7 +124,7 @@ export function FinalCTA({ properties }: FinalCTAProps) {
             </p>
             <div>
               <Link
-                href="/browse"
+                href="/listings"
                 className="inline-flex items-center gap-2 bg-white text-primary text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
               >
                 Get Started

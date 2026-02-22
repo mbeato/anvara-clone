@@ -174,7 +174,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
         </p>
 
         <Link
-          href="/browse"
+          href="/listings"
           className="mt-10 inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-primary text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
         >
           Try Anvara Free

@@ -366,7 +366,7 @@ export function AZExecution() {
 
               <div>
                 <Link
-                  href="/browse"
+                  href="/listings"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Make a Deal

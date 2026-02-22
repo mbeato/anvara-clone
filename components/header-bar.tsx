@@ -19,7 +19,7 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { Button } from "@/components/ui/button"
 
 const SEGMENT_LABELS: Record<string, string> = {
-  browse: "Marketplace",
+  listings: "Marketplace",
   campaigns: "Campaigns",
   messages: "Messages",
   settings: "Settings",

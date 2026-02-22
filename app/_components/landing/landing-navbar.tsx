@@ -80,7 +80,7 @@ export function LandingNavbar() {
         {/* Right side — CTA + Login */}
         <div className="flex items-center gap-3">
           <Link
-            href="/browse"
+            href="/listings"
             className={`hidden sm:inline-flex text-sm font-medium transition-colors duration-300 ${
               scrolled
                 ? "text-zinc-600 hover:text-zinc-900"
@@ -90,7 +90,7 @@ export function LandingNavbar() {
             Log in
           </Link>
           <Link
-            href="/browse"
+            href="/listings"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Try Anvara Free

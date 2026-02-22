@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sidebar"
 
 const navItems = [
-  { title: "Marketplace", href: "/browse", icon: Store },
+  { title: "Marketplace", href: "/listings", icon: Store },
   { title: "Campaigns", href: "/campaigns", icon: Megaphone },
   { title: "Messages", href: "/messages", icon: MessageSquare },
   { title: "Settings", href: "/settings", icon: Settings },

@@ -273,7 +273,7 @@ export function ForBrandsRightsholders() {
             </div>
             <div className="-mt-40 flex justify-center relative z-20">
               <Link
-                href="/browse"
+                href="/listings"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-md"
               >
                 Anvara for Brands
@@ -298,7 +298,7 @@ export function ForBrandsRightsholders() {
             </div>
             <div className="-mt-40 flex justify-center relative z-20">
               <Link
-                href="/browse"
+                href="/listings"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-md"
               >
                 Anvara for Rightsholders

@@ -265,7 +265,7 @@ export function WhatIsAnvara() {
 
             <div className="flex items-center gap-3 mt-2">
               <Link
-                href="/browse"
+                href="/listings"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity shadow-md shadow-primary/25"
               >
                 Sign up Today
