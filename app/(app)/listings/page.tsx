@@ -1,5 +1,7 @@
-import { filterProperties, getAllProperties } from "@/lib/data";
+import { getPaginatedProperties, getAllProperties } from "@/lib/data";
 import { BrowseClient } from "./_components/browse-client";
+
+const PAGE_SIZE = 15;
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -21,6 +23,10 @@ export default async function BrowsePage({
   const minPrice = !isNaN(minPriceRaw) ? minPriceRaw : undefined;
   const maxPrice = !isNaN(maxPriceRaw) ? maxPriceRaw : undefined;
 
+  const pageRaw =
+    typeof params.page === "string" ? parseInt(params.page) : NaN;
+  const page = !isNaN(pageRaw) && pageRaw > 0 ? pageRaw : 1;
+
   const hasFilters = !!(
     category ||
     region ||
@@ -28,22 +34,25 @@ export default async function BrowsePage({
     maxPrice !== undefined
   );
 
-  // Fetch full list once — reuse for display when no filters, pass to BrowseClient for recommendations
-  const allProperties = await getAllProperties();
-
-  const properties = hasFilters
-    ? await filterProperties({ category, region, minPrice, maxPrice })
-    : allProperties;
-
-  // BROWSE-14: cap at 8 when filtering by category tab
-  const displayProperties = category ? properties.slice(0, 8) : properties;
+  const [{ properties, totalCount, totalPages }, allProperties] =
+    await Promise.all([
+      getPaginatedProperties(
+        { category, region, minPrice, maxPrice },
+        page,
+        PAGE_SIZE
+      ),
+      getAllProperties(),
+    ]);
 
   return (
     <BrowseClient
-      properties={displayProperties}
+      properties={properties}
       allProperties={allProperties}
       currentFilters={{ category, region, minPrice, maxPrice }}
       hasFilters={hasFilters}
+      currentPage={page}
+      totalPages={totalPages}
+      totalCount={totalCount}
     />
   );
 }
