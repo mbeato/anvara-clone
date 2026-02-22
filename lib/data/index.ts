@@ -73,6 +73,41 @@ export async function filterProperties(filters: {
   });
 }
 
+export async function getPaginatedProperties(
+  filters: {
+    category?: string;
+    region?: string;
+    minPrice?: number;
+    maxPrice?: number;
+  },
+  page: number,
+  pageSize: number
+) {
+  const where = {
+    ...(filters.category && { category: filters.category }),
+    ...(filters.region && { region: filters.region }),
+    ...(filters.minPrice !== undefined && {
+      priceFrom: { gte: filters.minPrice },
+    }),
+    ...(filters.maxPrice !== undefined && {
+      priceFrom: { lte: filters.maxPrice },
+    }),
+  };
+
+  const [properties, totalCount] = await Promise.all([
+    prisma.property.findMany({
+      where,
+      include: { packages: true },
+      orderBy: { createdAt: "desc" },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    }),
+    prisma.property.count({ where }),
+  ]);
+
+  return { properties, totalCount, totalPages: Math.ceil(totalCount / pageSize) };
+}
+
 export async function getDistinctRegions(): Promise<string[]> {
   const results = await prisma.property.findMany({
     select: { region: true },
