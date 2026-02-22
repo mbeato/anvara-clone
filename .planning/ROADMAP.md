@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
 - [x] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
 - [x] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
-- [ ] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
+- [x] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
 - [ ] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
@@ -124,8 +124,8 @@ Plans:
 **Plans**: 2 plans in 2 waves (wave 1 code fixes, wave 2 tsconfig enforcement)
 
 Plans:
-- [ ] 05.1-01-PLAN.md — Remove unnecessary useEffect, dead imports, redundant "use client" directives, bare Suspense wrapper, eslint-disable
-- [ ] 05.1-02-PLAN.md — Enable verbatimModuleSyntax in tsconfig.json to enforce import type at compiler level
+- [x] 05.1-01-PLAN.md — Remove unnecessary useEffect, dead imports, redundant "use client" directives, bare Suspense wrapper, eslint-disable
+- [x] 05.1-02-PLAN.md — Enable verbatimModuleSyntax in tsconfig.json to enforce import type at compiler level
 
 ### Phase 6: Landing Page
 **Goal**: The landing page faithfully reproduces Anvara's current site content and messaging, giving founders a recognizable starting point that demonstrates UX polish on a page they know
@@ -174,6 +174,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
 | 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
 | 5. Messaging | 3/3 | Complete | 2026-02-21 |
-| 5.1 Enforce Coding Standards | 0/2 | Not started | - |
+| 5.1 Enforce Coding Standards | 2/2 | Complete | 2026-02-22 |
 | 6. Landing Page | 0/5 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
