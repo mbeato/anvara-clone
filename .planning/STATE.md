@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 6 (Landing Page) — In progress
+**Current focus:** Phase 5.1 (Enforce Coding Standards) — Executing
 
 ## Current Position
 
-Phase: 6 of 7 (Landing Page) — In progress
-Plan: 4 of 5 in phase — COMPLETE
-Status: 06-04 complete — ForBrandsRightsholders, Testimonial, FaqSection, FinalCTA, LandingFooter built
-Last activity: 2026-02-21 — Completed 06-04-PLAN.md (Bottom Sections)
+Phase: 5.1 of 7 (Enforce Coding Standards) — In progress
+Plan: 1 of 2 in phase — COMPLETE
+Status: 05.1-01 complete — browse-client, az-execution, for-brands, faq-section, recommendations-strip, messages/page cleaned
+Last activity: 2026-02-22 — Completed 05.1-01-PLAN.md (Cleanup Pass 1)
 
 Progress: [████████████████████░] 71% (20/28 plans)
 
@@ -126,16 +126,20 @@ Recent decisions affecting current work:
 - [06-04]: Footer watermark uses clamp(80px, 18vw, 200px) — responsive font size matching Landing11.png screenshot
 - [06-04]: No SectionReveal on LandingFooter — footer always visible by time user scrolls to bottom
 
+### Roadmap Evolution
+
+- Phase 5.1 inserted after Phase 5: Enforce Coding Standards (URGENT) — Refactor existing codebase to eliminate unnecessary useEffect hooks, enforce type imports, remove any types, move data fetching to Server Components, add loading/error boundaries, align with React 19 patterns
+
 ### Pending Todos
 
 None.
 
 ### Blockers/Concerns
 
-None. Phase 6 plan 04 complete. Plan 05 (Page Assembly) ready to begin — all 12 section components now exist.
+None. Phase 6 plan 04 complete. Plan 05 (Page Assembly) ready to begin — all 12 section components now exist. Phase 5.1 (Coding Standards) inserted as urgent work before Phase 6 completion.
 
 ## Session Continuity
 
-Last session: 2026-02-21T21:13:35Z
-Stopped at: Completed 06-04-PLAN.md (Bottom Sections)
+Last session: 2026-02-22T05:54:16Z
+Stopped at: Completed 05.1-01-PLAN.md (Cleanup Pass 1)
 Resume file: None
