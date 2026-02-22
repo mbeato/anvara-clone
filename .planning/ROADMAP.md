@@ -19,6 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
 - [x] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
 - [x] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
+- [ ] **Phase 6.1: Advertiser Analytics Dashboard** (INSERTED) - Dummy analytics dashboard with trend graphs, bar charts, and KPI cards showing data an advertiser would expect to see
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -145,6 +146,23 @@ Plans:
 - [x] 06-04-PLAN.md — For Brands/Rightsholders (logo grids), Testimonial (GoPuff quote), FAQ (accordion), Final CTA (marquee), Footer
 - [x] 06-05-PLAN.md — Page assembly (wire all 12 sections into page.tsx) + human verification
 
+### Phase 6.1: Advertiser Analytics Dashboard (INSERTED)
+**Goal**: An advertiser sees a data-rich analytics dashboard with trend graphs, bar charts, KPI cards, and performance metrics derived from seeded property/offer/message data — the dashboard should feel like it's backed by months of real activity
+**Depends on**: Phase 6
+**Requirements**: N/A (enhancement)
+**Success Criteria** (what must be TRUE):
+  1. Dashboard page accessible from sidebar navigation with analytics-style icon
+  2. KPI summary cards showing key metrics (total impressions, active campaigns, conversion rate, revenue) with trend indicators (up/down arrows, percentage changes)
+  3. At least one line/area chart showing a time-series trend (e.g., impressions over 30 days)
+  4. At least one bar chart showing categorical comparison (e.g., performance by property category or campaign spend by month)
+  5. Data tables or lists showing recent activity (recent offers, top-performing properties, etc.)
+  6. All data is dummy/derived from seeded properties — no real analytics backend required
+**Plans**: 2 plans in 2 waves (sequential — Plan 02 depends on Plan 01's data layer)
+
+Plans:
+- [ ] 06.1-01-PLAN.md — Analytics data helper, KPI card component, loading skeleton, sidebar icon update
+- [ ] 06.1-02-PLAN.md — Impressions area chart, category bar chart, recent activity table, page assembly
+
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
 **Depends on**: Phases 1-6
@@ -165,7 +183,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 6.1 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -176,4 +194,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 5. Messaging | 3/3 | Complete | 2026-02-21 |
 | 5.1 Enforce Coding Standards | 2/2 | Complete | 2026-02-22 |
 | 6. Landing Page | 5/5 | Complete | 2026-02-22 |
+| 6.1 Advertiser Analytics Dashboard | 0/? | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
