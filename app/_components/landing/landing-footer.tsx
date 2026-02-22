@@ -100,6 +100,11 @@ export function LandingFooter() {
           </div>
         </div>
       </div>
+
+      {/* Sticky prototype badge */}
+      <div className="fixed bottom-3 right-3 z-50 px-4 py-1.5 rounded-full bg-zinc-900/80 backdrop-blur-sm border border-white/10 text-[11px] text-white/50 pointer-events-none">
+        Prototype by Max Beato
+      </div>
     </footer>
   );
 }
