@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { Store, Megaphone, MessageSquare, Settings } from "lucide-react"
 import {
   Sidebar,
@@ -31,25 +32,20 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton asChild size="lg" tooltip="Anvara Home">
               <Link href="/">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="size-4"
-                  >
-                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
-                    <line x1="12" y1="22" x2="12" y2="15.5" />
-                    <polyline points="22 8.5 12 15.5 2 8.5" />
-                  </svg>
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Anvara</span>
-                  <span className="text-xs text-muted-foreground">Sponsorships</span>
-                </div>
+                <Image
+                  src="/anvara-favicon.png"
+                  alt="Anvara"
+                  width={32}
+                  height={32}
+                  className="size-8 flex-shrink-0"
+                />
+                <Image
+                  src="/anvara-logo-blue.png"
+                  alt="Anvara"
+                  width={100}
+                  height={18}
+                  className="h-5 w-auto dark:brightness-0 dark:invert"
+                />
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
