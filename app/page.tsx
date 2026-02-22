@@ -27,7 +27,7 @@ export default async function LandingPage() {
   }));
 
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
+    <main className="force-light min-h-screen bg-background overflow-x-hidden">
       {/* Sticky navbar — adaptive dark/light */}
       <LandingNavbar />
 
