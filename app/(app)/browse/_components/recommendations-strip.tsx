@@ -1,5 +1,3 @@
-"use client"
-
 import type { getAllProperties } from "@/lib/data"
 import { PropertyCard } from "./property-card"
 

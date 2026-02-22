@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Accordion,
   AccordionContent,
@@ -51,7 +49,7 @@ export function FaqSection() {
             <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wider mb-4">
               FAQ
             </span>
-            <h2 className="text-4xl font-bold text-zinc-900 mb-3">
+            <h2 className="text-4xl font-normal tracking-[-0.02em] text-zinc-900 mb-3">
               Frequently Asked Questions
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">

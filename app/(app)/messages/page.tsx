@@ -1,4 +1,3 @@
-import { Suspense } from "react"
 import { getThreads } from "@/lib/data"
 import { MessagingClient } from "@/components/messaging/messaging-client"
 
@@ -13,8 +12,6 @@ export default async function MessagesPage({
   const threads = await getThreads()
 
   return (
-    <Suspense>
-      <MessagingClient threads={threads} initialThreadId={params.thread} />
-    </Suspense>
+    <MessagingClient threads={threads} initialThreadId={params.thread} />
   )
 }
