@@ -20,10 +20,12 @@ interface HeroSectionProps {
 }
 
 // Each prompt has typed text, a category filter, and 3 curated Unsplash images
+// Each prompt maps to a category, curated card images, and a background video
 const PROMPTS = [
   {
     text: "Gen Z trendsetters at music & cultural festivals",
     category: "music",
+    video: "/videos/hero-3-concert.mp4",
     images: [
       "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=560&h=360&fit=crop",
       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=560&h=360&fit=crop",
@@ -33,6 +35,7 @@ const PROMPTS = [
   {
     text: "sports fans at live events across the country",
     category: "sports",
+    video: "/videos/hero-1-sports.mp4",
     images: [
       "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=560&h=360&fit=crop",
       "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=560&h=360&fit=crop",
@@ -42,6 +45,7 @@ const PROMPTS = [
   {
     text: "foodies at premier culinary experiences",
     category: "food",
+    video: "/videos/hero-4-concert.mp4",
     images: [
       "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=560&h=360&fit=crop",
       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=560&h=360&fit=crop",
@@ -51,6 +55,7 @@ const PROMPTS = [
   {
     text: "art lovers at galleries & film festivals",
     category: "arts",
+    video: "/videos/hero-5-art.mp4",
     images: [
       "https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=560&h=360&fit=crop",
       "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=560&h=360&fit=crop",
@@ -60,6 +65,7 @@ const PROMPTS = [
   {
     text: "thrill seekers at action sports events",
     category: "lifestyle",
+    video: "/videos/hero-2-sports.mp4",
     images: [
       "https://images.unsplash.com/photo-1564415637254-92c66292cd64?w=560&h=360&fit=crop",
       "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=560&h=360&fit=crop",
@@ -68,15 +74,6 @@ const PROMPTS = [
   },
 ];
 
-const HERO_CLIPS = [
-  "/videos/hero-1-sports.mp4",
-  "/videos/hero-2-sports.mp4",
-  "/videos/hero-3-concert.mp4",
-  "/videos/hero-4-concert.mp4",
-  "/videos/hero-5-art.mp4",
-];
-const CLIP_DURATION_MS = 4000;
-
 const TYPE_SPEED = 28;
 const DELETE_SPEED = 18;
 const PAUSE_AFTER_TYPE = 1600;
@@ -84,19 +81,10 @@ const PAUSE_AFTER_DELETE = 200;
 const CARD_STAGGER_MS = 80; // delay between each card animating in
 
 export function HeroSection({ properties }: HeroSectionProps) {
-  const [clipIndex, setClipIndex] = useState(0);
   const [promptIndex, setPromptIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Cycle hero background clips
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setClipIndex((prev) => (prev + 1) % HERO_CLIPS.length);
-    }, CLIP_DURATION_MS);
-    return () => clearInterval(interval);
-  }, []);
 
   const fullText = PROMPTS[promptIndex].text;
 
@@ -153,19 +141,19 @@ export function HeroSection({ properties }: HeroSectionProps) {
       {/* Rich dark gradient fallback background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900" />
 
-      {/* Hero video background — crossfading clips */}
-      {HERO_CLIPS.map((src, i) => (
+      {/* Hero video background — synced to current prompt category */}
+      {PROMPTS.map((prompt, i) => (
         <video
-          key={src}
+          key={prompt.video}
           autoPlay
           muted
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-          style={{ opacity: i === clipIndex ? 1 : 0 }}
+          style={{ opacity: i === promptIndex ? 1 : 0 }}
           aria-hidden="true"
         >
-          <source src={src} type="video/mp4" />
+          <source src={prompt.video} type="video/mp4" />
         </video>
       ))}
 
@@ -174,7 +162,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 pt-24 pb-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight max-w-4xl mx-auto">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[-0.02em] text-white leading-tight max-w-4xl mx-auto">
           Connect Your Brand
           <br className="hidden sm:block" /> to Culture at Scale
         </h1>
