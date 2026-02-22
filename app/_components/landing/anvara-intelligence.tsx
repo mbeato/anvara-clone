@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { SectionReveal } from "./section-reveal";
@@ -134,18 +137,38 @@ function PromptFormCard() {
   );
 }
 
-function FlowCenter() {
+function FlowCenter({ visible }: { visible: boolean }) {
+  // Dashed line dash length for draw-on animation
+  const DASH = 80;
+
   return (
     <div className="flex flex-col items-center gap-4 px-4">
-      {/* Dotted arrow rows */}
+      {/* Dotted arrow rows — each draws left-to-right with stagger */}
       <div className="flex flex-col gap-3 items-center">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="flex items-center gap-1">
-            <div className="w-16 border-t-2 border-dashed border-slate-300" />
+            <svg width="64" height="2" className="overflow-visible">
+              <line
+                x1="0" y1="1" x2="64" y2="1"
+                stroke="#cbd5e1"
+                strokeWidth="2"
+                strokeDasharray="4 4"
+                strokeLinecap="round"
+                style={{
+                  strokeDashoffset: visible ? 0 : 80,
+                  transition: `stroke-dashoffset 0.6s ease ${0.5 + i * 0.1}s`,
+                }}
+              />
+            </svg>
             <svg
-              className="w-3 h-3 text-slate-400 flex-shrink-0"
+              className="w-3 h-3 text-slate-400 flex-shrink-0 transition-all duration-300"
               fill="currentColor"
               viewBox="0 0 20 20"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateX(0)" : "translateX(-4px)",
+                transitionDelay: `${0.8 + i * 0.1}s`,
+              }}
             >
               <path
                 fillRule="evenodd"
@@ -157,16 +180,21 @@ function FlowCenter() {
         ))}
       </div>
 
-      {/* Anvara Intelligence label */}
-      <div className="flex flex-col items-center gap-2 mt-2">
-        {/* Anvara logo icon */}
+      {/* Anvara Intelligence label — fades in after arrows */}
+      <div
+        className="flex flex-col items-center gap-2 mt-2 transition-all duration-500"
+        style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(8px)",
+          transitionDelay: "1.1s",
+        }}
+      >
         <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow-md">
           <span className="text-white text-xs font-bold">A</span>
         </div>
         <p className="text-sm font-semibold text-slate-700 whitespace-nowrap">
           Anvara Intelligence
         </p>
-        {/* Completed badge */}
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
           <Check className="w-3 h-3" />
           Completed!
@@ -176,26 +204,71 @@ function FlowCenter() {
   );
 }
 
-function ResultsList() {
+
+function AnimatedFlow() {
+  const flowRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = flowRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); io.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-2 w-full max-w-[240px]">
-      {resultProperties.map((prop) => (
+    <div ref={flowRef} className="bg-slate-50 rounded-2xl border border-slate-100 p-8">
+      <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6">
+        {/* Left: prompt form — slides in first */}
         <div
-          key={prop.name}
-          className="flex items-center gap-3 bg-white rounded-xl border border-slate-100 shadow-sm px-3 py-2.5"
+          className="transition-all duration-600"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateX(0)" : "translateX(-20px)",
+            transitionDuration: "0.6s",
+            transitionDelay: "0s",
+          }}
         >
-          <div
-            className={`w-8 h-8 rounded-lg ${prop.avatarBg} flex items-center justify-center flex-shrink-0`}
-          >
-            <span className="text-white text-[8px] font-bold leading-none">
-              {prop.initials}
-            </span>
-          </div>
-          <span className="text-xs font-medium text-slate-700 leading-tight">
-            {prop.name}
-          </span>
+          <PromptFormCard />
         </div>
-      ))}
+
+        {/* Center: flow arrows + AI label — animates after form */}
+        <div className="flex items-center">
+          <FlowCenter visible={visible} />
+        </div>
+
+        {/* Right: results — each card staggers in */}
+        <div className="flex items-center">
+          <div className="flex flex-col gap-2 w-full max-w-[240px]">
+            {resultProperties.map((prop, i) => (
+              <div
+                key={prop.name}
+                className="flex items-center gap-3 bg-white rounded-xl border border-slate-100 shadow-sm px-3 py-2.5 transition-all duration-500"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateX(0)" : "translateX(16px)",
+                  transitionDelay: `${1.3 + i * 0.12}s`,
+                }}
+              >
+                <div
+                  className={`w-8 h-8 rounded-lg ${prop.avatarBg} flex items-center justify-center flex-shrink-0`}
+                >
+                  <span className="text-white text-[8px] font-bold leading-none">
+                    {prop.initials}
+                  </span>
+                </div>
+                <span className="text-xs font-medium text-slate-700 leading-tight">
+                  {prop.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -213,7 +286,7 @@ export function AnvaraIntelligence() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-3xl">
+            <h2 className="text-4xl lg:text-5xl font-normal tracking-[-0.02em] text-slate-900 leading-tight max-w-3xl">
               Make smarter, faster marketing decisions with{" "}
               <span className="text-blue-600">Anvara Intelligence</span>
             </h2>
@@ -235,25 +308,8 @@ export function AnvaraIntelligence() {
             </Link>
           </div>
 
-          {/* Flow diagram */}
-          <SectionReveal delay={0.15}>
-            <div className="bg-slate-50 rounded-2xl border border-slate-100 p-8">
-              <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6">
-                {/* Left: prompt form */}
-                <PromptFormCard />
-
-                {/* Center: flow arrows + AI label */}
-                <div className="flex items-center">
-                  <FlowCenter />
-                </div>
-
-                {/* Right: results */}
-                <div className="flex items-center">
-                  <ResultsList />
-                </div>
-              </div>
-            </div>
-          </SectionReveal>
+          {/* Flow diagram — animated left to right */}
+          <AnimatedFlow />
         </div>
       </section>
     </SectionReveal>
