@@ -17,6 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Property Detail** - Full detail page with hero, tiers, demographics, offer sidebar, documents, and trust badges
 - [x] **Phase 4: Browse and Discovery** - Full browse page with category carousel, tab bar, card grid, filters, skeletons, and "Recommended for You"
 - [x] **Phase 5: Messaging** - Advertiser inbox with pre-seeded threads, AI-simulated property responses, and "Make an Offer" form
+- [ ] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
 - [ ] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
@@ -107,6 +108,25 @@ Plans:
 - [x] 05-02-PLAN.md — Conversation view with chat bubbles, message sending with useOptimistic, AI response via o3-mini API route, typing indicator
 - [x] 05-03-PLAN.md — Inline "Make an Offer" form (amount, tier, note), offer card rendering, createOfferInThread action, AI offer acknowledgment
 
+### Phase 5.1: Enforce Coding Standards (INSERTED)
+**Goal**: Refactor existing codebase to enforce take-home coding standards — eliminate unnecessary useEffect hooks in favor of Server Components, enforce type imports, remove any usage, add proper loading/error boundaries, and align component patterns with React 19 best practices
+**Depends on**: Phase 5
+**Requirements**: N/A (internal quality)
+**Success Criteria** (what must be TRUE):
+  1. No unnecessary `useEffect` hooks — data fetching moved to Server Components with async page.tsx pattern
+  2. All imports use `import type` for type-only imports (enforced consistently)
+  3. No `any` types — replaced with `unknown` + narrowing or proper typed interfaces
+  4. `'use client'` only on interactive leaf components (forms, buttons, modals) — never on pages or list containers
+  5. Loading boundaries (`loading.tsx`) with skeleton/animate-pulse exist for data-fetching routes
+  6. Server Actions use `useActionState` (React 19) pattern, not deprecated `useFormState`
+  7. Dark mode safe — no invisible-in-dark-mode CSS variable usage in modals/overlays
+  8. Build passes cleanly (`npm run build`) with no TypeScript errors after refactoring
+**Plans**: 2 plans in 2 waves (wave 1 code fixes, wave 2 tsconfig enforcement)
+
+Plans:
+- [ ] 05.1-01-PLAN.md — Remove unnecessary useEffect, dead imports, redundant "use client" directives, bare Suspense wrapper, eslint-disable
+- [ ] 05.1-02-PLAN.md — Enable verbatimModuleSyntax in tsconfig.json to enforce import type at compiler level
+
 ### Phase 6: Landing Page
 **Goal**: The landing page faithfully reproduces Anvara's current site content and messaging, giving founders a recognizable starting point that demonstrates UX polish on a page they know
 **Depends on**: Phase 4
@@ -154,5 +174,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 3. Property Detail | 3/3 | Complete | 2026-02-21 |
 | 4. Browse and Discovery | 4/4 | Complete | 2026-02-21 |
 | 5. Messaging | 3/3 | Complete | 2026-02-21 |
+| 5.1 Enforce Coding Standards | 0/2 | Not started | - |
 | 6. Landing Page | 0/5 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
