@@ -18,7 +18,7 @@ interface LandingPropertyCardProps {
 export function LandingPropertyCard({ property }: LandingPropertyCardProps) {
   return (
     <Link
-      href={`/properties/${property.id}`}
+      href={`/listings/${property.id}`}
       className="group relative block w-[320px] h-[210px] flex-shrink-0 rounded-xl overflow-hidden border border-white/20 shadow-lg shadow-black/20"
     >
       {/* Top 55% — image only */}

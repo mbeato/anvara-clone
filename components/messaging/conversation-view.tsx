@@ -230,7 +230,7 @@ export function ConversationView({ thread, onThreadUpdate }: ConversationViewPro
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
             <Link
-              href={`/properties/${thread.property.slug}`}
+              href={`/listings/${thread.property.slug}`}
               className="font-semibold text-sm hover:underline truncate"
             >
               {thread.property.name}
