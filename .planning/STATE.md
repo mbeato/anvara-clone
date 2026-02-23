@@ -5,21 +5,21 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 7 (Polish and Deploy) — NOT STARTED
+**Current focus:** Phase 7 (Polish and Deploy) — IN PROGRESS
 
 ## Current Position
 
-Phase: 6.6 (Server Component Performance Optimization)
-Plan: 1 of 1 in phase — ALL COMPLETE
-Status: Phase complete
-Last activity: 2026-02-23 — Completed 06.6-01-PLAN.md (removed use client from deals-pipeline.tsx and campaigns-table.tsx, both now Server Components)
+Phase: 7 (Polish and Deploy)
+Plan: 2 of N in phase — In progress
+Status: In progress
+Last activity: 2026-02-23 — Completed 07-02-PLAN.md (app pages mobile responsive — property detail, messaging, header bar, dashboard table)
 
-Progress: [██████████████████████████████████] 100% (35/35 plans)
+Progress: [██████████████████████████████████░░] (07-02 complete, more plans TBD)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 33
+- Total plans completed: 37 (including Phase 7 Plans 01-02)
 - Average duration: ~2.3 minutes
 - Total execution time: ~1.1 hours
 
@@ -40,9 +40,10 @@ Progress: [███████████████████████
 | Phase 6.4 (Stub Pages and Tour) | 3/3 COMPLETE | ~7 min | 2.3 min |
 | Phase 6.5 (Accessibility and Animation Hardening) | 2/2 COMPLETE | ~6.5 min | 3.25 min |
 | Phase 6.6 (Server Component Performance Optimization) | 1/1 COMPLETE | ~1 min | 1 min |
+| Phase 7 (Polish and Deploy) | 2/N IN PROGRESS | ~4 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 06.4-02 (2 min), 06.4-03 (3 min), 06.5-01 (1.5 min), 06.5-02 (5 min)
+- Last 5 plans: 06.5-01 (1.5 min), 06.5-02 (5 min), 06.6-01 (1 min), 07-01 (2 min), 07-02 (2 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -54,6 +55,10 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [07-02]: Property detail right column lg:sticky lg:top-20 only — sticky in single-column layout causes scroll issues; removed on mobile
+- [07-02]: Messaging panel switching via JS state (useIsMobile + mobileView) — CSS-only can't handle back navigation or compose-to-threads flow
+- [07-02]: ModeToggle hidden sm:flex on mobile — header row at capacity at 375px; ModeToggle is non-critical
+- [07-02]: overflow-x-auto on wrapper div inside CardContent — table scrolls, Card frame stays intact
 - [06.5-02]: SheetClose asChild on every nav link — closes drawer on tap with no extra open-state or onClick handler
 - [06.5-02]: prefersReduced === true (strict equality) for useReducedMotion — null means SSR/undetermined, animate normally to avoid flash of visible content
 - [06.5-02]: Badge transitionDelay values updated from 1.2s/1.35s/1.5s to 0.5s/0.65s/0.8s — stay coherent with new 0.5s SVG draw duration
@@ -97,5 +102,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Phase 6.6 complete — ready to plan Phase 7 (Polish and Deploy)
+Stopped at: Completed 07-02-PLAN.md — app pages mobile responsive complete
 Resume file: None
