@@ -5,21 +5,21 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 7 (Polish and Deploy) — COMPLETE
+**Current focus:** Phase 7.1 (Listing Page Mobile Polish) — 1/1 plan complete
 
 ## Current Position
 
-Phase: 7 (Polish and Deploy)
-Plan: 5 of 5 in phase — COMPLETE
-Status: Phase complete — all plans executed
-Last activity: 2026-02-23 — Completed 07-05-PLAN.md (founder-ready README written)
+Phase: 7.1 (Listing Page Mobile Polish)
+Plan: 1 of 1 in phase — COMPLETE
+Status: Phase complete
+Last activity: 2026-02-23 — Completed 07.1-01-PLAN.md — loading skeleton and property card mobile overflow fixed
 
-Progress: [█████████████████████████████████████████] (07-05 complete — Phase 7 DONE)
+Progress: [██████████████████████████████████████████] (Phase 7.1 complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 42 (all phases complete)
+- Total plans completed: 43 (all phases complete)
 - Average duration: ~2.1 minutes
 - Total execution time: ~1.5 hours
 
@@ -41,9 +41,10 @@ Progress: [███████████████████████
 | Phase 6.5 (Accessibility and Animation Hardening) | 2/2 COMPLETE | ~6.5 min | 3.25 min |
 | Phase 6.6 (Server Component Performance Optimization) | 1/1 COMPLETE | ~1 min | 1 min |
 | Phase 7 (Polish and Deploy) | 5/5 COMPLETE | ~6 min | 1.2 min |
+| Phase 7.1 (Listing Page Mobile Polish) | 1/1 COMPLETE | ~1 min | 1 min |
 
 **Recent Trend:**
-- Last 5 plans: 07-01 (2 min), 07-02 (2 min), 07-03 (1 min), 07-04 (1 min), 07-05 (<1 min)
+- Last 5 plans: 07-01 (2 min), 07-02 (2 min), 07-03 (1 min), 07-05 (<1 min), 07.1-01 (<1 min)
 - Trend: Fast — consistently ~1-2 min/plan
 
 *Updated after each plan completion*
@@ -55,6 +56,10 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [07.1-01]: Skeleton container changed from p-6 to max-w-7xl mx-auto px-4 py-6 — exact match to browse-client.tsx outer container prevents layout shift on loading→loaded transition
+- [07.1-01]: Filter skeleton dual-variant (sm:hidden stacked / hidden sm:flex inline) — mirrors FilterBar's actual mobile vs desktop layout
+- [07.1-01]: compact notation on priceFormatter in property-card.tsx — $100,000 → $100K; combined with min-w-0 truncate eliminates price row overflow at 375px
+- [07.1-01]: Tab pill count 8→6, width w-20→w-16, shrink-0 added — more realistic, still horizontally scrollable with overflow-x-auto
 - [07-05]: README structured around three equal impressiveness vectors: AI Features, UX Polish, Feature Breadth — written for founders, not engineers
 - [07-05]: claude-md-checker quality gate skipped — no project-level CLAUDE.md exists in this repo
 - [07-03]: postinstall script added before dev in scripts — follows npm lifecycle conventions; ensures Prisma client generation on Vercel
@@ -98,6 +103,7 @@ Recent decisions affecting current work:
 - Phase 6.4 inserted after Phase 6.3: Stub Pages and Platform Tour (URGENT)
 - Phase 6.5 inserted after Phase 6.4: Accessibility and Animation Hardening (URGENT) — prefers-reduced-motion, mobile hamburger, LazyMotion, animation timing
 - Phase 6.6 inserted after Phase 6.5: Server Component Performance Optimization (URGENT) — eliminate client useEffect data fetching, enforce Server Component patterns
+- Phase 7.1 inserted after Phase 7: Listing Page Mobile Polish (URGENT) — thorough mobile pass on listings/browse page at 375px
 
 ### Pending Todos
 
@@ -105,10 +111,10 @@ None.
 
 ### Blockers/Concerns
 
-None. All phases complete. Prototype deployed and documented.
+None. All phases complete, including Phase 7.1 mobile polish. Prototype deployed and documented.
 
 ## Session Continuity
 
-Last session: 2026-02-23T19:43:03Z
-Stopped at: Completed 07-05-PLAN.md — founder-ready README written. Phase 7 COMPLETE.
+Last session: 2026-02-23T21:05:37Z
+Stopped at: Completed 07.1-01-PLAN.md — listing page mobile overflow fixed (loading skeleton + property card price row)
 Resume file: None
