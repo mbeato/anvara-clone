@@ -73,11 +73,11 @@ export function CategoryCarousel({ onCategoryClick }: CategoryCarouselProps) {
       opts={{ loop: true, align: "start" }}
       className="w-full"
     >
-      <CarouselContent className="-ml-2 sm:-ml-4">
+      <CarouselContent className="sm:-ml-4">
         {CATEGORIES.map((category) => (
           <CarouselItem
             key={category.slug}
-            className="basis-1/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/5 pl-2 sm:pl-4"
+            className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 sm:pl-4"
           >
             <button
               onClick={() => onCategoryClick(category.slug)}
