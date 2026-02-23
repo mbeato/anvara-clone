@@ -14,10 +14,11 @@ const NAV_LINKS = [
   { label: "Pricing", href: "#" },
 ];
 
-export function LandingNavbar() {
-  const [scrolled, setScrolled] = useState(false);
+export function LandingNavbar({ defaultLight = false }: { defaultLight?: boolean }) {
+  const [scrolled, setScrolled] = useState(defaultLight);
 
   useEffect(() => {
+    if (defaultLight) return;
     const onScroll = () => {
       // Flip to light mode once we pass the hero (~90vh)
       setScrolled(window.scrollY > window.innerHeight * 0.85);
@@ -25,7 +26,7 @@ export function LandingNavbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [defaultLight]);
 
   return (
     <nav

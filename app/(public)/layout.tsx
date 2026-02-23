@@ -8,7 +8,7 @@ export default function PublicLayout({
 }) {
   return (
     <div className="force-light min-h-screen bg-background overflow-x-hidden">
-      <LandingNavbar />
+      <LandingNavbar defaultLight />
       <main className="pt-20">{children}</main>
       <LandingFooter />
     </div>
