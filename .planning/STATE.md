@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 
 ## Current Position
 
-Phase: 6.2 (Public Listing Page) — In progress
-Plan: 1 of 2 in phase — 06.2-01 complete
-Status: In progress
-Last activity: 2026-02-23 — Completed 06.2-01-PLAN.md (public listing page foundation — LockedSection, (public) layout, /p/[slug] page, loading skeleton)
+Phase: 6.2 (Public Listing Page) — Complete
+Plan: 2 of 2 in phase — 06.2-02 complete
+Status: Phase complete — moving to 6.3
+Last activity: 2026-02-23 — Completed 06.2-02-PLAN.md (landing page slug links — all property cards now navigate to /p/{slug})
 
-Progress: [██████████████████████████] 90% (26/29 plans)
+Progress: [███████████████████████████] 93% (27/29 plans)
 
 ## Performance Metrics
 
@@ -35,10 +35,10 @@ Progress: [███████████████████████
 | Phase 5.1 (Coding Standards) | 2/2 COMPLETE | 3 min | 1.5 min |
 | Phase 6 (Landing Page) | 5/5 COMPLETE | 9 min | 1.8 min |
 | Phase 6.1 (Advertiser Analytics Dashboard) | 2/2 COMPLETE | 4 min | 2 min |
-| Phase 6.2 (Public Listing Page) | 1/2 IN PROGRESS | 2 min | 2 min |
+| Phase 6.2 (Public Listing Page) | 2/2 COMPLETE | 4 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-05 (2 min), 06.1-01 (2 min), 06.1-02 (2 min), 06.2-01 (2 min)
+- Last 5 plans: 06.1-01 (2 min), 06.1-02 (2 min), 06.2-01 (2 min), 06.2-02 (2 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -50,6 +50,8 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [06.2-02]: Landing card hrefs centralized in LandingPropertyCard — parent components only pass slug in type
+- [06.2-02]: HeroSection uses ...prop spread in cardGroups memo — slug propagates automatically without field enumeration
 - [06.2-01]: (public) route group layout reuses LandingNavbar/LandingFooter — same chrome as landing page, not app sidebar
 - [06.2-01]: LockedSection CTA links to /listings (app entry point) — matches existing convention; app auto-redirects unauthenticated users
 - [06.2-01]: max-w-4xl single-column layout for public page (vs max-w-6xl 5-col grid in private detail)
@@ -72,10 +74,10 @@ None.
 
 ### Blockers/Concerns
 
-None. 3 plans remain (06.2-02, and 2 plans in phase 6.3).
+None. 2 plans remain (2 plans in phase 6.3).
 
 ## Session Continuity
 
-Last session: 2026-02-23T01:09:35Z
-Stopped at: Completed 06.2-01-PLAN.md (public listing page — LockedSection, (public) layout, /p/[slug] page + loading skeleton)
+Last session: 2026-02-23T01:12:45Z
+Stopped at: Completed 06.2-02-PLAN.md (landing page slug links — all property cards navigate to /p/{slug})
 Resume file: None
