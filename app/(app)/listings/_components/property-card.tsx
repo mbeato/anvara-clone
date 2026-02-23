@@ -9,6 +9,7 @@ const priceFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
   maximumFractionDigits: 0,
+  notation: "compact",
 });
 
 export function PropertyCard({ property }: { property: Property }) {
@@ -61,8 +62,8 @@ export function PropertyCard({ property }: { property: Property }) {
             {property.tagline}
           </p>
           <div className="flex items-center justify-between pt-1">
-            <span className="text-xs font-medium">{priceDisplay}</span>
-            <span className="text-xs text-muted-foreground">{startDate}</span>
+            <span className="text-xs font-medium min-w-0 truncate">{priceDisplay}</span>
+            <span className="text-xs text-muted-foreground shrink-0 pl-1">{startDate}</span>
           </div>
         </div>
       </div>
