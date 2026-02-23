@@ -44,8 +44,8 @@ export function ThreadListItem({ thread, isActive, isUnread, onClick }: ThreadLi
     <button
       type="button"
       onClick={onClick}
-      className={`w-full flex items-start gap-3 p-3 text-left transition-colors hover:bg-accent/30 ${
-        isActive ? "bg-accent/50" : ""
+      className={`w-full flex items-start gap-3 p-3 text-left rounded-md transition-colors hover:bg-accent ${
+        isActive ? "bg-accent" : ""
       }`}
     >
       {/* Property thumbnail */}
