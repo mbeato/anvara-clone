@@ -51,7 +51,7 @@ const TOKEN_TRANSFORMS = [
 ];
 
 /* Negative margin to make tokens overlap each other */
-const TOKEN_MARGIN = "-ml-3 sm:-ml-4 first:ml-0";
+const TOKEN_MARGIN = "-ml-4 sm:-ml-3 md:-ml-4 first:ml-0";
 
 /* The liquid glass inset shadow — identical to the LiquidButton component */
 const GLASS_SHADOW_LIGHT =
@@ -163,7 +163,7 @@ export function WhatIsAnvara() {
                   >
                     {/* Liquid glass token card */}
                     <div
-                      className="relative flex items-center justify-center overflow-hidden w-[92px] h-[104px] sm:w-[112px] sm:h-[126px] rounded-[22px] transition-shadow duration-300"
+                      className="relative flex items-center justify-center overflow-hidden w-[72px] h-[82px] sm:w-[92px] sm:h-[104px] md:w-[112px] md:h-[126px] rounded-[22px] transition-shadow duration-300"
                       style={{
                         boxShadow: isActive
                           ? GLASS_SHADOW_ACTIVE
@@ -219,7 +219,7 @@ export function WhatIsAnvara() {
                         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
                       >
                         <div
-                          className="w-10 h-10 sm:w-12 sm:h-12 transition-all duration-300 ease-out"
+                          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-all duration-300 ease-out"
                           style={{
                             ...iconMaskStyle(iconKey),
                             backdropFilter: isActive
@@ -252,7 +252,7 @@ export function WhatIsAnvara() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-[-0.02em] text-foreground leading-tight">
               Anvara is the marketplace for
               <br />
-              <span className="text-primary whitespace-nowrap">
+              <span className="text-primary whitespace-normal sm:whitespace-nowrap">
                 {displayText}
               </span>
               <span className="inline-block w-[3px] h-[0.9em] bg-primary ml-1 align-middle animate-pulse" />

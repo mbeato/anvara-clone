@@ -175,7 +175,7 @@ function ArtBaselLogo() {
 
 function HexCell({ children, hexFill }: { children: React.ReactNode; hexFill?: string }) {
   return (
-    <div className="w-[110px] h-[124px] flex-shrink-0 relative flex items-center justify-center">
+    <div className="w-[88px] h-[100px] sm:w-[110px] sm:h-[124px] flex-shrink-0 relative flex items-center justify-center">
       {/* Hex shape background */}
       <svg viewBox="0 0 80 90" className="absolute inset-0 w-full h-full" style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.04))" }}>
         <path
@@ -260,7 +260,7 @@ export function ForBrandsRightsholders() {
       <SectionReveal>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* For Brands */}
-          <div className="group rounded-2xl bg-zinc-100/80 border border-zinc-200 p-8 pb-6 flex flex-col overflow-hidden">
+          <div className="group rounded-2xl bg-zinc-100/80 border border-zinc-200 p-4 lg:p-8 pb-6 flex flex-col overflow-hidden">
             <h2 className="text-2xl font-normal tracking-[-0.02em] text-center text-zinc-900">
               For Brands
             </h2>
@@ -285,7 +285,7 @@ export function ForBrandsRightsholders() {
           </div>
 
           {/* For Rightsholders */}
-          <div className="group rounded-2xl bg-zinc-100/80 border border-zinc-200 p-8 pb-6 flex flex-col overflow-hidden">
+          <div className="group rounded-2xl bg-zinc-100/80 border border-zinc-200 p-4 lg:p-8 pb-6 flex flex-col overflow-hidden">
             <h2 className="text-2xl font-normal tracking-[-0.02em] text-center text-zinc-900">
               For Rightsholders
             </h2>

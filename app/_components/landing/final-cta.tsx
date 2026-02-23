@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { LandingPropertyCard } from "./landing-property-card";
 import { SectionReveal } from "./section-reveal";
@@ -32,7 +32,6 @@ function VerticalScroll({
   const animRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
   const offsetRef = useRef<number>(0);
-  const [offset, setOffset] = useState(0);
   const halfHeightRef = useRef<number>(0);
 
   const doubled = [...items, ...items];
@@ -42,7 +41,7 @@ function VerticalScroll({
       halfHeightRef.current = innerRef.current.scrollHeight / 2;
       if (direction === "down") {
         offsetRef.current = -halfHeightRef.current;
-        setOffset(-halfHeightRef.current);
+        innerRef.current.style.transform = `translateY(${offsetRef.current}px)`;
       }
     }
   }, [direction]);
@@ -65,7 +64,9 @@ function VerticalScroll({
             offsetRef.current -= halfH;
           }
         }
-        setOffset(offsetRef.current);
+        if (innerRef.current) {
+          innerRef.current.style.transform = `translateY(${offsetRef.current}px)`;
+        }
       }
 
       lastTimeRef.current = time;
@@ -80,7 +81,7 @@ function VerticalScroll({
   }, [animate]);
 
   return (
-    <div className="relative h-[480px] overflow-hidden">
+    <div className="relative h-[320px] lg:h-[480px] overflow-hidden">
       {/* Top/bottom fade masks */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-16 z-10 bg-gradient-to-b from-primary to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 z-10 bg-gradient-to-t from-primary to-transparent" />
@@ -88,10 +89,7 @@ function VerticalScroll({
       <div
         ref={innerRef}
         className="flex flex-col gap-4"
-        style={{
-          transform: `translateY(${offset}px)`,
-          willChange: "transform",
-        }}
+        style={{ willChange: "transform" }}
       >
         {doubled.map((property, index) => (
           <LandingPropertyCard
@@ -113,10 +111,10 @@ export function FinalCTA({ properties }: FinalCTAProps) {
   return (
     <section className="bg-primary py-16 overflow-hidden">
       <SectionReveal>
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left: Text content */}
           <div className="flex flex-col gap-5">
-            <h2 className="text-4xl lg:text-5xl font-normal tracking-[-0.02em] text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-[-0.02em] text-white leading-tight">
               Skip the Decks, Seal the deal
             </h2>
             <p className="text-white/80 text-base leading-relaxed max-w-md">

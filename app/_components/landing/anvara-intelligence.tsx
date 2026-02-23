@@ -227,7 +227,7 @@ function AnimatedFlow() {
   }, [prefersReduced]);
 
   return (
-    <div ref={flowRef} className="bg-slate-50 rounded-2xl border border-slate-100 p-8">
+    <div ref={flowRef} className="bg-slate-50 rounded-2xl border border-slate-100 p-4 lg:p-8">
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6">
         {/* Left: prompt form — slides in first */}
         <div
