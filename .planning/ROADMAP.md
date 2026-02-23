@@ -258,12 +258,14 @@ Plans:
   3. `npm run build` completes locally without TypeScript or build errors before deploying
   4. App is live at an unlisted Vercel URL (e.g., anvara-demo-mbeato.vercel.app) with `noindex` preventing search engine indexing
   5. OpenAI API key and Vercel Postgres connection string are set as Vercel environment variables — AI messaging works on the deployed URL
-**Plans**: TBD
+**Plans**: 5 plans in 4 waves (wave 1 parallel mobile fixes, wave 2 build verification, wave 3 deploy, wave 4 README + quality gate)
 
 Plans:
-- [ ] 07-01: Mobile responsive pass — test and fix all pages at 375px
-- [ ] 07-02: Console error audit, `npm run build` verification, `noindex` meta tag
-- [ ] 07-03: Vercel deploy — provision Postgres, set environment variables, push and verify live URL
+- [ ] 07-01-PLAN.md — Mobile responsive pass: landing page (all 12 sections at 375px)
+- [ ] 07-02-PLAN.md — Mobile responsive pass: app pages (detail, messaging, header, dashboard)
+- [ ] 07-03-PLAN.md — Build cleanup: postinstall script, `npm run build` verification, console error audit
+- [ ] 07-04-PLAN.md — Vercel deploy: push to GitHub, Vercel project setup, verify live URL
+- [ ] 07-05-PLAN.md — README + quality gate: founder-ready README, claude-md-checker
 
 ## Progress
 
@@ -285,4 +287,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 6.4 Stub Pages and Platform Tour | 3/3 | Complete | 2026-02-22 |
 | 6.5 Accessibility and Animation Hardening | 2/2 | Complete | 2026-02-23 |
 | 6.6 Server Component Performance Optimization | 1/1 | Complete | 2026-02-23 |
-| 7. Polish and Deploy | 0/3 | Not started | - |
+| 7. Polish and Deploy | 0/5 | Not started | - |
