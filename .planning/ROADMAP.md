@@ -22,6 +22,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6.1: Advertiser Analytics Dashboard** (INSERTED) - Dummy analytics dashboard with trend graphs, bar charts, and KPI cards showing data an advertiser would expect to see
 - [x] **Phase 6.2: Public Listing Page** (INSERTED) - Public-facing listing detail page with limited info and "Login to see more" prompt, accessible from landing page
 - [x] **Phase 6.3: AI Chat with Listing Recommendations** (INSERTED) - AI chat tab with OpenAI-powered conversation that recommends relevant seed data listings based on user intent
+- [ ] **Phase 6.4: Stub Pages and Platform Tour** (INSERTED) - Add basic content to empty sidebar pages (Campaigns, Deals, Personalize) and build a multi-step "Show Me Around" modal tour showcasing the platform
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -197,6 +198,25 @@ Plans:
 - [ ] 06.3-01-PLAN.md — API route (/api/ai-chat with property catalog context, o3-mini, structured JSON response) + page RSC shell + loading skeleton
 - [ ] 06.3-02-PLAN.md — Full chat client UI (AIChatClient, AIMessage with PropertyCard recommendations, UserMessage, empty state, typing indicator)
 
+### Phase 6.4: Stub Pages and Platform Tour (INSERTED)
+**Goal**: Every sidebar navigation item leads to a page with realistic content — Campaigns shows a mock campaign table, Deals shows a pipeline view, Personalize shows preference settings — and "Show Me Around" opens a multi-step modal tour showcasing the platform's key features
+**Depends on**: Phase 6.3
+**Requirements**: N/A (enhancement)
+**Success Criteria** (what must be TRUE):
+  1. Navigating to /campaigns shows a page with mock campaign data (table with names, properties, statuses, spend, impressions)
+  2. Navigating to /deals shows a pipeline/stage-grouped view with mock deal cards across stages (Prospecting, Negotiating, Agreed, Live)
+  3. Navigating to /personalize shows a settings/preferences page with form-style sections (notifications, display, etc.)
+  4. Clicking "Show Me Around" in the sidebar opens a multi-step modal (not a page navigation) with 4 steps showcasing platform features
+  5. The tour modal has progress dots, Back/Next navigation, and resets to step 1 when reopened
+  6. All pages have loading.tsx skeletons
+  7. Build passes cleanly (npm run build)
+**Plans**: 3 plans in 2 waves (wave 1 parallel campaigns + tour/personalize, wave 2 deals + build verify)
+
+Plans:
+- [ ] 06.4-01-PLAN.md — Stub data layer + Campaigns page (table, KPI cards, loading skeleton)
+- [ ] 06.4-02-PLAN.md — Tour modal + sidebar integration + Personalize settings page + loading skeleton
+- [ ] 06.4-03-PLAN.md — Deals pipeline page (stage-grouped cards, loading skeleton) + build verification
+
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
 **Depends on**: Phases 1-6
@@ -217,7 +237,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 7
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 6.4 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -231,4 +251,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 6.1 Advertiser Analytics Dashboard | 2/2 | Complete | 2026-02-22 |
 | 6.2 Public Listing Page | 2/2 | Complete | 2026-02-22 |
 | 6.3 AI Chat with Listing Recommendations | 2/2 | Complete | 2026-02-22 |
+| 6.4 Stub Pages and Platform Tour | 0/3 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
