@@ -64,8 +64,8 @@ A fully functional prototype of Anvara's sponsorship marketplace — built to de
 ## Local Setup
 
 ```bash
-git clone https://github.com/mbeato/anv.git
-cd anv
+git clone https://github.com/mbeato/anvara-clone.git
+cd anvara-clone
 npm install
 ```
 
