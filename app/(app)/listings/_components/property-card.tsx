@@ -31,8 +31,8 @@ export function PropertyCard({ property }: { property: Property }) {
   const startDate = property.availability.split("—")[0].trim();
 
   return (
-    <Link href={`/listings/${property.slug}`} className="group block">
-      <div className="rounded-lg sm:rounded-xl border bg-card overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+    <Link href={`/listings/${property.slug}`} className="group block min-w-0">
+      <div className="h-full rounded-lg sm:rounded-xl border bg-card overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
         {/* Image container */}
         <div className="relative aspect-[16/10] sm:aspect-[2/1] overflow-hidden bg-muted">
           <Image
@@ -40,7 +40,7 @@ export function PropertyCard({ property }: { property: Property }) {
             alt={property.name}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            sizes="(max-width: 419px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
           />
           {/* Audience fit badge */}
           <Badge
@@ -61,7 +61,7 @@ export function PropertyCard({ property }: { property: Property }) {
           <p className="text-[10px] sm:text-xs text-muted-foreground line-clamp-1 leading-tight">
             {property.tagline}
           </p>
-          <div className="flex items-center justify-between">
+          <div className="flex min-w-0 items-center justify-between gap-1">
             <span className="text-[10px] sm:text-xs font-medium min-w-0 truncate">{priceDisplay}</span>
             <span className="text-[10px] sm:text-xs text-muted-foreground shrink-0 pl-1 hidden sm:inline">{startDate}</span>
           </div>
