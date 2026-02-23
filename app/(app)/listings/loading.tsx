@@ -3,7 +3,7 @@ import { PropertyCardSkeleton } from "./_components/property-card-skeleton";
 
 export default function BrowseLoading() {
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-6 space-y-3 sm:space-y-6">
+    <div className="max-w-7xl mx-auto w-full min-w-0 px-2.5 sm:px-4 py-3 sm:py-6 space-y-3 sm:space-y-6">
       {/* Carousel skeleton — compact chips on mobile, full bar on desktop */}
       <div className="flex gap-2 overflow-x-auto scrollbar-hide sm:hidden">
         {Array.from({ length: 4 }).map((_, i) => (
@@ -34,7 +34,7 @@ export default function BrowseLoading() {
       </div>
 
       {/* Card grid skeleton */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4">
+      <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
         {Array.from({ length: 10 }).map((_, i) => (
           <PropertyCardSkeleton key={i} />
         ))}

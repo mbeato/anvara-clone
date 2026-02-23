@@ -55,10 +55,10 @@ export function ListingStrip({ title, subtitle, properties }: ListingStripProps)
       </div>
       <div
         ref={scrollRef}
-        className="flex gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-2.5 sm:gap-4 overflow-x-auto px-0.5 pb-2 snap-x snap-mandatory scrollbar-hide"
       >
         {properties.map((p) => (
-          <div key={p.id} className="w-[140px] sm:min-w-[240px] sm:max-w-[260px] flex-shrink-0 snap-start">
+          <div key={p.id} className="w-[148px] min-w-[148px] sm:min-w-[240px] sm:max-w-[260px] shrink-0 snap-start last:mr-0.5 sm:last:mr-0">
             <PropertyCard property={p} />
           </div>
         ))}

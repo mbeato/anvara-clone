@@ -70,7 +70,7 @@ export function CategoryCarousel({ onCategoryClick }: CategoryCarouselProps) {
   return (
     <>
       {/* Mobile: horizontal scroll row of compact image chips */}
-      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide sm:hidden">
+      <div className="flex gap-2 overflow-x-auto px-0.5 pb-1 scrollbar-hide sm:hidden">
         {CATEGORIES.map((category) => (
           <button
             key={category.slug}
