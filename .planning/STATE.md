@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 6.4 (Stub Pages and Platform Tour) — IN PROGRESS
+**Current focus:** Phase 6.4 (Stub Pages and Platform Tour) — COMPLETE
 
 ## Current Position
 
 Phase: 6.4 (Stub Pages and Platform Tour)
-Plan: 2 of 3 in phase — 06.4-02 complete
-Status: In progress
-Last activity: 2026-02-23 — Completed 06.4-02-PLAN.md (multi-step tour modal triggered from sidebar, Personalize settings page with 4 sections, loading skeleton)
+Plan: 3 of 3 in phase — ALL COMPLETE
+Status: Phase complete
+Last activity: 2026-02-23 — Completed 06.4-03-PLAN.md (Deals pipeline page, loading skeleton, full phase build verified)
 
-Progress: [███████████████████████████████] 98% (31/32 plans)
+Progress: [████████████████████████████████] 100% (32/32 plans)
 
 ## Performance Metrics
 
@@ -37,10 +37,10 @@ Progress: [███████████████████████
 | Phase 6.1 (Advertiser Analytics Dashboard) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.2 (Public Listing Page) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.3 (AI Chat) | 2/2 COMPLETE | 4 min | 2 min |
-| Phase 6.4 (Stub Pages and Tour) | 2/3 IN PROGRESS | 3 min | 1.5 min |
+| Phase 6.4 (Stub Pages and Tour) | 3/3 COMPLETE | ~7 min | 2.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 06.2-02 (2 min), 06.3-01 (3 min), 06.3-02 (1 min), 06.4-01 (2 min)
+- Last 5 plans: 06.3-01 (3 min), 06.3-02 (1 min), 06.4-01 (2 min), 06.4-02 (2 min), 06.4-03 (3 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -52,6 +52,8 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [06.4-03]: STAGES array typed with MockDeal["stage"] key — compile-time guarantee stage keys match union type
+- [06.4-03]: border-l-2 + per-stage color class on each Card — visually differentiates stages without extra wrapper elements
 - [06.4-02]: footerItems split into footerLinkItems + manual Show Me Around button — keeps array-mapped items uniform while handling special onClick case
 - [06.4-02]: TourModal rendered outside <Sidebar> as fragment sibling — prevents z-index clipping from sidebar's positioning context
 - [06.4-02]: handleClose calls both onOpenChange(false) and setStep(0) — ensures all close paths (X, overlay, Escape, Get Started) reset step
@@ -83,6 +85,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-23T02:06:30Z
-Stopped at: Completed 06.4-02-PLAN.md (tour modal, sidebar integration, Personalize settings page)
+Last session: 2026-02-23T02:09:24Z
+Stopped at: Completed 06.4-03-PLAN.md (Deals pipeline page, loading skeleton, full phase build verified — ALL PLANS COMPLETE)
 Resume file: None
