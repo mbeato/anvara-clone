@@ -26,7 +26,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6.5: Accessibility and Animation Hardening** (INSERTED) - Add prefers-reduced-motion support, landing page mobile hamburger menu, LazyMotion bundle optimization, and tighten animation durations
 - [x] **Phase 6.6: Server Component Performance Optimization** (INSERTED) - Optimize pages for performance using Server Components instead of client useEffect data fetching
 - [x] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
-- [ ] **Phase 7.1: Listing Page Mobile Polish** (INSERTED) - Thorough mobile pass on the listings/browse page to ensure it looks polished at 375px
+- [x] **Phase 7.1: Listing Page Mobile Polish** (INSERTED) - Thorough mobile pass on the listings/browse page to ensure it looks polished at 375px
 
 ## Phase Details
 
@@ -281,7 +281,7 @@ Plans:
 **Plans**: 1 plan in 1 wave (single wave — fix loading skeleton + property card price row)
 
 Plans:
-- [ ] 07.1-01-PLAN.md — Fix loading skeleton mobile overflow (container, tabs, filters) + property card compact price notation
+- [x] 07.1-01-PLAN.md — Full mobile-first rewrite: native scroll carousel, compact cards/filters, viewport overflow fix, listing count relocation
 
 ## Progress
 
@@ -304,4 +304,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 6.5 Accessibility and Animation Hardening | 2/2 | Complete | 2026-02-23 |
 | 6.6 Server Component Performance Optimization | 1/1 | Complete | 2026-02-23 |
 | 7. Polish and Deploy | 5/5 | Complete | 2026-02-23 |
-| 7.1 Listing Page Mobile Polish | 0/0 | Not started | - |
+| 7.1 Listing Page Mobile Polish | 1/1 | Complete | 2026-02-23 |
