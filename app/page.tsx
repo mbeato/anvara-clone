@@ -1,7 +1,6 @@
 import { getAllProperties } from "@/lib/data";
 import { LandingProviders } from "./_components/landing/landing-providers";
 import { HeroSection } from "./_components/landing/hero-section";
-import { BrandLogosBar } from "./_components/landing/brand-logos-bar";
 import { WhatIsAnvara } from "./_components/landing/what-is-anvara";
 import { AccessMarket } from "./_components/landing/access-market";
 import { AZExecution } from "./_components/landing/az-execution";
@@ -37,10 +36,7 @@ export default async function LandingPage() {
       {/* Section 1: Hero — Video bg, headline, CTA, snap carousel */}
       <HeroSection properties={properties} />
 
-      {/* Section 2: Brand logos bar */}
-      <BrandLogosBar />
-
-      {/* Section 3: What is Anvara — rotating text, 3D tokens */}
+      {/* Section 2: What is Anvara — rotating text, 3D tokens */}
       <WhatIsAnvara />
 
       {/* Section 4: Access the Whole Market — property list, CTA */}

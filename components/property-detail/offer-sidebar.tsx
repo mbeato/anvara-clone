@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Check, Lock, MessageSquare, Phone, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -48,17 +49,18 @@ export function OfferSidebar({
   priceFrom,
   packages,
 }: OfferSidebarProps) {
+  const router = useRouter()
   const sorted = [...packages].sort((a, b) => a.priceUsd - b.priceUsd)
   const [selectedTierId, setSelectedTierId] = useState<string | null>(sorted.length > 0 ? sorted[0].id : null)
   const [showCustom, setShowCustom] = useState(false)
   const [checked, setChecked] = useState<Record<string, boolean>>({})
 
   function handleMessage() {
-    alert("Messaging is coming soon!")
+    router.push(`/messages?property=${propertyId}`)
   }
 
   function handleSchedule() {
-    alert("Schedule a call by messaging directly.")
+    router.push(`/messages?property=${propertyId}`)
   }
 
   function toggleDeliverable(label: string) {
@@ -199,7 +201,7 @@ export function OfferSidebar({
       {showCustom ? (
         <MakeOfferDialog propertyId={propertyId} propertyName={propertyName} />
       ) : (
-        <Button className="w-full" onClick={() => alert("Tier selection coming soon!")}>
+        <Button className="w-full" onClick={handleMessage}>
           {selectedTierId ? "Select Tier" : "Choose a Tier"}
         </Button>
       )}

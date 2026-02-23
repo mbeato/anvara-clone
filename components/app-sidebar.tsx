@@ -26,7 +26,7 @@ const navItems = [
 ]
 
 const footerLinkItems = [
-  { title: "Personalize", href: "/personalize", icon: SlidersHorizontal },
+  { title: "Settings", href: "/settings", icon: SlidersHorizontal },
   { title: "Logout", href: "/logout", icon: LogOut },
 ]
 
@@ -111,9 +111,9 @@ export function AppSidebar() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip="Account" className="[&>svg]:mx-4">
-                <Link href="/account" className="flex items-center gap-2">
-                  <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-sm font-semibold text-primary flex-shrink-0">V</span>
-                  <span className="group-data-[collapsible=icon]:hidden">VertikalX</span>
+                <Link href="/settings" className="flex items-center gap-2">
+                  <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-sm font-semibold text-primary flex-shrink-0">D</span>
+                  <span className="group-data-[collapsible=icon]:hidden">Demo</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

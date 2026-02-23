@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import {
   Dialog,
   DialogContent,
@@ -18,6 +19,7 @@ interface MakeOfferDialogProps {
 }
 
 export function MakeOfferDialog({ propertyId, propertyName }: MakeOfferDialogProps) {
+  const router = useRouter()
   const [open, setOpen] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -38,10 +40,10 @@ export function MakeOfferDialog({ propertyId, propertyName }: MakeOfferDialogPro
 
     if (result.success) {
       setSubmitted(true)
+      // Redirect to the new conversation thread
       setTimeout(() => {
-        setOpen(false)
-        setSubmitted(false)
-      }, 1500)
+        router.push(`/messages?property=${propertyId}`)
+      }, 1200)
     } else {
       setError(result.error)
     }

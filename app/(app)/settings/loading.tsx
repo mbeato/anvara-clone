@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton"
 
-export default function PersonalizeLoading() {
+export default function SettingsLoading() {
   return (
     <div className="space-y-6 p-6 max-w-2xl mx-auto">
       {/* Page heading */}
