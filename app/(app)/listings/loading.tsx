@@ -4,8 +4,13 @@ import { PropertyCardSkeleton } from "./_components/property-card-skeleton";
 export default function BrowseLoading() {
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
-      {/* Carousel skeleton */}
-      <Skeleton className="w-full h-48 rounded-xl" />
+      {/* Carousel skeleton — 3 small thumbnails on mobile, full bar on desktop */}
+      <div className="flex gap-2 sm:hidden">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <Skeleton key={i} className="aspect-[3/2] flex-1 rounded-lg" />
+        ))}
+      </div>
+      <Skeleton className="hidden sm:block w-full h-48 rounded-xl" />
 
       {/* Category tabs skeleton — scrollable row matching CategoryTabRow */}
       <div className="flex gap-2 overflow-x-auto scrollbar-hide">
