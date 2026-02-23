@@ -3,7 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 const NAV_LINKS = [
   { label: "For Brands", href: "#" },
@@ -78,11 +86,65 @@ export function LandingNavbar({ defaultLight = false }: { defaultLight?: boolean
           ))}
         </div>
 
-        {/* Right side — CTA + Login */}
-        <div className="flex items-center gap-3">
+        {/* Hamburger menu — visible below lg breakpoint */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <button
+              className={`lg:hidden p-2 rounded-md transition-colors ${
+                scrolled
+                  ? "text-zinc-700 hover:bg-zinc-100"
+                  : "text-white hover:bg-white/10"
+              }`}
+              aria-label="Open navigation menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-72 p-0">
+            <SheetHeader className="px-6 py-5 border-b border-zinc-100">
+              <SheetTitle className="text-left text-base font-semibold text-zinc-900">
+                Navigation
+              </SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col px-3 py-4">
+              {NAV_LINKS.map((link) => (
+                <SheetClose asChild key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="block px-4 py-3 text-base font-medium text-zinc-700 hover:bg-zinc-50 rounded-lg transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </SheetClose>
+              ))}
+            </nav>
+            <div className="border-t border-zinc-100 px-3 py-4 flex flex-col gap-2">
+              <SheetClose asChild>
+                <Link
+                  href="/listings"
+                  className="block px-4 py-3 text-base font-medium text-zinc-700 hover:bg-zinc-50 rounded-lg transition-colors"
+                >
+                  Log in
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
+                <Link
+                  href="/listings"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-lg bg-primary text-white text-base font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Try Anvara Free
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </SheetClose>
+            </div>
+          </SheetContent>
+        </Sheet>
+
+        {/* Right side — CTA + Login (desktop) */}
+        <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/listings"
-            className={`hidden sm:inline-flex text-sm font-medium transition-colors duration-300 ${
+            className={`text-sm font-medium transition-colors duration-300 ${
               scrolled
                 ? "text-zinc-600 hover:text-zinc-900"
                 : "text-white/70 hover:text-white"
