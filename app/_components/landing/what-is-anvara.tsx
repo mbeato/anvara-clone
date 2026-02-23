@@ -147,7 +147,7 @@ export function WhatIsAnvara() {
                 return (
                   <div
                     key={label}
-                    className={`relative transition-all duration-700 ease-out ${TOKEN_MARGIN}`}
+                    className={`relative transition-all duration-300 ease-out ${TOKEN_MARGIN}`}
                     style={{
                       transformStyle: "preserve-3d",
                       transform: [
@@ -163,7 +163,7 @@ export function WhatIsAnvara() {
                   >
                     {/* Liquid glass token card */}
                     <div
-                      className="relative flex items-center justify-center overflow-hidden w-[92px] h-[104px] sm:w-[112px] sm:h-[126px] rounded-[22px] transition-shadow duration-700"
+                      className="relative flex items-center justify-center overflow-hidden w-[92px] h-[104px] sm:w-[112px] sm:h-[126px] rounded-[22px] transition-shadow duration-300"
                       style={{
                         boxShadow: isActive
                           ? GLASS_SHADOW_ACTIVE
@@ -219,7 +219,7 @@ export function WhatIsAnvara() {
                         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
                       >
                         <div
-                          className="w-10 h-10 sm:w-12 sm:h-12 transition-all duration-700 ease-out"
+                          className="w-10 h-10 sm:w-12 sm:h-12 transition-all duration-300 ease-out"
                           style={{
                             ...iconMaskStyle(iconKey),
                             backdropFilter: isActive

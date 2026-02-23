@@ -164,6 +164,21 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  /* Disable CSS keyframe animations for users who prefer reduced motion */
+  [class*="animate-"] {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  /* Disable CSS transitions globally for reduced motion */
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Hide scrollbar while preserving scroll functionality */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
