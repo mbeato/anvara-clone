@@ -55,6 +55,7 @@ export function FilterBar({
 
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 shrink-0">
+      {/* Mobile: all three controls in one tight row */}
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Region dropdown */}
         <Select
@@ -63,7 +64,7 @@ export function FilterBar({
             onFilterChange("region", val === "all" ? undefined : val)
           }
         >
-          <SelectTrigger className="flex-1 sm:flex-none sm:w-40 h-9">
+          <SelectTrigger className="flex-1 sm:flex-none sm:w-40 h-8 sm:h-9 text-xs sm:text-sm">
             <SelectValue placeholder="All Regions" />
           </SelectTrigger>
           <SelectContent>
@@ -82,7 +83,7 @@ export function FilterBar({
             onFilterChange("category", val === "all" ? undefined : val)
           }
         >
-          <SelectTrigger className="flex-1 sm:flex-none sm:w-40 h-9">
+          <SelectTrigger className="flex-1 sm:flex-none sm:w-40 h-8 sm:h-9 text-xs sm:text-sm">
             <SelectValue placeholder="All Types" />
           </SelectTrigger>
           <SelectContent>
@@ -96,9 +97,9 @@ export function FilterBar({
         </Select>
       </div>
 
-      {/* Price range slider */}
-      <div className="flex flex-col gap-1">
-        <span className="text-xs font-medium text-muted-foreground">Price</span>
+      {/* Price range slider — inline with labels */}
+      <div className="flex items-center gap-2 sm:flex-col sm:items-stretch sm:gap-1">
+        <span className="text-[10px] sm:text-xs font-medium text-muted-foreground shrink-0">Price</span>
         <Slider
           min={0}
           max={PRICE_MAX}
@@ -106,13 +107,14 @@ export function FilterBar({
           value={liveRange}
           onValueChange={setLiveRange}
           onValueCommit={handlePriceCommit}
-          className="w-full sm:w-52"
+          className="flex-1 sm:w-52"
         />
-        <div className="flex justify-between">
-          <span className="text-xs text-muted-foreground">
+        <div className="flex gap-1 shrink-0">
+          <span className="text-[10px] sm:text-xs text-muted-foreground">
             {priceFormatter.format(liveRange[0])}
           </span>
-          <span className="text-xs text-muted-foreground">
+          <span className="text-[10px] sm:text-xs text-muted-foreground">–</span>
+          <span className="text-[10px] sm:text-xs text-muted-foreground">
             {priceFormatter.format(liveRange[1])}
           </span>
         </div>

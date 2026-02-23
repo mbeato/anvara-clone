@@ -34,7 +34,7 @@ export function PropertyCard({ property }: { property: Property }) {
     <Link href={`/listings/${property.slug}`} className="group block">
       <div className="rounded-lg sm:rounded-xl border bg-card overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
         {/* Image container */}
-        <div className="relative aspect-[3/2] sm:aspect-[2/1] overflow-hidden bg-muted">
+        <div className="relative aspect-[16/10] sm:aspect-[2/1] overflow-hidden bg-muted">
           <Image
             src={property.imageUrl}
             alt={property.name}
