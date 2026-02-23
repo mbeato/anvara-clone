@@ -19,6 +19,7 @@ export default async function LandingPage() {
   // Map Prisma's imageUrl field to heroImage expected by landing section components
   const properties = rawProperties.map((p) => ({
     id: p.id,
+    slug: p.slug,
     name: p.name,
     category: p.category,
     subcategory: p.subcategory,

@@ -4,6 +4,7 @@ import Image from "next/image";
 // Use the Prisma return type from getAllProperties
 type Property = {
   id: string;
+  slug: string;
   name: string;
   category: string;
   subcategory: string | null;
@@ -18,7 +19,7 @@ interface LandingPropertyCardProps {
 export function LandingPropertyCard({ property }: LandingPropertyCardProps) {
   return (
     <Link
-      href={`/listings/${property.id}`}
+      href={`/p/${property.slug}`}
       className="group relative block w-[320px] h-[210px] flex-shrink-0 rounded-xl overflow-hidden border border-white/20 shadow-lg shadow-black/20"
     >
       {/* Top 55% — image only */}
