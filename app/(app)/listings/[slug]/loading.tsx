@@ -3,9 +3,9 @@ import { Skeleton } from "@/components/ui/skeleton"
 export default function PropertyDetailLoading() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
-      <div className="grid grid-cols-5 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
         {/* Left column — hero + meta + about */}
-        <div className="col-span-3 space-y-6">
+        <div className="lg:col-span-3 space-y-6">
           {/* Hero image skeleton */}
           <Skeleton className="w-full aspect-[4/3] rounded-xl" />
 
@@ -31,7 +31,7 @@ export default function PropertyDetailLoading() {
         </div>
 
         {/* Right column — sidebar skeleton */}
-        <div className="col-span-2">
+        <div className="lg:col-span-2">
           <div className="rounded-lg border p-6 space-y-4">
             <Skeleton className="h-7 w-32" />
             <Skeleton className="h-12 w-full rounded-md" />

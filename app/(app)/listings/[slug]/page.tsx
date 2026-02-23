@@ -22,9 +22,9 @@ export default async function PropertyDetailPage({
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
-      <div className="grid grid-cols-5 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
         {/* Left column — 60% */}
-        <div className="col-span-3">
+        <div className="lg:col-span-3">
           <PropertyMeta property={property} />
           <div className="mt-4">
             <PropertyHero images={[property.imageUrl]} />
@@ -53,8 +53,8 @@ export default async function PropertyDetailPage({
           </div>
         </div>
 
-        {/* Right column — 40%, sticky */}
-        <div className="col-span-2 sticky top-20 mt-20">
+        {/* Right column — 40%, sticky on desktop */}
+        <div className="lg:col-span-2 lg:sticky lg:top-20 mt-8 lg:mt-20">
           <OfferSidebar
             propertyId={property.id}
             propertyName={property.name}
