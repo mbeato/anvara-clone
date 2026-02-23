@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useReducedMotion } from "motion/react";
 import { SectionReveal } from "./section-reveal";
 
 function MetricsVisualization() {
@@ -36,8 +37,13 @@ function MetricsVisualization() {
 
   const cardRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
+    if (prefersReduced === true) {
+      setVisible(true);
+      return;
+    }
     const el = cardRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
@@ -46,7 +52,7 @@ function MetricsVisualization() {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [prefersReduced]);
 
   // Generous dash length — longer than any curve's actual length
   const DASH = 600;
@@ -55,7 +61,7 @@ function MetricsVisualization() {
   const roiDelay = "0s";
   const menDelay = "0.15s";
   const impDelay = "0.3s";
-  const dur = "1.2s";
+  const dur = "0.5s";
 
   return (
     <div ref={cardRef} className="relative w-full max-w-md mx-auto" style={{ height: 340 }}>
@@ -113,17 +119,17 @@ function MetricsVisualization() {
           <circle
             cx={roiEnd.x} cy={roiEnd.y} r="4" fill="#84CC16"
             opacity={visible ? 1 : 0}
-            style={{ transition: `opacity 0.3s ease ${roiDelay ? "1.2s" : "0s"}` }}
+            style={{ transition: `opacity 0.3s ease ${roiDelay ? "0.5s" : "0s"}` }}
           />
           <circle
             cx={menEnd.x} cy={menEnd.y} r="4" fill="#EF4444"
             opacity={visible ? 1 : 0}
-            style={{ transition: "opacity 0.3s ease 1.35s" }}
+            style={{ transition: "opacity 0.3s ease 0.65s" }}
           />
           <circle
             cx={impEnd.x} cy={impEnd.y} r="4" fill="#3B82F6"
             opacity={visible ? 1 : 0}
-            style={{ transition: "opacity 0.3s ease 1.5s" }}
+            style={{ transition: "opacity 0.3s ease 0.8s" }}
           />
         </svg>
 
@@ -135,7 +141,7 @@ function MetricsVisualization() {
             top: "175px", left: "42%",
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(8px)",
-            transitionDelay: "1.2s",
+            transitionDelay: "0.5s",
           }}
         >
           ◎ 4.0x ROI
@@ -148,7 +154,7 @@ function MetricsVisualization() {
             top: "118px", right: "60px",
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(8px)",
-            transitionDelay: "1.35s",
+            transitionDelay: "0.65s",
           }}
         >
           ◎ 144 Mentions
@@ -161,7 +167,7 @@ function MetricsVisualization() {
             top: "44px", right: "14px",
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(8px)",
-            transitionDelay: "1.5s",
+            transitionDelay: "0.8s",
           }}
         >
           ◎ 125.2M Impressions

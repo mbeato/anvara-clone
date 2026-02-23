@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
+import { useReducedMotion } from "motion/react";
 import { SectionReveal } from "./section-reveal";
 
 const resultProperties = [
@@ -156,7 +157,7 @@ function FlowCenter({ visible }: { visible: boolean }) {
                 strokeLinecap="round"
                 style={{
                   strokeDashoffset: visible ? 0 : 80,
-                  transition: `stroke-dashoffset 0.6s ease ${0.5 + i * 0.1}s`,
+                  transition: `stroke-dashoffset 0.4s ease ${0.5 + i * 0.1}s`,
                 }}
               />
             </svg>
@@ -208,8 +209,13 @@ function FlowCenter({ visible }: { visible: boolean }) {
 function AnimatedFlow() {
   const flowRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
+    if (prefersReduced === true) {
+      setVisible(true);
+      return;
+    }
     const el = flowRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
@@ -218,7 +224,7 @@ function AnimatedFlow() {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [prefersReduced]);
 
   return (
     <div ref={flowRef} className="bg-slate-50 rounded-2xl border border-slate-100 p-8">
@@ -229,7 +235,7 @@ function AnimatedFlow() {
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateX(0)" : "translateX(-20px)",
-            transitionDuration: "0.6s",
+            transitionDuration: "0.4s",
             transitionDelay: "0s",
           }}
         >
