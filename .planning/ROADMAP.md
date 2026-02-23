@@ -24,7 +24,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6.3: AI Chat with Listing Recommendations** (INSERTED) - AI chat tab with OpenAI-powered conversation that recommends relevant seed data listings based on user intent
 - [x] **Phase 6.4: Stub Pages and Platform Tour** (INSERTED) - Add basic content to empty sidebar pages (Campaigns, Deals, Personalize) and build a multi-step "Show Me Around" modal tour showcasing the platform
 - [x] **Phase 6.5: Accessibility and Animation Hardening** (INSERTED) - Add prefers-reduced-motion support, landing page mobile hamburger menu, LazyMotion bundle optimization, and tighten animation durations
-- [ ] **Phase 6.6: Server Component Performance Optimization** (INSERTED) - Optimize pages for performance using Server Components instead of client useEffect data fetching
+- [x] **Phase 6.6: Server Component Performance Optimization** (INSERTED) - Optimize pages for performance using Server Components instead of client useEffect data fetching
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -246,7 +246,7 @@ Plans:
 **Plans**: 1 plan in 1 wave (single wave — remove "use client" from 4 display components + build verify)
 
 Plans:
-- [ ] 06.6-01-PLAN.md — Remove unnecessary "use client" from 4 display-only components + build verification
+- [x] 06.6-01-PLAN.md — Remove unnecessary "use client" from 2 display-only components + build verification
 
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
@@ -284,5 +284,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 6.3 AI Chat with Listing Recommendations | 2/2 | Complete | 2026-02-22 |
 | 6.4 Stub Pages and Platform Tour | 3/3 | Complete | 2026-02-22 |
 | 6.5 Accessibility and Animation Hardening | 2/2 | Complete | 2026-02-23 |
-| 6.6 Server Component Performance Optimization | 0/0 | Not started | - |
+| 6.6 Server Component Performance Optimization | 1/1 | Complete | 2026-02-23 |
 | 7. Polish and Deploy | 0/3 | Not started | - |
