@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 6.4 (Stub Pages and Platform Tour)
-Plan: 1 of 3 in phase — 06.4-01 complete
+Plan: 2 of 3 in phase — 06.4-02 complete
 Status: In progress
-Last activity: 2026-02-23 — Completed 06.4-01-PLAN.md (stub data layer, /campaigns page with KPI cards, data table, loading skeleton)
+Last activity: 2026-02-23 — Completed 06.4-02-PLAN.md (multi-step tour modal triggered from sidebar, Personalize settings page with 4 sections, loading skeleton)
 
-Progress: [██████████████████████████████] 97% (30/31 plans)
+Progress: [███████████████████████████████] 98% (31/32 plans)
 
 ## Performance Metrics
 
@@ -37,7 +37,7 @@ Progress: [███████████████████████
 | Phase 6.1 (Advertiser Analytics Dashboard) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.2 (Public Listing Page) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.3 (AI Chat) | 2/2 COMPLETE | 4 min | 2 min |
-| Phase 6.4 (Stub Pages and Tour) | 1/3 IN PROGRESS | 2 min | 2 min |
+| Phase 6.4 (Stub Pages and Tour) | 2/3 IN PROGRESS | 3 min | 1.5 min |
 
 **Recent Trend:**
 - Last 5 plans: 06.2-02 (2 min), 06.3-01 (3 min), 06.3-02 (1 min), 06.4-01 (2 min)
@@ -52,6 +52,10 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [06.4-02]: footerItems split into footerLinkItems + manual Show Me Around button — keeps array-mapped items uniform while handling special onClick case
+- [06.4-02]: TourModal rendered outside <Sidebar> as fragment sibling — prevents z-index clipping from sidebar's positioning context
+- [06.4-02]: handleClose calls both onOpenChange(false) and setStep(0) — ensures all close paths (X, overlay, Escape, Get Started) reset step
+- [06.4-02]: Personalize page non-async Server Component — no Prisma schema for user prefs, static display correct for prototype
 - [06.4-01]: HTML table + Tailwind for CampaignsTable — table.tsx not in components/ui/, avoided adding shadcn dependency mid-phase
 - [06.4-01]: getCampaignStats() derives from getMockCampaigns() inline — single source of truth for campaign data
 - [06.4-01]: New iconName string union for CampaignKpi (DollarSign/Activity/BarChart2/MousePointerClick) — campaigns-specific KPIs need different icons than dashboard
@@ -79,6 +83,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-23T02:05:55Z
-Stopped at: Completed 06.4-01-PLAN.md (stub data layer, /campaigns page with KPI cards, data table, loading skeleton)
+Last session: 2026-02-23T02:06:30Z
+Stopped at: Completed 06.4-02-PLAN.md (tour modal, sidebar integration, Personalize settings page)
 Resume file: None
