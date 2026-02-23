@@ -33,7 +33,6 @@ export default async function PublicListingPage({
           <PropertyAbout description={property.description} />
           <LockedSection title="Sponsorship Tiers" />
           <LockedSection title="Audience Demographics" />
-          <LockedSection title="Activation Formats" />
         </div>
       </div>
     </div>
