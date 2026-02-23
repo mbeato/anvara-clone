@@ -73,15 +73,15 @@ export function CategoryCarousel({ onCategoryClick }: CategoryCarouselProps) {
       opts={{ loop: true, align: "start" }}
       className="w-full"
     >
-      <CarouselContent className="-ml-4">
+      <CarouselContent className="-ml-3 sm:-ml-4">
         {CATEGORIES.map((category) => (
           <CarouselItem
             key={category.slug}
-            className="basis-1/2 md:basis-1/3 lg:basis-1/5 pl-4"
+            className="basis-[55%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5 pl-3 sm:pl-4"
           >
             <button
               onClick={() => onCategoryClick(category.slug)}
-              className="relative aspect-[2/1] w-full overflow-hidden rounded-xl cursor-pointer group block"
+              className="relative aspect-[3/2] sm:aspect-[2/1] w-full overflow-hidden rounded-xl cursor-pointer group block"
               aria-label={`Browse ${category.label}`}
             >
               <Image
@@ -94,7 +94,7 @@ export function CategoryCarousel({ onCategoryClick }: CategoryCarouselProps) {
               {/* Dark gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               {/* Category label */}
-              <span className="absolute bottom-3 left-3 text-white font-semibold text-sm">
+              <span className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 text-white font-semibold text-xs sm:text-sm">
                 {category.label}
               </span>
             </button>

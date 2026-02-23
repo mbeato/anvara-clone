@@ -3,7 +3,7 @@ import { PropertyCardSkeleton } from "./_components/property-card-skeleton";
 
 export default function BrowseLoading() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
       {/* Carousel skeleton */}
       <Skeleton className="w-full h-48 rounded-xl" />
 

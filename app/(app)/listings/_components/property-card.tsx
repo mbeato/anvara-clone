@@ -47,8 +47,8 @@ export function PropertyCard({ property }: { property: Property }) {
             variant={fitBadge.variant}
             className={
               fitBadge.variant === "default"
-                ? "absolute top-2 right-2 bg-primary text-primary-foreground"
-                : "absolute top-2 right-2"
+                ? "absolute top-1.5 right-1.5 sm:top-2 sm:right-2 text-[10px] sm:text-xs bg-primary text-primary-foreground"
+                : "absolute top-1.5 right-1.5 sm:top-2 sm:right-2 text-[10px] sm:text-xs"
             }
           >
             {fitBadge.label}
@@ -56,14 +56,14 @@ export function PropertyCard({ property }: { property: Property }) {
         </div>
 
         {/* Content area */}
-        <div className="p-3 space-y-1">
-          <p className="font-semibold text-sm line-clamp-1">{property.name}</p>
-          <p className="text-xs text-muted-foreground line-clamp-1">
+        <div className="p-2 sm:p-3 space-y-0.5 sm:space-y-1">
+          <p className="font-semibold text-xs sm:text-sm line-clamp-1">{property.name}</p>
+          <p className="text-[11px] sm:text-xs text-muted-foreground line-clamp-1">
             {property.tagline}
           </p>
-          <div className="flex items-center justify-between pt-1">
-            <span className="text-xs font-medium min-w-0 truncate">{priceDisplay}</span>
-            <span className="text-xs text-muted-foreground shrink-0 pl-1">{startDate}</span>
+          <div className="flex items-center justify-between pt-0.5 sm:pt-1">
+            <span className="text-[11px] sm:text-xs font-medium min-w-0 truncate">{priceDisplay}</span>
+            <span className="text-[11px] sm:text-xs text-muted-foreground shrink-0 pl-1">{startDate}</span>
           </div>
         </div>
       </div>

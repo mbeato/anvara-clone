@@ -111,7 +111,7 @@ export function BrowseClient({
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
       {/* Auto-scrolling category image carousel */}
       <CategoryCarousel
         onCategoryClick={(slug) => updateFilter("category", slug)}
@@ -169,7 +169,7 @@ export function BrowseClient({
         <EmptyState onClearFilters={clearFilters} />
       ) : (
         <div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 !mt-2"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 !mt-2"
           data-has-filters={hasFilters ? "true" : "false"}
         >
           {properties.map((property) => (

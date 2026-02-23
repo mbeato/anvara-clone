@@ -54,8 +54,8 @@ export function FilterBar({
   }
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-3 shrink-0">
-      <div className="flex items-center gap-3">
+    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 shrink-0">
+      <div className="flex items-center gap-2 sm:gap-3">
         {/* Region dropdown */}
         <Select
           value={currentFilters.region ?? "all"}
@@ -63,7 +63,7 @@ export function FilterBar({
             onFilterChange("region", val === "all" ? undefined : val)
           }
         >
-          <SelectTrigger className="w-[calc(50%-6px)] sm:w-40 h-9">
+          <SelectTrigger className="flex-1 sm:flex-none sm:w-40 h-9">
             <SelectValue placeholder="All Regions" />
           </SelectTrigger>
           <SelectContent>
@@ -82,7 +82,7 @@ export function FilterBar({
             onFilterChange("category", val === "all" ? undefined : val)
           }
         >
-          <SelectTrigger className="w-[calc(50%-6px)] sm:w-40 h-9">
+          <SelectTrigger className="flex-1 sm:flex-none sm:w-40 h-9">
             <SelectValue placeholder="All Types" />
           </SelectTrigger>
           <SelectContent>
