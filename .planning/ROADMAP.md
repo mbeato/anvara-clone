@@ -24,6 +24,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6.3: AI Chat with Listing Recommendations** (INSERTED) - AI chat tab with OpenAI-powered conversation that recommends relevant seed data listings based on user intent
 - [x] **Phase 6.4: Stub Pages and Platform Tour** (INSERTED) - Add basic content to empty sidebar pages (Campaigns, Deals, Personalize) and build a multi-step "Show Me Around" modal tour showcasing the platform
 - [x] **Phase 6.5: Accessibility and Animation Hardening** (INSERTED) - Add prefers-reduced-motion support, landing page mobile hamburger menu, LazyMotion bundle optimization, and tighten animation durations
+- [ ] **Phase 6.6: Server Component Performance Optimization** (INSERTED) - Optimize pages for performance using Server Components instead of client useEffect data fetching
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -234,6 +235,19 @@ Plans:
 - [x] 06.5-01-PLAN.md — LazyMotion + MotionConfig providers, m.div migration, CSS prefers-reduced-motion, duration hardening (section-reveal, hero, what-is-anvara)
 - [x] 06.5-02-PLAN.md — Mobile hamburger menu (Sheet), useReducedMotion for JS-animated sections, duration hardening (anvara-intelligence, performance-reporting), build verification
 
+### Phase 6.6: Server Component Performance Optimization (INSERTED)
+**Goal**: Pages are optimized for performance — data fetching uses Server Components with async patterns instead of client-side useEffect, eliminating unnecessary client bundles and waterfalls
+**Depends on**: Phase 6.5
+**Requirements**: N/A (performance optimization)
+**Success Criteria** (what must be TRUE):
+  1. No page-level `useEffect` for data fetching — all data loads in Server Components via async/await
+  2. Client components (`'use client'`) are only on interactive leaf components (forms, modals, buttons), never on page or layout components that primarily display data
+  3. Build passes cleanly (`npm run build`) with no TypeScript errors
+**Plans**: 1 plan in 1 wave (single wave — remove "use client" from 4 display components + build verify)
+
+Plans:
+- [ ] 06.6-01-PLAN.md — Remove unnecessary "use client" from 4 display-only components + build verification
+
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
 **Depends on**: Phases 1-6
@@ -254,7 +268,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 6.4 → 6.5 → 7
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 6.4 → 6.5 → 6.6 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -270,4 +284,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 6.3 AI Chat with Listing Recommendations | 2/2 | Complete | 2026-02-22 |
 | 6.4 Stub Pages and Platform Tour | 3/3 | Complete | 2026-02-22 |
 | 6.5 Accessibility and Animation Hardening | 2/2 | Complete | 2026-02-23 |
+| 6.6 Server Component Performance Optimization | 0/0 | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
