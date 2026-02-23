@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 7 (Polish and Deploy)
-Plan: 2 of N in phase — In progress
+Plan: 3 of N in phase — In progress
 Status: In progress
-Last activity: 2026-02-23 — Completed 07-02-PLAN.md (app pages mobile responsive — property detail, messaging, header bar, dashboard table)
+Last activity: 2026-02-23 — Completed 07-03-PLAN.md (build cleanup — postinstall script, clean build verification, noindex confirmed)
 
-Progress: [██████████████████████████████████░░] (07-02 complete, more plans TBD)
+Progress: [████████████████████████████████████░] (07-03 complete, more plans TBD)
 
 ## Performance Metrics
 
@@ -40,10 +40,10 @@ Progress: [███████████████████████
 | Phase 6.4 (Stub Pages and Tour) | 3/3 COMPLETE | ~7 min | 2.3 min |
 | Phase 6.5 (Accessibility and Animation Hardening) | 2/2 COMPLETE | ~6.5 min | 3.25 min |
 | Phase 6.6 (Server Component Performance Optimization) | 1/1 COMPLETE | ~1 min | 1 min |
-| Phase 7 (Polish and Deploy) | 2/N IN PROGRESS | ~4 min | 2 min |
+| Phase 7 (Polish and Deploy) | 3/N IN PROGRESS | ~5 min | 1.7 min |
 
 **Recent Trend:**
-- Last 5 plans: 06.5-01 (1.5 min), 06.5-02 (5 min), 06.6-01 (1 min), 07-01 (2 min), 07-02 (2 min)
+- Last 5 plans: 06.5-02 (5 min), 06.6-01 (1 min), 07-01 (2 min), 07-02 (2 min), 07-03 (1 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -55,6 +55,8 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [07-03]: postinstall script added before dev in scripts — follows npm lifecycle conventions; ensures Prisma client generation on Vercel
+- [07-03]: noindex confirmed in app/layout.tsx — not accidentally removed during 07-01/07-02 mobile responsive refactors
 - [07-01]: Show only first hero card on mobile (hidden sm:block on cards 2+) — single centered card is cleaner than horizontal scroll at 375px
 - [07-01]: WhatIsAnvara tokens w-[72px] base — 5 tokens at 92px with -ml-3 = 436px overflows; 72px with -ml-4 = 296px fits 343px available
 - [07-01]: HexCell w-[88px] sm:w-[110px] — 4-cell hex row at 110px = 416px overflows; at 88px = 328px fits 343px
@@ -105,6 +107,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-23
-Stopped at: Completed 07-01-PLAN.md — landing page mobile responsive complete
+Last session: 2026-02-23T19:15:31Z
+Stopped at: Completed 07-03-PLAN.md — build cleanup complete (postinstall, clean build, noindex confirmed)
 Resume file: None
