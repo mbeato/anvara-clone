@@ -55,6 +55,10 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [07-01]: Show only first hero card on mobile (hidden sm:block on cards 2+) — single centered card is cleaner than horizontal scroll at 375px
+- [07-01]: WhatIsAnvara tokens w-[72px] base — 5 tokens at 92px with -ml-3 = 436px overflows; 72px with -ml-4 = 296px fits 343px available
+- [07-01]: HexCell w-[88px] sm:w-[110px] — 4-cell hex row at 110px = 416px overflows; at 88px = 328px fits 343px
+- [07-01]: FinalCTA VerticalScroll overflow-hidden clips w-[320px] cards in narrow columns — no page scroll, intentional clipping
 - [07-02]: Property detail right column lg:sticky lg:top-20 only — sticky in single-column layout causes scroll issues; removed on mobile
 - [07-02]: Messaging panel switching via JS state (useIsMobile + mobileView) — CSS-only can't handle back navigation or compose-to-threads flow
 - [07-02]: ModeToggle hidden sm:flex on mobile — header row at capacity at 375px; ModeToggle is non-critical
@@ -102,5 +106,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Completed 07-02-PLAN.md — app pages mobile responsive complete
+Stopped at: Completed 07-01-PLAN.md — landing page mobile responsive complete
 Resume file: None
