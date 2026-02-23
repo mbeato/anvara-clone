@@ -10,7 +10,7 @@ export function LockedSection({ title }: LockedSectionProps) {
   return (
     <section className="relative space-y-3">
       <h2 className="text-lg font-semibold">{title}</h2>
-      <div className="rounded-xl overflow-hidden border border-border">
+      <div className="relative rounded-xl overflow-hidden border border-border">
         {/* Blurred placeholder content */}
         <div className="blur-sm pointer-events-none select-none p-4 space-y-3 bg-muted/30">
           <div className="h-4 bg-muted rounded w-full" />
