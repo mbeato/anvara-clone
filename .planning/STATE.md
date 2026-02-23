@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 6.5 (Accessibility and Animation Hardening)
-Plan: 1 of ? in phase — COMPLETE
-Status: In progress
-Last activity: 2026-02-23 — Completed 06.5-01-PLAN.md (LazyMotion bundle optimization, m.div migration, prefers-reduced-motion CSS, duration tightening)
+Plan: 2 of 2 in phase — ALL COMPLETE
+Status: Phase complete
+Last activity: 2026-02-23 — Completed 06.5-02-PLAN.md (mobile hamburger menu, useReducedMotion in JS-animated sections, tightened durations)
 
-Progress: [████████████████████████████████░] ~97% (33/34 plans)
+Progress: [██████████████████████████████████] 100% (34/34 plans)
 
 ## Performance Metrics
 
@@ -38,10 +38,10 @@ Progress: [███████████████████████
 | Phase 6.2 (Public Listing Page) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.3 (AI Chat) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.4 (Stub Pages and Tour) | 3/3 COMPLETE | ~7 min | 2.3 min |
-| Phase 6.5 (Accessibility and Animation Hardening) | 1/? IN PROGRESS | ~1.5 min | 1.5 min |
+| Phase 6.5 (Accessibility and Animation Hardening) | 2/2 COMPLETE | ~6.5 min | 3.25 min |
 
 **Recent Trend:**
-- Last 5 plans: 06.4-01 (2 min), 06.4-02 (2 min), 06.4-03 (3 min), 06.5-01 (1.5 min)
+- Last 5 plans: 06.4-02 (2 min), 06.4-03 (3 min), 06.5-01 (1.5 min), 06.5-02 (5 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -53,6 +53,9 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [06.5-02]: SheetClose asChild on every nav link — closes drawer on tap with no extra open-state or onClick handler
+- [06.5-02]: prefersReduced === true (strict equality) for useReducedMotion — null means SSR/undetermined, animate normally to avoid flash of visible content
+- [06.5-02]: Badge transitionDelay values updated from 1.2s/1.35s/1.5s to 0.5s/0.65s/0.8s — stay coherent with new 0.5s SVG draw duration
 - [06.5-01]: AnimatePresence stays in motion/react (not motion/react-m) — it is an orchestrator, not a motion component; no code-split benefit
 - [06.5-01]: LazyMotion strict mode enabled — catches any remaining motion.div usage at dev-time
 - [06.5-01]: LandingProviders is the sole client boundary for landing page Motion context — keeps page.tsx as async Server Component
@@ -90,5 +93,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Completed 06.5-01-PLAN.md (LazyMotion + m.div migration, reduced-motion CSS, duration tightening)
+Stopped at: Completed 06.5-02-PLAN.md (mobile hamburger menu, useReducedMotion in JS-animated sections, tightened durations) — Phase 6.5 ALL COMPLETE
 Resume file: None
