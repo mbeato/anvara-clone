@@ -143,28 +143,25 @@ export function HeroSection({ properties }: HeroSectionProps) {
       {/* Rich dark gradient fallback background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900" />
 
-      {/* Hero video background — synced to current prompt category */}
-      {PROMPTS.map((prompt, i) => (
-        <video
-          key={prompt.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-          style={{ opacity: i === promptIndex ? 1 : 0 }}
-          aria-hidden="true"
-        >
-          <source src={prompt.video} type="video/mp4" />
-        </video>
-      ))}
+      {/* Hero video background — only mount active video to avoid blocking navigation */}
+      <video
+        key={PROMPTS[promptIndex].video}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      >
+        <source src={PROMPTS[promptIndex].video} type="video/mp4" />
+      </video>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 pt-24 pb-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[-0.02em] text-white leading-tight max-w-4xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-normal tracking-[-0.02em] text-white leading-tight max-w-4xl mx-auto">
           Connect Your Brand
           <br className="hidden sm:block" /> to Culture at Scale
         </h1>
@@ -189,8 +186,8 @@ export function HeroSection({ properties }: HeroSectionProps) {
       <div className="relative z-10 pb-8 flex justify-center">
         <div className="w-full max-w-[1040px] px-4">
           {/* Typewriter — message field style above cards */}
-          <div className="mb-4 flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-5 py-3">
-            <p className="text-sm sm:text-base font-medium select-none whitespace-nowrap">
+          <div className="mb-4 flex items-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 sm:px-5 py-3">
+            <p className="text-sm sm:text-base font-medium select-none whitespace-normal sm:whitespace-nowrap">
               <span className="text-white/50">
                 I&apos;m looking to target{" "}
               </span>
@@ -219,6 +216,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
               {cardGroups[promptIndex]?.map((property, i) => (
                 <m.div
                   key={property.id}
+                  className={i > 0 ? "hidden sm:block" : undefined}
                   variants={{
                     hidden: { y: 50, opacity: 0 },
                     visible: { y: 0, opacity: 1 },
@@ -245,7 +243,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
         <p className="text-white/40 text-xs font-semibold tracking-widest uppercase select-none">
           Used by Teams At
         </p>
-        <div className="w-[60%] mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="w-full sm:w-[60%] mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex gap-12 animate-[marquee_30s_linear_infinite] w-max">
             {[...Array(2)].map((_, dupeIdx) => (
               <div key={dupeIdx} className="flex items-center gap-12 shrink-0">
@@ -257,9 +255,9 @@ export function HeroSection({ properties }: HeroSectionProps) {
                   <span className="text-lg font-bold">Snapchat</span>
                 </span>
 
-                {/* BeReal — Simple Icons logo is the wordmark */}
-                <svg viewBox="0 0 24 24" fill="currentColor" className="text-white/60 h-5 w-auto select-none">
-                  <path d="M6.501 10.727c.593 0 1.029.196 1.307.587.279.393.418.857.418 1.391v.312H5.674a.97.97 0 0 0 .343.596c.182.148.422.223.718.223.172 0 .327-.023.464-.066.163-.055.324-.119.48-.192l.297.733a1.73 1.73 0 0 1-.644.296c-.252.063-.46.093-.62.093-.656 0-1.172-.18-1.55-.537-.377-.36-.565-.84-.565-1.441 0-.603.17-1.086.51-1.45.342-.364.806-.545 1.394-.545Zm8.835 0c.593 0 1.028.196 1.307.587.278.393.417.857.417 1.391v.312h-2.552c.038.235.16.447.344.596.182.148.421.223.718.223.171 0 .326-.023.464-.066a4.53 4.53 0 0 0 .48-.192l.297.733a1.728 1.728 0 0 1-.644.296 2.67 2.67 0 0 1-.62.093c-.656 0-1.173-.18-1.55-.537-.377-.36-.566-.84-.566-1.441 0-.603.17-1.086.512-1.45.34-.364.805-.545 1.393-.545Zm3.875.041c.974 0 1.603.502 1.603 1.26v2.579h-1.027v-.561h-.02c-.215.385-.616.62-1.111.62-.756 0-1.265-.473-1.265-1.136v-.008c0-.683.53-1.083 1.465-1.144l.931-.055v-.231c0-.335-.217-.541-.618-.541-.383 0-.615.18-.664.421l-.007.03h-.939l.004-.04c.056-.696.653-1.194 1.648-1.194Zm4.789 2.8v1.039h-1.04v-1.039H24ZM1.982 9.308c.515 0 .934.114 1.257.34.322.225.484.607.484 1.14 0 .198-.046.376-.137.534-.09.16-.21.296-.355.41.24.125.436.294.59.506.153.213.23.483.23.81 0 .489-.171.871-.512 1.146-.34.275-.795.413-1.362.413H0V9.308h1.982Zm8.702 0c.578 0 1.072.133 1.483.398.411.265.617.675.617 1.231 0 .327-.085.609-.254.846a1.714 1.714 0 0 1-.652.549l1.304 2.275h-1.077l-1.124-2.025a3.626 3.626 0 0 1-.367.015h-.585v2.01H9.022V9.308h1.662ZM22.448 9.3v5.307h-1.076V9.3h1.076Zm-2.66 3.661-.777.049c-.397.025-.605.192-.605.46v.007c0 .277.229.442.584.442.46 0 .797-.294.797-.688l.001-.27ZM2.17 12.285H1.007v1.489h1.092c.27 0 .488-.063.652-.188a.622.622 0 0 0 .246-.53c0-.25-.076-.44-.226-.572-.151-.132-.352-.199-.601-.199Zm4.308-.694a.75.75 0 0 0-.523.19c-.14.128-.232.315-.273.558h1.584c-.052-.253-.146-.442-.281-.564a.73.73 0 0 0-.507-.184Zm8.834 0a.75.75 0 0 0-.523.19c-.14.128-.231.315-.273.558h1.585c-.053-.253-.146-.442-.281-.564a.73.73 0 0 0-.508-.184Zm-4.659-1.441h-.624v1.62h.64c.301 0 .551-.06.749-.182.198-.122.296-.324.296-.604 0-.297-.093-.51-.28-.639-.188-.13-.448-.195-.781-.195Zm-8.819 0h-.827v1.316h.749c.281 0 .5-.053.66-.16.158-.105.238-.273.238-.501 0-.25-.073-.422-.219-.515-.146-.093-.346-.14-.601-.14Z"/>
+                {/* BeReal — Simple Icons wordmark, viewBox trimmed to path bounds */}
+                <svg viewBox="0 0 24 5.4" fill="currentColor" className="text-white/60 h-4 w-auto select-none">
+                  <path d="M6.501 1.427c.593 0 1.029.196 1.307.587.279.393.418.857.418 1.391v.312H5.674a.97.97 0 0 0 .343.596c.182.148.422.223.718.223.172 0 .327-.023.464-.066.163-.055.324-.119.48-.192l.297.733a1.73 1.73 0 0 1-.644.296c-.252.063-.46.093-.62.093-.656 0-1.172-.18-1.55-.537-.377-.36-.565-.84-.565-1.441 0-.603.17-1.086.51-1.45.342-.364.806-.545 1.394-.545Zm8.835 0c.593 0 1.028.196 1.307.587.278.393.417.857.417 1.391v.312h-2.552c.038.235.16.447.344.596.182.148.421.223.718.223.171 0 .326-.023.464-.066a4.53 4.53 0 0 0 .48-.192l.297.733a1.728 1.728 0 0 1-.644.296 2.67 2.67 0 0 1-.62.093c-.656 0-1.173-.18-1.55-.537-.377-.36-.566-.84-.566-1.441 0-.603.17-1.086.512-1.45.34-.364.805-.545 1.393-.545Zm3.875.041c.974 0 1.603.502 1.603 1.26v2.579h-1.027v-.561h-.02c-.215.385-.616.62-1.111.62-.756 0-1.265-.473-1.265-1.136v-.008c0-.683.53-1.083 1.465-1.144l.931-.055v-.231c0-.335-.217-.541-.618-.541-.383 0-.615.18-.664.421l-.007.03h-.939l.004-.04c.056-.696.653-1.194 1.648-1.194Zm4.789 2.8v1.039h-1.04v-1.039H24ZM1.982.008c.515 0 .934.114 1.257.34.322.225.484.607.484 1.14 0 .198-.046.376-.137.534-.09.16-.21.296-.355.41.24.125.436.294.59.506.153.213.23.483.23.81 0 .489-.171.871-.512 1.146-.34.275-.795.413-1.362.413H0V.008h1.982Zm8.702 0c.578 0 1.072.133 1.483.398.411.265.617.675.617 1.231 0 .327-.085.609-.254.846a1.714 1.714 0 0 1-.652.549l1.304 2.275h-1.077l-1.124-2.025a3.626 3.626 0 0 1-.367.015h-.585v2.01H9.022V.008h1.662ZM22.448 0v5.307h-1.076V0h1.076Zm-2.66 3.661-.777.049c-.397.025-.605.192-.605.46v.007c0 .277.229.442.584.442.46 0 .797-.294.797-.688l.001-.27ZM2.17 2.985H1.007v1.489h1.092c.27 0 .488-.063.652-.188a.622.622 0 0 0 .246-.53c0-.25-.076-.44-.226-.572-.151-.132-.352-.199-.601-.199Zm4.308-.694a.75.75 0 0 0-.523.19c-.14.128-.232.315-.273.558h1.584c-.052-.253-.146-.442-.281-.564a.73.73 0 0 0-.507-.184Zm8.834 0a.75.75 0 0 0-.523.19c-.14.128-.231.315-.273.558h1.585c-.053-.253-.146-.442-.281-.564a.73.73 0 0 0-.508-.184Zm-4.659-1.441h-.624v1.62h.64c.301 0 .551-.06.749-.182.198-.122.296-.324.296-.604 0-.297-.093-.51-.28-.639-.188-.13-.448-.195-.781-.195Zm-8.819 0h-.827v1.316h.749c.281 0 .5-.053.66-.16.158-.105.238-.273.238-.501 0-.25-.073-.422-.219-.515-.146-.093-.346-.14-.601-.14Z"/>
                 </svg>
 
                 {/* Squarespace — official Simple Icons */}
@@ -308,10 +306,10 @@ export function HeroSection({ properties }: HeroSectionProps) {
                   L&apos;EGENDZ
                 </span>
 
-                {/* Delta — official Simple Icons */}
+                {/* Delta — official Simple Icons, viewBox trimmed to path bounds */}
                 <span className="text-white/60 flex items-center gap-1.5 select-none">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true">
-                    <path d="M0 13.85h4.626l-2.31-.978zm.172-.395l2.144-1.033 2.143 1.033-2.143-3.304Z"/>
+                  <svg viewBox="0 0 4.63 4.7" fill="currentColor" className="w-5 h-5" aria-hidden="true">
+                    <path d="M0 4.7h4.626l-2.31-.978zm.172-.395l2.144-1.033 2.143 1.033L2.316 0Z"/>
                   </svg>
                   <span className="text-lg font-bold tracking-wide uppercase">Delta</span>
                 </span>
