@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anvara Prototype
 
-## Getting Started
+A fully functional prototype of Anvara's sponsorship marketplace — built to demonstrate product thinking, engineering depth, and UX improvements. Browse properties, get AI-powered recommendations, simulate deals, and explore analytics.
 
-First, run the development server:
+**[Live Demo](https://anvara-prototype-mbeato.vercel.app)**
+
+---
+
+## What's Built
+
+### AI Features
+- AI-powered chat that recommends relevant sponsorship properties based on user intent
+- AI-simulated messaging — property side responses feel natural and contextual (powered by OpenAI o3-mini)
+- Smart recommendations on browse page with audience fit scoring
+
+### UX Polish
+- Animated landing page with video backgrounds, typewriter effect, and parallax scrolling
+- Skeleton loading states on every data-fetching route
+- `prefers-reduced-motion` support throughout — no animations for users who prefer reduced motion
+- LazyMotion bundle optimization (34kb down to 4.6kb)
+- Mobile-responsive design tested at 375px
+- Dark/light mode with persistent theme
+
+### Feature Breadth
+- Full landing page faithful to Anvara's current site messaging
+- Property browse with category filters, price range slider, region dropdown, and active filter chips
+- Detailed property pages with tier pricing, audience demographics, and activation formats
+- Advertiser analytics dashboard with trend charts, bar charts, and KPI cards
+- Deals pipeline with stage-grouped Kanban view
+- Campaigns table with mock data
+- Multi-step "Show Me Around" platform tour
+- Public listing pages with gated content and login prompt
+- Messaging inbox with pre-seeded conversations and "Make an Offer" flow
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js 16 | App Router, Server Components, Server Actions |
+| React 19 | Concurrent features, useActionState |
+| TypeScript | Full type safety, strict mode |
+| Tailwind CSS v4 | Utility-first styling |
+| ShadCN UI | Component library |
+| Prisma + Neon Postgres | Database ORM with serverless adapter |
+| OpenAI (o3-mini) | AI chat and simulated messaging |
+| Motion (Framer Motion) | Animations with LazyMotion |
+| Recharts | Analytics visualizations |
+| Vercel | Deployment with serverless functions |
+
+---
+
+## Architecture
+
+- App Router with route groups: `(app)` for authenticated views, `(public)` for public pages
+- Server Components by default — `'use client'` only on interactive leaf components
+- Prisma with Neon serverless adapter for database access
+- Server Actions for mutations (message sending, offer creation)
+- AI SDK for streaming OpenAI responses
+
+---
+
+## Local Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/mbeato/anv.git
+cd anv
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+DATABASE_URL="your-neon-pooled-connection-string"
+DIRECT_URL="your-neon-direct-connection-string"
+OPENAI_API_KEY="your-openai-api-key"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx prisma db push
+npx prisma db seed
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## About the `.planning/` Directory
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This repository includes a `.planning/` directory that documents the structured build process — from project definition through 7 phases of iterative development. It's kept in the repo intentionally to demonstrate the planning methodology used to build this prototype.
