@@ -56,20 +56,20 @@
 - [x] **DATA-04**: Vercel Postgres configured for deployment
 
 ### UX Polish
-- [ ] **UX-01**: All pages are mobile-responsive (works on phone/tablet)
+- [x] **UX-01**: All pages are mobile-responsive (works on phone/tablet)
 - [x] **UX-02**: Proper loading states on all data-heavy sections
 - [x] **UX-03**: Proper error states with user-friendly messages
 - [x] **UX-04**: Footer displays "Prototype by Max Beato" on all pages
 - [x] **UX-05**: Custom page title and Anvara-style favicon (not default Next.js)
-- [ ] **UX-06**: No console errors visible in DevTools
+- [x] **UX-06**: No console errors visible in DevTools
 - [x] **UX-07**: Font loading handled via next/font (no FOUT)
 
 ### Deployment
-- [ ] **DEPLOY-01**: App deploys to Vercel on unlisted URL
-- [ ] **DEPLOY-02**: Vercel Postgres database provisioned and connected
-- [ ] **DEPLOY-03**: OpenAI API key configured in Vercel environment variables
-- [ ] **DEPLOY-04**: `noindex` meta tag prevents search engine indexing
-- [ ] **DEPLOY-05**: `npm run build` passes without errors before deploy
+- [x] **DEPLOY-01**: App deploys to Vercel on unlisted URL
+- [x] **DEPLOY-02**: Vercel Postgres database provisioned and connected
+- [x] **DEPLOY-03**: OpenAI API key configured in Vercel environment variables
+- [x] **DEPLOY-04**: `noindex` meta tag prevents search engine indexing
+- [x] **DEPLOY-05**: `npm run build` passes without errors before deploy
 
 ---
 
@@ -145,13 +145,13 @@
 | LAND-03 | Phase 6 — Landing Page | Complete |
 | LAND-04 | Phase 6 — Landing Page | Complete |
 | LAND-05 | Phase 6 — Landing Page | Complete |
-| UX-01 | Phase 7 — Polish and Deploy | Pending |
-| UX-06 | Phase 7 — Polish and Deploy | Pending |
-| DEPLOY-01 | Phase 7 — Polish and Deploy | Pending |
-| DEPLOY-02 | Phase 7 — Polish and Deploy | Pending |
-| DEPLOY-03 | Phase 7 — Polish and Deploy | Pending |
-| DEPLOY-04 | Phase 7 — Polish and Deploy | Pending |
-| DEPLOY-05 | Phase 7 — Polish and Deploy | Pending |
+| UX-01 | Phase 7 — Polish and Deploy | Complete |
+| UX-06 | Phase 7 — Polish and Deploy | Complete |
+| DEPLOY-01 | Phase 7 — Polish and Deploy | Complete |
+| DEPLOY-02 | Phase 7 — Polish and Deploy | Complete |
+| DEPLOY-03 | Phase 7 — Polish and Deploy | Complete |
+| DEPLOY-04 | Phase 7 — Polish and Deploy | Complete |
+| DEPLOY-05 | Phase 7 — Polish and Deploy | Complete |
 
 ---
 *Last updated: 2026-02-21 after roadmap creation — traceability complete (55/55 requirements mapped)*
