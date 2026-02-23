@@ -5,21 +5,21 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 6.4 (Stub Pages and Platform Tour) — COMPLETE & VERIFIED
+**Current focus:** Phase 6.5 (Accessibility and Animation Hardening) — IN PROGRESS
 
 ## Current Position
 
-Phase: 6.4 (Stub Pages and Platform Tour)
-Plan: 3 of 3 in phase — ALL COMPLETE
-Status: Phase complete
-Last activity: 2026-02-23 — Completed 06.4-03-PLAN.md (Deals pipeline page, loading skeleton, full phase build verified)
+Phase: 6.5 (Accessibility and Animation Hardening)
+Plan: 1 of ? in phase — COMPLETE
+Status: In progress
+Last activity: 2026-02-23 — Completed 06.5-01-PLAN.md (LazyMotion bundle optimization, m.div migration, prefers-reduced-motion CSS, duration tightening)
 
-Progress: [████████████████████████████████] 100% (32/32 plans)
+Progress: [████████████████████████████████░] ~97% (33/34 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 30
+- Total plans completed: 33
 - Average duration: ~2.3 minutes
 - Total execution time: ~1.1 hours
 
@@ -38,9 +38,10 @@ Progress: [███████████████████████
 | Phase 6.2 (Public Listing Page) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.3 (AI Chat) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.4 (Stub Pages and Tour) | 3/3 COMPLETE | ~7 min | 2.3 min |
+| Phase 6.5 (Accessibility and Animation Hardening) | 1/? IN PROGRESS | ~1.5 min | 1.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 06.3-01 (3 min), 06.3-02 (1 min), 06.4-01 (2 min), 06.4-02 (2 min), 06.4-03 (3 min)
+- Last 5 plans: 06.4-01 (2 min), 06.4-02 (2 min), 06.4-03 (3 min), 06.5-01 (1.5 min)
 - Trend: Fast — consistently ~1-3 min/plan
 
 *Updated after each plan completion*
@@ -52,6 +53,10 @@ Progress: [███████████████████████
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [06.5-01]: AnimatePresence stays in motion/react (not motion/react-m) — it is an orchestrator, not a motion component; no code-split benefit
+- [06.5-01]: LazyMotion strict mode enabled — catches any remaining motion.div usage at dev-time
+- [06.5-01]: LandingProviders is the sole client boundary for landing page Motion context — keeps page.tsx as async Server Component
+- [06.5-01]: 0.01ms (not 0ms) for prefers-reduced-motion CSS — avoids edge cases with transitionend event listeners
 - [06.4-03]: STAGES array typed with MockDeal["stage"] key — compile-time guarantee stage keys match union type
 - [06.4-03]: border-l-2 + per-stage color class on each Card — visually differentiates stages without extra wrapper elements
 - [06.4-02]: footerItems split into footerLinkItems + manual Show Me Around button — keeps array-mapped items uniform while handling special onClick case
@@ -60,11 +65,9 @@ Recent decisions affecting current work:
 - [06.4-02]: Personalize page non-async Server Component — no Prisma schema for user prefs, static display correct for prototype
 - [06.4-01]: HTML table + Tailwind for CampaignsTable — table.tsx not in components/ui/, avoided adding shadcn dependency mid-phase
 - [06.4-01]: getCampaignStats() derives from getMockCampaigns() inline — single source of truth for campaign data
-- [06.4-01]: New iconName string union for CampaignKpi (DollarSign/Activity/BarChart2/MousePointerClick) — campaigns-specific KPIs need different icons than dashboard
 - [06.3-02]: UserMessage/AIMessage are pure presentational (no use client) — imported by AIChatClient client boundary
 - [06.3-02]: recommendedSlugs stripped before API POST — only role+content sent, prior recommendations not re-sent as context
-- [06.3-02]: void operator used on floating promises in onClick/onKeyDown — satisfies TypeScript strict without async event handlers
-- [06.3-01]: Properties fetched twice (page.tsx + /api/ai-chat route) — acceptable double-fetch for seeded prototype; avoids serializing DB result through fetch body
+- [06.3-01]: Properties fetched twice (page.tsx + /api/ai-chat route) — acceptable double-fetch for seeded prototype
 - [06.1-01]: iconName strings in analytics return (not LucideIcon) — serializable across server/client boundary
 
 ### Roadmap Evolution
@@ -74,6 +77,7 @@ Recent decisions affecting current work:
 - Phase 6.2 inserted after Phase 6.1: Public Listing Page (URGENT)
 - Phase 6.3 inserted after Phase 6.2: AI Chat with Listing Recommendations (URGENT)
 - Phase 6.4 inserted after Phase 6.3: Stub Pages and Platform Tour (URGENT)
+- Phase 6.5 inserted after Phase 6.4: Accessibility and Animation Hardening (URGENT) — prefers-reduced-motion, mobile hamburger, LazyMotion, animation timing
 
 ### Pending Todos
 
@@ -86,5 +90,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Phase 6.4 verified (7/7 must-haves passed) — ready for Phase 7 (Polish and Deploy)
+Stopped at: Completed 06.5-01-PLAN.md (LazyMotion + m.div migration, reduced-motion CSS, duration tightening)
 Resume file: None
