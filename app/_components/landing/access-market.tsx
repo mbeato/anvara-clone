@@ -63,28 +63,38 @@ function PropertyRow({
 }
 
 export function AccessMarket({ properties }: AccessMarketProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
   const pausedRef = useRef(false);
+  const offsetRef = useRef<number>(0);
+  const halfHeightRef = useRef<number>(0);
 
   // Double the items for seamless loop
   const items = properties.length > 0 ? properties : [];
   const doubled = [...items, ...items];
 
+  useEffect(() => {
+    if (innerRef.current) {
+      halfHeightRef.current = innerRef.current.scrollHeight / 2;
+    }
+  }, []);
+
   const animate = useCallback(
     (time: number) => {
-      if (!scrollRef.current) return;
+      if (!innerRef.current) return;
       if (!lastTimeRef.current) lastTimeRef.current = time;
 
       if (!pausedRef.current) {
         const delta = (time - lastTimeRef.current) / 1000;
-        scrollRef.current.scrollTop -= delta * SCROLL_PX_PER_SEC;
+        const halfH = halfHeightRef.current;
 
-        // When we've scrolled past the top, jump to second half seamlessly
-        const halfHeight = scrollRef.current.scrollHeight / 2;
-        if (scrollRef.current.scrollTop <= 0) {
-          scrollRef.current.scrollTop += halfHeight;
+        if (halfH > 0) {
+          offsetRef.current -= delta * SCROLL_PX_PER_SEC;
+          if (offsetRef.current <= -halfH) {
+            offsetRef.current += halfH;
+          }
+          innerRef.current.style.transform = `translateY(${offsetRef.current}px)`;
         }
       }
 
@@ -95,10 +105,6 @@ export function AccessMarket({ properties }: AccessMarketProps) {
   );
 
   useEffect(() => {
-    // Start at halfway so upward scroll has room
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight / 2;
-    }
     animRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animRef.current);
   }, [animate]);
@@ -145,18 +151,23 @@ export function AccessMarket({ properties }: AccessMarketProps) {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 z-10 bg-gradient-to-t from-zinc-200/80 to-transparent rounded-b-2xl" />
 
               <div
-                ref={scrollRef}
-                className="flex flex-col gap-2.5 max-h-[380px] overflow-hidden scrollbar-hide"
+                className="max-h-[380px] overflow-hidden"
                 onMouseEnter={() => { pausedRef.current = true; }}
                 onMouseLeave={() => { pausedRef.current = false; }}
               >
-                {doubled.map((property, i) => (
-                  <PropertyRow
-                    key={`${property.id}-${i}`}
-                    property={property}
-                    viewCount={VIEW_COUNTS[i % VIEW_COUNTS.length]}
-                  />
-                ))}
+                <div
+                  ref={innerRef}
+                  className="flex flex-col gap-2.5"
+                  style={{ willChange: "transform" }}
+                >
+                  {doubled.map((property, i) => (
+                    <PropertyRow
+                      key={`${property.id}-${i}`}
+                      property={property}
+                      viewCount={VIEW_COUNTS[i % VIEW_COUNTS.length]}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
