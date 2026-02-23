@@ -1,4 +1,5 @@
 import { getAllProperties } from "@/lib/data";
+import { LandingProviders } from "./_components/landing/landing-providers";
 import { HeroSection } from "./_components/landing/hero-section";
 import { BrandLogosBar } from "./_components/landing/brand-logos-bar";
 import { WhatIsAnvara } from "./_components/landing/what-is-anvara";
@@ -28,6 +29,7 @@ export default async function LandingPage() {
   }));
 
   return (
+    <LandingProviders>
     <main className="force-light min-h-screen bg-background overflow-x-hidden">
       {/* Sticky navbar — adaptive dark/light */}
       <LandingNavbar />
@@ -68,5 +70,6 @@ export default async function LandingPage() {
       {/* Section 12: Footer */}
       <LandingFooter />
     </main>
+    </LandingProviders>
   );
 }

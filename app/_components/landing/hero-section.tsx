@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import * as m from "motion/react-m";
 import { LandingPropertyCard } from "./landing-property-card";
 
 type Property = {
@@ -150,7 +151,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
           style={{ opacity: i === promptIndex ? 1 : 0 }}
           aria-hidden="true"
         >
@@ -203,7 +204,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
           {/* Vertical jump-scroll cards */}
           <div className="relative h-[220px] overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={promptIndex}
               initial="hidden"
               animate="visible"
@@ -216,7 +217,7 @@ export function HeroSection({ properties }: HeroSectionProps) {
               className="absolute inset-0 flex items-center justify-center gap-4"
             >
               {cardGroups[promptIndex]?.map((property, i) => (
-                <motion.div
+                <m.div
                   key={property.id}
                   variants={{
                     hidden: { y: 50, opacity: 0 },
@@ -229,9 +230,9 @@ export function HeroSection({ properties }: HeroSectionProps) {
                   }}
                 >
                   <LandingPropertyCard property={property} />
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
           </div>
 
