@@ -68,39 +68,66 @@ export function CategoryCarousel({ onCategoryClick }: CategoryCarouselProps) {
   );
 
   return (
-    <Carousel
-      plugins={[plugin.current]}
-      opts={{ loop: true, align: "start" }}
-      className="w-full"
-    >
-      <CarouselContent className="sm:-ml-4">
+    <>
+      {/* Mobile: horizontal scroll row of compact image chips */}
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide sm:hidden">
         {CATEGORIES.map((category) => (
-          <CarouselItem
+          <button
             key={category.slug}
-            className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 sm:pl-4"
+            onClick={() => onCategoryClick(category.slug)}
+            className="relative flex-shrink-0 w-28 aspect-[16/9] overflow-hidden rounded-lg"
+            aria-label={`Browse ${category.label}`}
           >
-            <button
-              onClick={() => onCategoryClick(category.slug)}
-              className="relative aspect-[2/1] w-full overflow-hidden rounded-lg sm:rounded-xl cursor-pointer group block"
-              aria-label={`Browse ${category.label}`}
-            >
-              <Image
-                src={category.imageUrl}
-                alt={category.label}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 32vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-              />
-              {/* Dark gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              {/* Category label */}
-              <span className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3 text-white font-semibold text-[10px] sm:text-sm leading-tight">
-                {category.label}
-              </span>
-            </button>
-          </CarouselItem>
+            <Image
+              src={category.imageUrl}
+              alt={category.label}
+              fill
+              className="object-cover"
+              sizes="112px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <span className="absolute bottom-1.5 left-1.5 text-white font-medium text-[10px] leading-tight">
+              {category.label}
+            </span>
+          </button>
         ))}
-      </CarouselContent>
-    </Carousel>
+      </div>
+
+      {/* Desktop: Embla auto-scrolling carousel */}
+      <div className="hidden sm:block">
+        <Carousel
+          plugins={[plugin.current]}
+          opts={{ loop: true, align: "start" }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {CATEGORIES.map((category) => (
+              <CarouselItem
+                key={category.slug}
+                className="basis-1/2 md:basis-1/3 lg:basis-1/5 pl-4"
+              >
+                <button
+                  onClick={() => onCategoryClick(category.slug)}
+                  className="relative aspect-[2/1] w-full overflow-hidden rounded-xl cursor-pointer group block"
+                  aria-label={`Browse ${category.label}`}
+                >
+                  <Image
+                    src={category.imageUrl}
+                    alt={category.label}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-white font-semibold text-sm">
+                    {category.label}
+                  </span>
+                </button>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </>
   );
 }

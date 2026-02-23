@@ -111,7 +111,7 @@ export function BrowseClient({
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-6 space-y-3 sm:space-y-6">
       {/* Auto-scrolling category image carousel */}
       <CategoryCarousel
         onCategoryClick={(slug) => updateFilter("category", slug)}
@@ -128,13 +128,11 @@ export function BrowseClient({
 
       {/* Recommendations strip — hidden when any filters are active */}
       {!hasFilters && currentPage === 1 && (
-        <div className="!mt-2">
-          <RecommendationsStrip properties={recommendedProperties} />
-        </div>
+        <RecommendationsStrip properties={recommendedProperties} />
       )}
 
       {/* Category tabs + filter controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+      <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
         <CategoryTabRow
           activeCategory={currentFilters.category}
           onCategoryChange={(slug) => updateFilter("category", slug)}
@@ -169,7 +167,7 @@ export function BrowseClient({
         <EmptyState onClearFilters={clearFilters} />
       ) : (
         <div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 !mt-2"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4"
           data-has-filters={hasFilters ? "true" : "false"}
         >
           {properties.map((property) => (
@@ -179,8 +177,8 @@ export function BrowseClient({
       )}
 
       {/* Listing count + pagination below grid */}
-      <div className="flex items-center justify-between !mt-2">
-        <p className="text-sm text-muted-foreground">
+      <div className="flex items-center justify-between">
+        <p className="text-xs sm:text-sm text-muted-foreground">
           {totalCount}{" "}
           {totalCount === 1 ? "listing" : "listings"}
         </p>

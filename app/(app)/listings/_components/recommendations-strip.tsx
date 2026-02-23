@@ -28,11 +28,11 @@ export function ListingStrip({ title, subtitle, properties }: ListingStripProps)
   }
 
   return (
-    <section className="space-y-2 sm:space-y-3">
+    <section className="space-y-2">
       <div className="flex items-end justify-between">
         <div>
-          <h2 className="text-base sm:text-lg font-semibold">{title}</h2>
-          <p className="text-xs sm:text-sm text-muted-foreground">{subtitle}</p>
+          <h2 className="text-sm sm:text-lg font-semibold">{title}</h2>
+          <p className="text-xs text-muted-foreground">{subtitle}</p>
         </div>
         <div className="hidden sm:flex items-center gap-1">
           <button
@@ -55,10 +55,10 @@ export function ListingStrip({ title, subtitle, properties }: ListingStripProps)
       </div>
       <div
         ref={scrollRef}
-        className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-2.5 sm:gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
       >
         {properties.map((p) => (
-          <div key={p.id} className="min-w-[160px] max-w-[180px] sm:min-w-[240px] sm:max-w-[260px] flex-shrink-0 snap-start">
+          <div key={p.id} className="w-[140px] sm:min-w-[240px] sm:max-w-[260px] flex-shrink-0 snap-start">
             <PropertyCard property={p} />
           </div>
         ))}

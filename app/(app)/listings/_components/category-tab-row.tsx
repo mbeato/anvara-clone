@@ -24,7 +24,7 @@ export function CategoryTabRow({
   onCategoryChange,
 }: CategoryTabRowProps) {
   return (
-    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+    <div className="flex gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-2 scrollbar-hide">
       {TAB_CATEGORIES.map((tab) => {
         const isActive = tab.slug === activeCategory;
         return (
@@ -32,7 +32,7 @@ export function CategoryTabRow({
             key={tab.slug ?? "all"}
             onClick={() => onCategoryChange(tab.slug)}
             className={[
-              "px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+              "px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-colors",
               isActive
                 ? "bg-primary text-primary-foreground"
                 : "bg-muted text-muted-foreground hover:bg-accent",
