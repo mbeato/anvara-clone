@@ -77,11 +77,11 @@ export function CategoryCarousel({ onCategoryClick }: CategoryCarouselProps) {
         {CATEGORIES.map((category) => (
           <CarouselItem
             key={category.slug}
-            className="basis-[32%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5 pl-2 sm:pl-4"
+            className="basis-1/3 sm:basis-1/2 md:basis-1/3 lg:basis-1/5 pl-2 sm:pl-4"
           >
             <button
               onClick={() => onCategoryClick(category.slug)}
-              className="relative aspect-[3/2] sm:aspect-[2/1] w-full overflow-hidden rounded-lg sm:rounded-xl cursor-pointer group block"
+              className="relative aspect-[2/1] w-full overflow-hidden rounded-lg sm:rounded-xl cursor-pointer group block"
               aria-label={`Browse ${category.label}`}
             >
               <Image
