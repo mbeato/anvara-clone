@@ -20,6 +20,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
 - [x] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [x] **Phase 6.1: Advertiser Analytics Dashboard** (INSERTED) - Dummy analytics dashboard with trend graphs, bar charts, and KPI cards showing data an advertiser would expect to see
+- [ ] **Phase 6.2: Public Listing Page** (INSERTED) - Public-facing listing detail page with limited info and "Login to see more" prompt, accessible from landing page
+- [ ] **Phase 6.3: AI Chat with Listing Recommendations** (INSERTED) - AI chat tab with OpenAI-powered conversation that recommends relevant seed data listings based on user intent
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
 ## Phase Details
@@ -163,6 +165,37 @@ Plans:
 - [x] 06.1-01-PLAN.md — Analytics data helper, KPI card component, loading skeleton, sidebar icon update
 - [x] 06.1-02-PLAN.md — Impressions area chart, category bar chart, recent activity table, page assembly
 
+### Phase 6.2: Public Listing Page (INSERTED)
+**Goal**: A public-facing listing detail page accessible without login that shows a limited view of the property — hero image, title, description, and category — but hides sensitive data (audience demographics, tier pricing details, activation formats) behind a "Login to see more" prompt. Uses the same seed data and route structure as the private listing page. Landing page listing cards link to this public view.
+**Depends on**: Phase 6
+**Requirements**: N/A (enhancement)
+**Success Criteria** (what must be TRUE):
+  1. Public listing page loads at a public route (e.g., `/p/[slug]`) for any seeded property, showing hero image, title, event type, date, and description
+  2. Audience demographics, tier pricing details, and activation formats are hidden — replaced with a blurred/locked section and "Login to see more" CTA
+  3. The page uses the same backend seed data as the private `/listings/[slug]` detail page (no duplicate data)
+  4. All listing cards on the landing page link to the public listing page (not the private one)
+  5. The public page does not show the app sidebar/header — it has its own minimal nav or shares the landing page nav
+**Plans**: 2 plans in 2 waves (sequential — Plan 02 depends on Plan 01's route)
+
+Plans:
+- [ ] 06.2-01-PLAN.md — Public route group, LockedSection component, public detail page + loading skeleton
+- [ ] 06.2-02-PLAN.md — Landing page card link updates (slug mapping, LandingPropertyCard, AccessMarket, HeroSection, FinalCTA)
+
+### Phase 6.3: AI Chat with Listing Recommendations (INSERTED)
+**Goal**: The Anvara AI tab provides a functional chat interface powered by the existing OpenAI API key where users can describe what they're looking for, and the AI responds conversationally while recommending up to 3 relevant seed data listings based on the user's stated intent (e.g., sport sponsorships, food festival partnerships, family-friendly events)
+**Depends on**: Phase 6
+**Requirements**: N/A (enhancement)
+**Success Criteria** (what must be TRUE):
+  1. AI tab accessible from sidebar navigation with an AI/chat icon
+  2. Chat interface displays a conversation view where the user can type messages and receive AI responses
+  3. AI responses are powered by the existing OpenAI API key (same one used in messaging)
+  4. Based on user intent, the AI recommends up to 3 relevant seed data listings rendered as clickable property cards within the chat
+  5. Chat maintains conversation context within the session (multi-turn conversation works)
+**Plans**: TBD
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 6.3 to break down)
+
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
 **Depends on**: Phases 1-6
@@ -183,7 +216,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 6.1 → 7
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -195,4 +228,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 6.1 → 7
 | 5.1 Enforce Coding Standards | 2/2 | Complete | 2026-02-22 |
 | 6. Landing Page | 5/5 | Complete | 2026-02-22 |
 | 6.1 Advertiser Analytics Dashboard | 2/2 | Complete | 2026-02-22 |
+| 6.2 Public Listing Page | 0/? | Not started | - |
+| 6.3 AI Chat with Listing Recommendations | 0/? | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
