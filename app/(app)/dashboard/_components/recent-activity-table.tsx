@@ -20,42 +20,44 @@ export function RecentActivityTable({ data }: RecentActivityTableProps) {
         {data.length === 0 ? (
           <p className="text-sm text-muted-foreground">No recent activity</p>
         ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b">
-                <th className="px-4 py-3 text-left font-medium text-muted-foreground">
-                  Property
-                </th>
-                <th className="px-4 py-3 text-left font-medium text-muted-foreground">
-                  Type
-                </th>
-                <th className="px-4 py-3 text-left font-medium text-muted-foreground">
-                  Detail
-                </th>
-                <th className="px-4 py-3 text-right font-medium text-muted-foreground">
-                  Date
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {data.map((row, i) => (
-                <tr key={i}>
-                  <td className="px-4 py-3 font-medium">{row.propertyName}</td>
-                  <td className="px-4 py-3">
-                    <Badge variant={row.type === "offer" ? "default" : "outline"}>
-                      {row.type}
-                    </Badge>
-                  </td>
-                  <td className="px-4 py-3 text-muted-foreground max-w-xs truncate">
-                    {row.detail}
-                  </td>
-                  <td className="px-4 py-3 text-muted-foreground text-right">
-                    {row.date}
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">
+                    Property
+                  </th>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">
+                    Type
+                  </th>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">
+                    Detail
+                  </th>
+                  <th className="px-4 py-3 text-right font-medium text-muted-foreground">
+                    Date
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y">
+                {data.map((row, i) => (
+                  <tr key={i}>
+                    <td className="px-4 py-3 font-medium">{row.propertyName}</td>
+                    <td className="px-4 py-3">
+                      <Badge variant={row.type === "offer" ? "default" : "outline"}>
+                        {row.type}
+                      </Badge>
+                    </td>
+                    <td className="px-4 py-3 text-muted-foreground max-w-xs truncate">
+                      {row.detail}
+                    </td>
+                    <td className="px-4 py-3 text-muted-foreground text-right">
+                      {row.date}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </CardContent>
     </Card>
