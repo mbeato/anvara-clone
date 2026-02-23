@@ -3,19 +3,28 @@ import { PropertyCardSkeleton } from "./_components/property-card-skeleton";
 
 export default function BrowseLoading() {
   return (
-    <div className="p-6 space-y-6">
+    <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
       {/* Carousel skeleton */}
       <Skeleton className="w-full h-48 rounded-xl" />
 
-      {/* Category tabs skeleton — 8 pill-shaped skeletons */}
-      <div className="flex gap-2">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <Skeleton key={i} className="h-8 w-20 rounded-full" />
+      {/* Category tabs skeleton — scrollable row matching CategoryTabRow */}
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <Skeleton key={i} className="h-8 w-16 shrink-0 rounded-full" />
         ))}
       </div>
 
-      {/* Filter bar skeleton — 3 rectangular skeletons */}
-      <div className="flex gap-3">
+      {/* Filter bar skeleton — mobile: stacked, desktop: inline */}
+      {/* Mobile (sm:hidden): two dropdowns side-by-side + one full-width below */}
+      <div className="sm:hidden flex flex-col gap-2">
+        <div className="flex gap-2">
+          <Skeleton className="h-9 flex-1 rounded-md" />
+          <Skeleton className="h-9 flex-1 rounded-md" />
+        </div>
+        <Skeleton className="h-9 w-full rounded-md" />
+      </div>
+      {/* Desktop (hidden sm:flex): three fixed-width skeletons inline */}
+      <div className="hidden sm:flex gap-3">
         {Array.from({ length: 3 }).map((_, i) => (
           <Skeleton key={i} className="h-10 w-40 rounded-md" />
         ))}
