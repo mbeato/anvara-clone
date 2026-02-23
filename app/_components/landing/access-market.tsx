@@ -9,6 +9,7 @@ import { SectionReveal } from "./section-reveal";
 interface AccessMarketProps {
   properties: Array<{
     id: string;
+    slug: string;
     name: string;
     heroImage: string;
     subcategory: string | null;
@@ -33,7 +34,7 @@ function PropertyRow({
 }) {
   return (
     <Link
-      href={`/listings/${property.id}`}
+      href={`/p/${property.slug}`}
       className="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-zinc-200 hover:border-primary/30 hover:shadow-sm transition-all group flex-shrink-0"
     >
       <div className="relative w-11 h-11 rounded-lg overflow-hidden flex-shrink-0">

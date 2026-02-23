@@ -8,6 +8,7 @@ import { LandingPropertyCard } from "./landing-property-card";
 
 type Property = {
   id: string;
+  slug: string;
   name: string;
   category: string;
   subcategory: string | null;
