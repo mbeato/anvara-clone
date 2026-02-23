@@ -191,10 +191,11 @@ Plans:
   3. AI responses are powered by the existing OpenAI API key (same one used in messaging)
   4. Based on user intent, the AI recommends up to 3 relevant seed data listings rendered as clickable property cards within the chat
   5. Chat maintains conversation context within the session (multi-turn conversation works)
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves (sequential — Plan 02 depends on Plan 01's API route and page shell)
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 6.3 to break down)
+- [ ] 06.3-01-PLAN.md — API route (/api/ai-chat with property catalog context, o3-mini, structured JSON response) + page RSC shell + loading skeleton
+- [ ] 06.3-02-PLAN.md — Full chat client UI (AIChatClient, AIMessage with PropertyCard recommendations, UserMessage, empty state, typing indicator)
 
 ### Phase 7: Polish and Deploy
 **Goal**: The prototype passes a mobile check, has no console errors, builds cleanly locally, and is live on an unlisted Vercel URL ready for the founders to click
