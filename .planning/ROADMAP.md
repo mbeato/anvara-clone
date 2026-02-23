@@ -26,6 +26,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6.5: Accessibility and Animation Hardening** (INSERTED) - Add prefers-reduced-motion support, landing page mobile hamburger menu, LazyMotion bundle optimization, and tighten animation durations
 - [x] **Phase 6.6: Server Component Performance Optimization** (INSERTED) - Optimize pages for performance using Server Components instead of client useEffect data fetching
 - [x] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
+- [ ] **Phase 7.1: Listing Page Mobile Polish** (INSERTED) - Thorough mobile pass on the listings/browse page to ensure it looks polished at 375px
 
 ## Phase Details
 
@@ -267,10 +268,25 @@ Plans:
 - [x] 07-04-PLAN.md — Vercel deploy: push to GitHub, Vercel project setup, verify live URL
 - [x] 07-05-PLAN.md — README + quality gate: founder-ready README, claude-md-checker
 
+### Phase 7.1: Listing Page Mobile Polish (INSERTED)
+**Goal**: The logged-in listings/browse page renders cleanly at 375px — filter controls stack properly, property grid is usable, carousels scroll smoothly, and no elements overflow the viewport
+**Depends on**: Phase 7
+**Requirements**: UX-01
+**Success Criteria** (what must be TRUE):
+  1. Filter bar controls (category tabs, region/type dropdowns, price slider) stack vertically on mobile without overflow
+  2. Property card grid is usable at 375px (cards readable, images visible, no cramped text)
+  3. Category carousel, newest listings strip, and recommendations strip scroll horizontally without page overflow
+  4. Pagination is accessible on mobile without being hidden or overlapping other elements
+  5. No horizontal scroll on the body at 375px
+**Plans**: 1 plan in 1 wave (single wave — fix loading skeleton + property card price row)
+
+Plans:
+- [ ] 07.1-01-PLAN.md — Fix loading skeleton mobile overflow (container, tabs, filters) + property card compact price notation
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 6.4 → 6.5 → 6.6 → 7
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1 → 6.2 → 6.3 → 6.4 → 6.5 → 6.6 → 7 → 7.1
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -288,3 +304,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 6.5 Accessibility and Animation Hardening | 2/2 | Complete | 2026-02-23 |
 | 6.6 Server Component Performance Optimization | 1/1 | Complete | 2026-02-23 |
 | 7. Polish and Deploy | 5/5 | Complete | 2026-02-23 |
+| 7.1 Listing Page Mobile Polish | 0/0 | Not started | - |
