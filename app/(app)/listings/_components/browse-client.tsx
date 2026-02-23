@@ -111,7 +111,7 @@ export function BrowseClient({
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-6 space-y-3 sm:space-y-6">
+    <div className="max-w-7xl mx-auto w-full min-w-0 px-2.5 sm:px-4 py-3 sm:py-6 space-y-3 sm:space-y-6">
       {/* Auto-scrolling category image carousel */}
       <CategoryCarousel
         onCategoryClick={(slug) => updateFilter("category", slug)}
@@ -132,16 +132,19 @@ export function BrowseClient({
       )}
 
       {/* Category tabs + filter controls */}
-      <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
-        <CategoryTabRow
-          activeCategory={currentFilters.category}
-          onCategoryChange={(slug) => updateFilter("category", slug)}
-        />
+      <div className="space-y-2 min-w-0 sm:space-y-0 sm:flex sm:items-center sm:gap-4">
+        <div className="min-w-0">
+          <CategoryTabRow
+            activeCategory={currentFilters.category}
+            onCategoryChange={(slug) => updateFilter("category", slug)}
+          />
+        </div>
         <div className="hidden sm:flex">
           <FilterBar
             currentFilters={currentFilters}
             onFilterChange={updateFilter}
             onPriceChange={handlePriceChange}
+            totalCount={totalCount}
           />
         </div>
       </div>
@@ -152,6 +155,7 @@ export function BrowseClient({
           currentFilters={currentFilters}
           onFilterChange={updateFilter}
           onPriceChange={handlePriceChange}
+          totalCount={totalCount}
         />
       </div>
 
@@ -167,7 +171,7 @@ export function BrowseClient({
         <EmptyState onClearFilters={clearFilters} />
       ) : (
         <div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4"
+          className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4"
           data-has-filters={hasFilters ? "true" : "false"}
         >
           {properties.map((property) => (
@@ -176,19 +180,15 @@ export function BrowseClient({
         </div>
       )}
 
-      {/* Listing count + pagination below grid */}
-      <div className="flex items-center justify-between">
-        <p className="text-xs sm:text-sm text-muted-foreground">
-          {totalCount}{" "}
-          {totalCount === 1 ? "listing" : "listings"}
-        </p>
-        {totalPages > 1 && (
+      {/* Pagination below grid */}
+      {totalPages > 1 && (
+        <div className="flex justify-center sm:justify-end">
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
