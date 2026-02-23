@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5.1: Enforce Coding Standards** (INSERTED) - Refactor to Server Components, eliminate useEffect data fetching, enforce type imports, remove any types
 - [x] **Phase 6: Landing Page** - Full Anvara landing page clone with hero, how it works, featured properties, and social proof
 - [x] **Phase 6.1: Advertiser Analytics Dashboard** (INSERTED) - Dummy analytics dashboard with trend graphs, bar charts, and KPI cards showing data an advertiser would expect to see
-- [ ] **Phase 6.2: Public Listing Page** (INSERTED) - Public-facing listing detail page with limited info and "Login to see more" prompt, accessible from landing page
+- [x] **Phase 6.2: Public Listing Page** (INSERTED) - Public-facing listing detail page with limited info and "Login to see more" prompt, accessible from landing page
 - [ ] **Phase 6.3: AI Chat with Listing Recommendations** (INSERTED) - AI chat tab with OpenAI-powered conversation that recommends relevant seed data listings based on user intent
 - [ ] **Phase 7: Polish and Deploy** - Mobile responsiveness, error/loading states, build verification, and Vercel deploy
 
@@ -178,8 +178,8 @@ Plans:
 **Plans**: 2 plans in 2 waves (sequential — Plan 02 depends on Plan 01's route)
 
 Plans:
-- [ ] 06.2-01-PLAN.md — Public route group, LockedSection component, public detail page + loading skeleton
-- [ ] 06.2-02-PLAN.md — Landing page card link updates (slug mapping, LandingPropertyCard, AccessMarket, HeroSection, FinalCTA)
+- [x] 06.2-01-PLAN.md — Public route group, LockedSection component, public detail page + loading skeleton
+- [x] 06.2-02-PLAN.md — Landing page card link updates (slug mapping, LandingPropertyCard, AccessMarket, HeroSection, FinalCTA)
 
 ### Phase 6.3: AI Chat with Listing Recommendations (INSERTED)
 **Goal**: The Anvara AI tab provides a functional chat interface powered by the existing OpenAI API key where users can describe what they're looking for, and the AI responds conversationally while recommending up to 3 relevant seed data listings based on the user's stated intent (e.g., sport sponsorships, food festival partnerships, family-friendly events)
@@ -229,6 +229,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 5.1 → 6 → 6.1
 | 5.1 Enforce Coding Standards | 2/2 | Complete | 2026-02-22 |
 | 6. Landing Page | 5/5 | Complete | 2026-02-22 |
 | 6.1 Advertiser Analytics Dashboard | 2/2 | Complete | 2026-02-22 |
-| 6.2 Public Listing Page | 0/? | Not started | - |
+| 6.2 Public Listing Page | 2/2 | Complete | 2026-02-22 |
 | 6.3 AI Chat with Listing Recommendations | 0/? | Not started | - |
 | 7. Polish and Deploy | 0/3 | Not started | - |
