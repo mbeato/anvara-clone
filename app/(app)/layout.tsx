@@ -13,7 +13,7 @@ export default function AppLayout({
       <AppSidebar />
       <SidebarInset>
         <HeaderBar />
-        <main className="flex flex-1 flex-col gap-4 p-4">
+        <main className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden min-w-0">
           {children}
         </main>
         <SiteFooter />
