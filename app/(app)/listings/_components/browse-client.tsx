@@ -133,25 +133,28 @@ export function BrowseClient({
         </div>
       )}
 
-      {/* Category tabs + filter controls + pagination on one row */}
-      <div className="flex items-center gap-4">
+      {/* Category tabs + filter controls */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
         <CategoryTabRow
           activeCategory={currentFilters.category}
           onCategoryChange={(slug) => updateFilter("category", slug)}
         />
+        <div className="hidden sm:flex">
+          <FilterBar
+            currentFilters={currentFilters}
+            onFilterChange={updateFilter}
+            onPriceChange={handlePriceChange}
+          />
+        </div>
+      </div>
+
+      {/* Mobile filter bar — stacked below tabs */}
+      <div className="sm:hidden">
         <FilterBar
           currentFilters={currentFilters}
           onFilterChange={updateFilter}
           onPriceChange={handlePriceChange}
         />
-        {totalPages > 1 && (
-          <div className="ml-auto">
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-            />
-          </div>
-        )}
       </div>
 
       {/* Active filter chips with individual removal */}
@@ -175,11 +178,19 @@ export function BrowseClient({
         </div>
       )}
 
-      {/* Listing count below grid */}
-      <p className="text-sm text-muted-foreground !mt-2 text-right">
-        {totalCount}{" "}
-        {totalCount === 1 ? "listing" : "listings"}
-      </p>
+      {/* Listing count + pagination below grid */}
+      <div className="flex items-center justify-between !mt-2">
+        <p className="text-sm text-muted-foreground">
+          {totalCount}{" "}
+          {totalCount === 1 ? "listing" : "listings"}
+        </p>
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
+        )}
+      </div>
     </div>
   );
 }

@@ -54,45 +54,47 @@ export function FilterBar({
   }
 
   return (
-    <div className="flex items-center gap-3 shrink-0">
-      {/* Region dropdown */}
-      <Select
-        value={currentFilters.region ?? "all"}
-        onValueChange={(val) =>
-          onFilterChange("region", val === "all" ? undefined : val)
-        }
-      >
-        <SelectTrigger className="w-40 h-9">
-          <SelectValue placeholder="All Regions" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">All Regions</SelectItem>
-          <SelectItem value="West">West</SelectItem>
-          <SelectItem value="East">East</SelectItem>
-          <SelectItem value="South">South</SelectItem>
-          <SelectItem value="Midwest">Midwest</SelectItem>
-        </SelectContent>
-      </Select>
+    <div className="flex flex-col sm:flex-row sm:items-center gap-3 shrink-0">
+      <div className="flex items-center gap-3">
+        {/* Region dropdown */}
+        <Select
+          value={currentFilters.region ?? "all"}
+          onValueChange={(val) =>
+            onFilterChange("region", val === "all" ? undefined : val)
+          }
+        >
+          <SelectTrigger className="w-[calc(50%-6px)] sm:w-40 h-9">
+            <SelectValue placeholder="All Regions" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Regions</SelectItem>
+            <SelectItem value="West">West</SelectItem>
+            <SelectItem value="East">East</SelectItem>
+            <SelectItem value="South">South</SelectItem>
+            <SelectItem value="Midwest">Midwest</SelectItem>
+          </SelectContent>
+        </Select>
 
-      {/* Event Type dropdown */}
-      <Select
-        value={currentFilters.category ?? "all"}
-        onValueChange={(val) =>
-          onFilterChange("category", val === "all" ? undefined : val)
-        }
-      >
-        <SelectTrigger className="w-40 h-9">
-          <SelectValue placeholder="All Types" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">All Types</SelectItem>
-          <SelectItem value="sports">Sports</SelectItem>
-          <SelectItem value="music">Music</SelectItem>
-          <SelectItem value="arts">Arts</SelectItem>
-          <SelectItem value="food">Food</SelectItem>
-          <SelectItem value="lifestyle">Lifestyle</SelectItem>
-        </SelectContent>
-      </Select>
+        {/* Event Type dropdown */}
+        <Select
+          value={currentFilters.category ?? "all"}
+          onValueChange={(val) =>
+            onFilterChange("category", val === "all" ? undefined : val)
+          }
+        >
+          <SelectTrigger className="w-[calc(50%-6px)] sm:w-40 h-9">
+            <SelectValue placeholder="All Types" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Types</SelectItem>
+            <SelectItem value="sports">Sports</SelectItem>
+            <SelectItem value="music">Music</SelectItem>
+            <SelectItem value="arts">Arts</SelectItem>
+            <SelectItem value="food">Food</SelectItem>
+            <SelectItem value="lifestyle">Lifestyle</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
 
       {/* Price range slider */}
       <div className="flex flex-col gap-1">
@@ -104,9 +106,9 @@ export function FilterBar({
           value={liveRange}
           onValueChange={setLiveRange}
           onValueCommit={handlePriceCommit}
-          className="w-52"
+          className="w-full sm:w-52"
         />
-        <div className="flex justify-between w-52">
+        <div className="flex justify-between">
           <span className="text-xs text-muted-foreground">
             {priceFormatter.format(liveRange[0])}
           </span>
