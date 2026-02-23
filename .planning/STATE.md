@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** An advertiser can browse sponsorship properties, discover relevant opportunities, understand pricing, and initiate deal conversations — with a UX that feels better than the current Anvara site
-**Current focus:** Phase 7 (Polish and Deploy) — NOT STARTED
+**Current focus:** Phase 6.6 (Server Component Performance Optimization) — IN PROGRESS (1/1 plans complete)
 
 ## Current Position
 
-Phase: 6.5 (Accessibility and Animation Hardening)
-Plan: 2 of 2 in phase — ALL COMPLETE
+Phase: 6.6 (Server Component Performance Optimization)
+Plan: 1 of 1 in phase — ALL COMPLETE
 Status: Phase complete
-Last activity: 2026-02-23 — Completed 06.5-02-PLAN.md (mobile hamburger menu, useReducedMotion in JS-animated sections, tightened durations)
+Last activity: 2026-02-23 — Completed 06.6-01-PLAN.md (removed use client from deals-pipeline.tsx and campaigns-table.tsx, both now Server Components)
 
-Progress: [██████████████████████████████████] 100% (34/34 plans)
+Progress: [██████████████████████████████████] 100% (35/35 plans)
 
 ## Performance Metrics
 
@@ -39,6 +39,7 @@ Progress: [███████████████████████
 | Phase 6.3 (AI Chat) | 2/2 COMPLETE | 4 min | 2 min |
 | Phase 6.4 (Stub Pages and Tour) | 3/3 COMPLETE | ~7 min | 2.3 min |
 | Phase 6.5 (Accessibility and Animation Hardening) | 2/2 COMPLETE | ~6.5 min | 3.25 min |
+| Phase 6.6 (Server Component Performance Optimization) | 1/1 COMPLETE | ~1 min | 1 min |
 
 **Recent Trend:**
 - Last 5 plans: 06.4-02 (2 min), 06.4-03 (3 min), 06.5-01 (1.5 min), 06.5-02 (5 min)
@@ -71,6 +72,8 @@ Recent decisions affecting current work:
 - [06.3-02]: UserMessage/AIMessage are pure presentational (no use client) — imported by AIChatClient client boundary
 - [06.3-02]: recommendedSlugs stripped before API POST — only role+content sent, prior recommendations not re-sent as context
 - [06.3-01]: Properties fetched twice (page.tsx + /api/ai-chat route) — acceptable double-fetch for seeded prototype
+- [06.6-01]: deals-pipeline.tsx and campaigns-table.tsx are pure JSX renderers of serializable props — correct to be Server Components with no use client
+- [06.6-01]: empty-state.tsx and active-filter-chips.tsx retain use client — they accept function props from browse-client.tsx Client Component; functions are not serializable across the Server/Client boundary
 - [06.1-01]: iconName strings in analytics return (not LucideIcon) — serializable across server/client boundary
 
 ### Roadmap Evolution
@@ -81,6 +84,7 @@ Recent decisions affecting current work:
 - Phase 6.3 inserted after Phase 6.2: AI Chat with Listing Recommendations (URGENT)
 - Phase 6.4 inserted after Phase 6.3: Stub Pages and Platform Tour (URGENT)
 - Phase 6.5 inserted after Phase 6.4: Accessibility and Animation Hardening (URGENT) — prefers-reduced-motion, mobile hamburger, LazyMotion, animation timing
+- Phase 6.6 inserted after Phase 6.5: Server Component Performance Optimization (URGENT) — eliminate client useEffect data fetching, enforce Server Component patterns
 
 ### Pending Todos
 
@@ -93,5 +97,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Phase 6.5 complete — verified ✓ — ready for Phase 7 (Polish and Deploy)
+Stopped at: Completed 06.6-01-PLAN.md (Server Component Performance Optimization — deals-pipeline.tsx and campaigns-table.tsx converted to Server Components)
 Resume file: None
